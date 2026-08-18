@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Is My Game A GKC ? — Catalogue Switch 2 (France)</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Is My Game A GKC ?</h1>
+  <p class="subtitle">Catalogue de tous les jeux Nintendo Switch 2 sortis en France, avec leur type d'édition physique.</p>
+</header>
+
+<section class="legend">
+  <span class="badge badge-complet">Complet</span> cartouche physique contenant tout le jeu
+  <span class="badge badge-gkc">GKC</span> Game-Key Card — la carte ne contient qu'un lien de téléchargement
+  <span class="badge badge-ciab">CIAB</span> Code in a Box — boîte avec code de téléchargement, aucune carte
+  <span class="badge badge-ns2e">NS2E</span> Nintendo Switch 2 Edition — upgrade d'un jeu Switch 1
+  <span class="badge badge-numerique">Numérique</span> aucune édition physique
+</section>
+
+<section class="controls">
+  <input type="search" id="search" placeholder="Rechercher un jeu ou un éditeur...">
+  <select id="filter-edition">
+    <option value="">Toutes les éditions</option>
+    <option value="Complet">Complet</option>
+    <option value="GKC">GKC</option>
+    <option value="CIAB">CIAB</option>
+    <option value="NS2E">NS2E</option>
+    <option value="Numerique">Numérique</option>
+  </select>
+  <span id="result-count" class="result-count"></span>
+</section>
+
+<table id="games-table">
+  <thead>
+    <tr>
+      <th data-key="nom">Jeu</th>
+      <th data-key="date_sortie">Date de sortie</th>
+      <th data-key="edition_physique">Édition physique</th>
+      <th data-key="editeur">Éditeur</th>
+      <th data-key="code">Code</th>
+    </tr>
+  </thead>
+  <tbody id="games-body"></tbody>
+</table>
+
+<footer>
+  <p id="meta-info"></p>
+</footer>
+
+<script src="data/games.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
