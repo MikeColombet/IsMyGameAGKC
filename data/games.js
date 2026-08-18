@@ -9,7 +9,8 @@ const GAMES_DATA = {
 "https://nintendowire.com/guides/switch-2/all-physical-games-and-type/ (classification cartouche complete / Game-Key Card / Code-in-a-Box)"
 ],
 "methodologie_edition_physique": "Le champ edition_physique donne priorite au libelle 'Nintendo Switch 2 Edition' present dans le titre (portage/upgrade physique ou numerique d'un jeu Switch 1) -> categorie NS2E, meme si le support physique sous-jacent est une cartouche complete, une Game-Key Card ou un Code-in-a-Box. Pour les autres jeux, la classification GKC / CIAB / Complet provient du croisement des deux sources communautaires citees. Tout jeu ne figurant dans aucune des listes physiques consultees est classe par defaut 'Numerique' (aucune edition physique identifiee) : cette hypothese est fiable pour les jeux AAA/mid-size mais peut comporter des erreurs pour de petits titres indes dont la sortie physique (souvent via des editeurs specialises type Limited Run Games) n'aurait pas ete recensee par ces sources.",
-"niveau_de_confiance": "Eleve pour les dates de sortie et les noms de jeux (source Wikipedia, tres suivie et sourcee). Bon pour la classification GKC/CIAB/Complet/NS2E des jeux a gros/moyen budget (croisement de 2 sources dediees + verification manuelle des ecarts). Le catalogue numerique pur (jeux eShop uniquement, notamment tres petits titres indes recents) est probablement incomplet : Wikipedia liste en priorite les jeux suffisamment notables/sources, et il manque tres certainement des sorties eShop mineures non couvertes par un article de presse. Le champ 'code' (identifiant produit) n'a pas ete renseigne (null) pour l'ensemble des jeux : cette recherche taille par taille n'a pas ete faite faute de source unique fiable couvrant les 464 titres."
+"niveau_de_confiance": "Eleve pour les dates de sortie et les noms de jeux (source Wikipedia, tres suivie et sourcee). Bon pour la classification GKC/CIAB/Complet/NS2E des jeux a gros/moyen budget (croisement de 2 sources dediees + verification manuelle des ecarts). Le catalogue numerique pur (jeux eShop uniquement, notamment tres petits titres indes recents) est probablement incomplet : Wikipedia liste en priorite les jeux suffisamment notables/sources, et il manque tres certainement des sorties eShop mineures non couvertes par un article de presse. Le champ 'code' (identifiant produit) n'a pas ete renseigne (null) pour l'ensemble des jeux : cette recherche taille par taille n'a pas ete faite faute de source unique fiable couvrant les 464 titres.",
+"methodologie_code": "Le champ 'code' contient le code-barres EAN-13 du produit physique, quand trouvable, et non un code Nintendo interne (les codes internes BEE-P-xxxxx / POT-P-xxxxx / NXS-P-xxxxx existent mais ne sont documentes en masse par aucune source publique fiable a ce jour). Source : catalogue du comparateur de prix consollection.com (endpoint /ajax.moteur-jeux.php, 245 fiches produit Switch 2 avec EAN recuperees), rapproche des titres de games.json par correspondance de texte (ratio de similarite + recoupement de tokens, avec verification manuelle des cas ambigus et des doublons de suite numerotee, ex: distinguer 'WWE 2K25' de 'WWE 2K26'). 109 jeux physiques sur 215 ont un code EAN renseigne ; les autres (edition_physique != 'Numerique') restent a null, soit parce que le titre est absent du catalogue consulte (frequent pour les Nintendo Switch 2 Edition qui sont des mises a jour gratuites/patchs sans SKU physique dedie), soit par prudence en cas de correspondance ambigue entre plusieurs editions du meme jeu (ex: Resident Evil Village Gold Edition vs un pack groupe)."
 },
 "jeux": [
 {
@@ -23,14 +24,14 @@ const GAMES_DATA = {
 "nom": "Bravely Default: Flying Fairy HD Remaster",
 "date_sortie": "2025-06-05",
 "edition_physique": "GKC",
-"code": null,
+"code": "0045496312510",
 "editeur": "Square Enix"
 },
 {
 "nom": "Cyberpunk 2077: Ultimate Edition",
 "date_sortie": "2025-06-05",
 "edition_physique": "Complet",
-"code": null,
+"code": "5902367642495",
 "editeur": "CD Projekt"
 },
 {
@@ -44,7 +45,7 @@ const GAMES_DATA = {
 "nom": "Fantasy Life i: The Girl Who Steals Time – Nintendo Switch 2 Edition",
 "date_sortie": "2025-06-05",
 "edition_physique": "NS2E",
-"code": null,
+"code": "4571237661303",
 "editeur": "Level-5"
 },
 {
@@ -65,14 +66,14 @@ const GAMES_DATA = {
 "nom": "Hitman: World of Assassination – Signature Edition",
 "date_sortie": "2025-06-05",
 "edition_physique": "GKC",
-"code": null,
+"code": "0884095223342",
 "editeur": "IO Interactive"
 },
 {
 "nom": "Hogwarts Legacy",
 "date_sortie": "2025-06-05",
 "edition_physique": "GKC",
-"code": null,
+"code": "5051889748533",
 "editeur": "Warner Bros. Games"
 },
 {
@@ -86,7 +87,7 @@ const GAMES_DATA = {
 "nom": "Mario Kart World",
 "date_sortie": "2025-06-05",
 "edition_physique": "Complet",
-"code": null,
+"code": "4255839710972",
 "editeur": "Nintendo"
 },
 {
@@ -121,7 +122,7 @@ const GAMES_DATA = {
 "nom": "Rune Factory: Guardians of Azuma – Nintendo Switch 2 Edition",
 "date_sortie": "2025-06-05",
 "edition_physique": "NS2E",
-"code": null,
+"code": "5060540773104",
 "editeur": "Marvelous"
 },
 {
@@ -135,21 +136,21 @@ const GAMES_DATA = {
 "nom": "Sid Meier's Civilization VII – Nintendo Switch 2 Edition",
 "date_sortie": "2025-06-05",
 "edition_physique": "NS2E",
-"code": null,
+"code": "5026555072069",
 "editeur": "2K"
 },
 {
 "nom": "Sonic X Shadow Generations",
 "date_sortie": "2025-06-05",
 "edition_physique": "GKC",
-"code": null,
+"code": "5055277055869",
 "editeur": "Sega"
 },
 {
 "nom": "Split Fiction",
 "date_sortie": "2025-06-05",
 "edition_physique": "CIAB",
-"code": null,
+"code": "5035226125416",
 "editeur": "Electronic Arts"
 },
 {
@@ -170,35 +171,35 @@ const GAMES_DATA = {
 "nom": "Survival Kids",
 "date_sortie": "2025-06-05",
 "edition_physique": "GKC",
-"code": null,
+"code": "4012927077627",
 "editeur": "Konami"
 },
 {
 "nom": "The Legend of Zelda: Breath of the Wild – Nintendo Switch 2 Edition",
 "date_sortie": "2025-06-05",
 "edition_physique": "NS2E",
-"code": null,
+"code": "0045496312671",
 "editeur": "Nintendo"
 },
 {
 "nom": "The Legend of Zelda: Tears of the Kingdom – Nintendo Switch 2 Edition",
 "date_sortie": "2025-06-05",
 "edition_physique": "NS2E",
-"code": null,
+"code": "0045496312589",
 "editeur": "Nintendo"
 },
 {
 "nom": "Yakuza 0 Director's Cut",
 "date_sortie": "2025-06-05",
 "edition_physique": "GKC",
-"code": null,
+"code": "5055277055944",
 "editeur": "Sega"
 },
 {
 "nom": "Raidou Remastered: The Mystery of the Soulless Army",
 "date_sortie": "2025-06-19",
 "edition_physique": "GKC",
-"code": null,
+"code": "5055277056002",
 "editeur": "Atlus, Sega"
 },
 {
@@ -219,14 +220,14 @@ const GAMES_DATA = {
 "nom": "Tony Hawk's Pro Skater 3 + 4",
 "date_sortie": "2025-07-11",
 "edition_physique": "CIAB",
-"code": null,
+"code": "0196388600571",
 "editeur": "Activision"
 },
 {
 "nom": "Donkey Kong Bananza",
 "date_sortie": "2025-07-17",
 "edition_physique": "Complet",
-"code": null,
+"code": "4255839710996",
 "editeur": "Nintendo"
 },
 {
@@ -240,14 +241,14 @@ const GAMES_DATA = {
 "nom": "WWE 2K25",
 "date_sortie": "2025-07-23",
 "edition_physique": "CIAB",
-"code": null,
+"code": "5026555072144",
 "editeur": "2K"
 },
 {
 "nom": "Super Mario Party Jamboree – Nintendo Switch 2 Edition + Jamboree TV",
 "date_sortie": "2025-07-24",
 "edition_physique": "NS2E",
-"code": null,
+"code": "0045496312862",
 "editeur": "Nintendo"
 },
 {
@@ -261,7 +262,7 @@ const GAMES_DATA = {
 "nom": "Wild Hearts S",
 "date_sortie": "2025-07-25",
 "edition_physique": "GKC",
-"code": null,
+"code": "5060327537882",
 "editeur": "Koei Tecmo"
 },
 {
@@ -296,7 +297,7 @@ const GAMES_DATA = {
 "nom": "Ys X: Proud Nordics",
 "date_sortie": "2025-07-31",
 "edition_physique": "GKC",
-"code": null,
+"code": "0810100866198",
 "editeur": "Nihon Falcom"
 },
 {
@@ -338,7 +339,7 @@ const GAMES_DATA = {
 "nom": "Story of Seasons: Grand Bazaar – Nintendo Switch 2 Edition",
 "date_sortie": "2025-08-27",
 "edition_physique": "NS2E",
-"code": null,
+"code": "5060540773173",
 "editeur": "Marvelous"
 },
 {
@@ -352,7 +353,7 @@ const GAMES_DATA = {
 "nom": "High on Life – Nintendo Switch 2 Edition",
 "date_sortie": "2025-08-28",
 "edition_physique": "NS2E",
-"code": null,
+"code": "7350002938133",
 "editeur": "Squanch Games"
 },
 {
@@ -380,35 +381,35 @@ const GAMES_DATA = {
 "nom": "Hollow Knight: Silksong – Nintendo Switch 2 Edition",
 "date_sortie": "2025-09-04",
 "edition_physique": "NS2E",
-"code": null,
+"code": "8721082792882",
 "editeur": "Team Cherry"
 },
 {
 "nom": "Star Wars Outlaws Gold Edition",
 "date_sortie": "2025-09-04",
 "edition_physique": "GKC",
-"code": null,
+"code": "3307216304807",
 "editeur": "Ubisoft"
 },
 {
 "nom": "Cronos: The New Dawn",
 "date_sortie": "2025-09-05",
 "edition_physique": "GKC",
-"code": null,
+"code": "3391892039078",
 "editeur": "Bloober Team"
 },
 {
 "nom": "Daemon X Machina: Titanic Scion",
 "date_sortie": "2025-09-05",
 "edition_physique": "Complet",
-"code": null,
+"code": "5060540773265",
 "editeur": "Marvelous"
 },
 {
 "nom": "NBA 2K26",
 "date_sortie": "2025-09-05",
 "edition_physique": "GKC",
-"code": null,
+"code": "5026555072571",
 "editeur": "2K"
 },
 {
@@ -464,7 +465,7 @@ const GAMES_DATA = {
 "nom": "Hades II – Nintendo Switch 2 Edition",
 "date_sortie": "2025-09-25",
 "edition_physique": "NS2E",
-"code": null,
+"code": "0045496313241",
 "editeur": "Supergiant Games"
 },
 {
@@ -485,7 +486,7 @@ const GAMES_DATA = {
 "nom": "EA Sports FC 26",
 "date_sortie": "2025-09-26",
 "edition_physique": "GKC",
-"code": null,
+"code": "5030944125427",
 "editeur": "EA Sports"
 },
 {
@@ -527,35 +528,35 @@ const GAMES_DATA = {
 "nom": "Yooka-Replaylee",
 "date_sortie": "2025-10-09",
 "edition_physique": "Complet",
-"code": null,
+"code": "5056635619945",
 "editeur": "Playtonic Friends, PM Studios"
 },
 {
 "nom": "Disgaea 7 Complete",
 "date_sortie": "2025-10-10",
 "edition_physique": "GKC",
-"code": null,
+"code": "0810100865627",
 "editeur": "NIS America"
 },
 {
 "nom": "Little Nightmares Enhanced Edition Complete Edition",
 "date_sortie": "2025-10-10",
 "edition_physique": "GKC",
-"code": null,
+"code": "3391892037661",
 "editeur": "Bandai Namco Entertainment"
 },
 {
 "nom": "Little Nightmares III",
 "date_sortie": "2025-10-10",
 "edition_physique": "GKC",
-"code": null,
+"code": "3391892036459",
 "editeur": "Bandai Namco Entertainment"
 },
 {
 "nom": "Pokémon Legends: Z-A – Nintendo Switch 2 Edition",
 "date_sortie": "2025-10-16",
 "edition_physique": "NS2E",
-"code": null,
+"code": "0045496313050",
 "editeur": "Nintendo, The Pokémon Company"
 },
 {
@@ -576,7 +577,7 @@ const GAMES_DATA = {
 "nom": "Persona 3 Reload",
 "date_sortie": "2025-10-23",
 "edition_physique": "GKC",
-"code": null,
+"code": "5055277056767",
 "editeur": "Sega"
 },
 {
@@ -618,7 +619,7 @@ const GAMES_DATA = {
 "nom": "Dragon Quest I & II HD-2D Remake",
 "date_sortie": "2025-10-30",
 "edition_physique": "GKC",
-"code": null,
+"code": "5021290100855",
 "editeur": "Square Enix"
 },
 {
@@ -632,7 +633,7 @@ const GAMES_DATA = {
 "nom": "Mortal Kombat: Legacy Kollection",
 "date_sortie": "2025-10-30",
 "edition_physique": "Complet",
-"code": null,
+"code": "5056635617903",
 "editeur": "Atari"
 },
 {
@@ -660,7 +661,7 @@ const GAMES_DATA = {
 "nom": "Hyrule Warriors: Age of Imprisonment",
 "date_sortie": "2025-11-06",
 "edition_physique": "Complet",
-"code": null,
+"code": "0045496313517",
 "editeur": "Koei Tecmo, Nintendo"
 },
 {
@@ -674,7 +675,7 @@ const GAMES_DATA = {
 "nom": "Goodnight Universe",
 "date_sortie": "2025-11-11",
 "edition_physique": "GKC",
-"code": null,
+"code": "0810161631384",
 "editeur": "Skybound Games"
 },
 {
@@ -716,7 +717,7 @@ const GAMES_DATA = {
 "nom": "Hello Kitty Island Adventure – Nintendo Switch 2 Edition",
 "date_sortie": "2025-11-13",
 "edition_physique": "NS2E",
-"code": null,
+"code": "5056635628817",
 "editeur": "Sunblink"
 },
 {
@@ -737,21 +738,21 @@ const GAMES_DATA = {
 "nom": "Yakuza Kiwami",
 "date_sortie": "2025-11-13",
 "edition_physique": "GKC",
-"code": null,
+"code": "4020628547981",
 "editeur": "Sega"
 },
 {
 "nom": "Yakuza Kiwami 2",
 "date_sortie": "2025-11-13",
 "edition_physique": "GKC",
-"code": null,
+"code": "4020628547950",
 "editeur": "Sega"
 },
 {
 "nom": "Dragon Ball: Sparking! Zero",
 "date_sortie": "2025-11-14",
 "edition_physique": "GKC",
-"code": null,
+"code": "3391892038002",
 "editeur": "Bandai Namco Entertainment"
 },
 {
@@ -765,7 +766,7 @@ const GAMES_DATA = {
 "nom": "Squirrel with a Gun",
 "date_sortie": "2025-11-18",
 "edition_physique": "GKC",
-"code": null,
+"code": "3700664533353",
 "editeur": "Maximum Entertainment"
 },
 {
@@ -793,7 +794,7 @@ const GAMES_DATA = {
 "nom": "Kirby Air Riders",
 "date_sortie": "2025-11-20",
 "edition_physique": "Complet",
-"code": null,
+"code": "0045496313159",
 "editeur": "Nintendo"
 },
 {
@@ -828,28 +829,28 @@ const GAMES_DATA = {
 "nom": "Shuten Order – Nintendo Switch 2 Edition",
 "date_sortie": "2025-11-27",
 "edition_physique": "NS2E",
-"code": null,
+"code": "5061077022291",
 "editeur": "DMM Games"
 },
 {
 "nom": "Marvel Cosmic Invasion",
 "date_sortie": "2025-12-01",
 "edition_physique": "Complet",
-"code": null,
+"code": "5056635619488",
 "editeur": "Dotemu"
 },
 {
 "nom": "Assassin's Creed Shadows",
 "date_sortie": "2025-12-02",
 "edition_physique": "GKC",
-"code": null,
+"code": "3307216307129",
 "editeur": "Ubisoft"
 },
 {
 "nom": "Red Dead Redemption – Nintendo Switch 2 Edition",
 "date_sortie": "2025-12-02",
 "edition_physique": "NS2E",
-"code": null,
+"code": "5026555073110",
 "editeur": "Rockstar Games"
 },
 {
@@ -863,14 +864,14 @@ const GAMES_DATA = {
 "nom": "Metroid Prime 4: Beyond – Nintendo Switch 2 Edition",
 "date_sortie": "2025-12-04",
 "edition_physique": "NS2E",
-"code": null,
+"code": "0045496313388",
 "editeur": "Nintendo"
 },
 {
 "nom": "Octopath Traveler 0",
 "date_sortie": "2025-12-04",
 "edition_physique": "GKC",
-"code": null,
+"code": "5021290101494",
 "editeur": "Square Enix"
 },
 {
@@ -884,14 +885,14 @@ const GAMES_DATA = {
 "nom": "Sonic Racing: CrossWorlds – Nintendo Switch 2 Edition",
 "date_sortie": "2025-12-04",
 "edition_physique": "NS2E",
-"code": null,
+"code": "5055277057450",
 "editeur": "Sega"
 },
 {
 "nom": "Nicktoons & the Dice of Destiny",
 "date_sortie": "2025-12-05",
 "edition_physique": "GKC",
-"code": null,
+"code": "5060968303532",
 "editeur": "GameMill Entertainment"
 },
 {
@@ -905,7 +906,7 @@ const GAMES_DATA = {
 "nom": "Farming Simulator: Signature Edition",
 "date_sortie": "2025-12-09",
 "edition_physique": "GKC",
-"code": null,
+"code": "4064635430041",
 "editeur": "Giants Software"
 },
 {
@@ -919,7 +920,7 @@ const GAMES_DATA = {
 "nom": "The Elder Scrolls V: Skyrim Anniversary Edition",
 "date_sortie": "2025-12-09",
 "edition_physique": "CIAB",
-"code": null,
+"code": "0196388816446",
 "editeur": "Bethesda Softworks"
 },
 {
@@ -968,14 +969,14 @@ const GAMES_DATA = {
 "nom": "Teenage Mutant Ninja Turtles: Splintered Fate – Nintendo Switch 2 Edition",
 "date_sortie": "2025-12-16",
 "edition_physique": "NS2E",
-"code": null,
+"code": "5056635625465",
 "editeur": "Super Evil Megacorp"
 },
 {
 "nom": "The Rogue Prince of Persia",
 "date_sortie": "2025-12-16",
 "edition_physique": "GKC",
-"code": null,
+"code": "5056635622143",
 "editeur": "Ubisoft"
 },
 {
@@ -1059,7 +1060,7 @@ const GAMES_DATA = {
 "nom": "Stardew Valley – Nintendo Switch 2 Edition",
 "date_sortie": "2025-12-25",
 "edition_physique": "NS2E",
-"code": null,
+"code": "8721593149359",
 "editeur": "ConcernedApe"
 },
 {
@@ -1087,7 +1088,7 @@ const GAMES_DATA = {
 "nom": "Animal Crossing: New Horizons – Nintendo Switch 2 Edition",
 "date_sortie": "2026-01-15",
 "edition_physique": "NS2E",
-"code": null,
+"code": "0045496313722",
 "editeur": "Nintendo"
 },
 {
@@ -1108,7 +1109,7 @@ const GAMES_DATA = {
 "nom": "The Legend of Heroes: Trails Beyond the Horizon",
 "date_sortie": "2026-01-15",
 "edition_physique": "GKC",
-"code": null,
+"code": "0810100865504",
 "editeur": "NIS America"
 },
 {
@@ -1122,7 +1123,7 @@ const GAMES_DATA = {
 "nom": "MIO: Memories in Orbit",
 "date_sortie": "2026-01-20",
 "edition_physique": "Complet",
-"code": null,
+"code": "3760415190297",
 "editeur": "Focus Entertainment"
 },
 {
@@ -1143,14 +1144,14 @@ const GAMES_DATA = {
 "nom": "Dynasty Warriors: Origins",
 "date_sortie": "2026-01-22",
 "edition_physique": "GKC",
-"code": null,
+"code": "5060327538117",
 "editeur": "Koei Tecmo"
 },
 {
 "nom": "Final Fantasy VII Remake Intergrade",
 "date_sortie": "2026-01-22",
 "edition_physique": "GKC",
-"code": null,
+"code": "5021290101739",
 "editeur": "Square Enix"
 },
 {
@@ -1213,7 +1214,7 @@ const GAMES_DATA = {
 "nom": "Disgaea Mayhem",
 "date_sortie": "2026-01-29",
 "edition_physique": "GKC",
-"code": null,
+"code": "0810100866792",
 "editeur": "NIS America"
 },
 {
@@ -1269,7 +1270,7 @@ const GAMES_DATA = {
 "nom": "Dragon Quest VII Reimagined",
 "date_sortie": "2026-02-05",
 "edition_physique": "GKC",
-"code": null,
+"code": "5021290102125",
 "editeur": "Square Enix"
 },
 {
@@ -1283,7 +1284,7 @@ const GAMES_DATA = {
 "nom": "Hollow Knight – Nintendo Switch 2 Edition",
 "date_sortie": "2026-02-05",
 "edition_physique": "NS2E",
-"code": null,
+"code": "8721593149090",
 "editeur": "Team Cherry"
 },
 {
@@ -1346,21 +1347,21 @@ const GAMES_DATA = {
 "nom": "Mario Tennis Fever",
 "date_sortie": "2026-02-12",
 "edition_physique": "Complet",
-"code": null,
+"code": "0045496313623",
 "editeur": "Nintendo"
 },
 {
 "nom": "Yakuza Kiwami 3 & Dark Ties",
 "date_sortie": "2026-02-12",
 "edition_physique": "GKC",
-"code": null,
+"code": "5055277057283",
 "editeur": "Sega"
 },
 {
 "nom": "Reanimal",
 "date_sortie": "2026-02-13",
 "edition_physique": "GKC",
-"code": null,
+"code": "9120131603091",
 "editeur": "THQ Nordic"
 },
 {
@@ -1416,21 +1417,21 @@ const GAMES_DATA = {
 "nom": "Gear.Club Unlimited 3",
 "date_sortie": "2026-02-19",
 "edition_physique": "GKC",
-"code": null,
+"code": "3665962034226",
 "editeur": "Nacon"
 },
 {
 "nom": "Xenoblade Chronicles X: Definitive Edition – Nintendo Switch 2 Edition",
 "date_sortie": "2026-02-19",
 "edition_physique": "NS2E",
-"code": null,
+"code": "0045496314026",
 "editeur": "Nintendo"
 },
 {
 "nom": "Fallout 4: Anniversary Edition",
 "date_sortie": "2026-02-24",
 "edition_physique": "CIAB",
-"code": null,
+"code": "0196388816408",
 "editeur": "Bethesda Softworks"
 },
 {
@@ -1479,7 +1480,7 @@ const GAMES_DATA = {
 "nom": "The Disney Afternoon Collection",
 "date_sortie": "2026-02-26",
 "edition_physique": "Complet",
-"code": null,
+"code": "5056635623072",
 "editeur": "Atari"
 },
 {
@@ -1500,7 +1501,7 @@ const GAMES_DATA = {
 "nom": "Resident Evil Requiem",
 "date_sortie": "2026-02-27",
 "edition_physique": "GKC",
-"code": null,
+"code": "5055060908167",
 "editeur": "Capcom"
 },
 {
@@ -1570,7 +1571,7 @@ const GAMES_DATA = {
 "nom": "Pokémon Pokopia",
 "date_sortie": "2026-03-05",
 "edition_physique": "GKC",
-"code": null,
+"code": "4255839760403",
 "editeur": "Nintendo, The Pokémon Company"
 },
 {
@@ -1591,7 +1592,7 @@ const GAMES_DATA = {
 "nom": "Fatal Frame II: Crimson Butterfly Remake",
 "date_sortie": "2026-03-12",
 "edition_physique": "GKC",
-"code": null,
+"code": "5060327538322",
 "editeur": "Koei Tecmo"
 },
 {
@@ -1612,14 +1613,14 @@ const GAMES_DATA = {
 "nom": "Monster Hunter Stories 3: Twisted Reflection",
 "date_sortie": "2026-03-13",
 "edition_physique": "GKC",
-"code": null,
+"code": "5055060955833",
 "editeur": "Capcom"
 },
 {
 "nom": "WWE 2K26",
 "date_sortie": "2026-03-13",
 "edition_physique": "GKC",
-"code": null,
+"code": "5026555073196",
 "editeur": "2K"
 },
 {
@@ -1633,7 +1634,7 @@ const GAMES_DATA = {
 "nom": "Starship Troopers: Ultimate Bug War!",
 "date_sortie": "2026-03-16",
 "edition_physique": "GKC",
-"code": null,
+"code": "3700664533759",
 "editeur": "Dotemu"
 },
 {
@@ -1696,7 +1697,7 @@ const GAMES_DATA = {
 "nom": "Human: Fall Flat – Nintendo Switch 2 Edition",
 "date_sortie": "2026-03-19",
 "edition_physique": "NS2E",
-"code": null,
+"code": "5056635626349",
 "editeur": "Curve Digital"
 },
 {
@@ -1710,7 +1711,7 @@ const GAMES_DATA = {
 "nom": "Rushing Beat X: Return of Brawl Brothers",
 "date_sortie": "2026-03-19",
 "edition_physique": "Complet",
-"code": null,
+"code": "7350002938065",
 "editeur": "Clear River Games"
 },
 {
@@ -1759,7 +1760,7 @@ const GAMES_DATA = {
 "nom": "Super Mario Bros. Wonder – Nintendo Switch 2 Edition + Meetup in Bellabel Park",
 "date_sortie": "2026-03-26",
 "edition_physique": "NS2E",
-"code": null,
+"code": "0045496313920",
 "editeur": "Nintendo"
 },
 {
@@ -1773,7 +1774,7 @@ const GAMES_DATA = {
 "nom": "Virtua Fighter 5 R.E.V.O. World Stage",
 "date_sortie": "2026-03-26",
 "edition_physique": "GKC",
-"code": null,
+"code": "4020628541880",
 "editeur": "Sega"
 },
 {
@@ -1920,7 +1921,7 @@ const GAMES_DATA = {
 "nom": "Pragmata",
 "date_sortie": "2026-04-17",
 "edition_physique": "GKC",
-"code": null,
+"code": "5055060909188",
 "editeur": "Capcom"
 },
 {
@@ -2025,7 +2026,7 @@ const GAMES_DATA = {
 "nom": "Bandit Trap",
 "date_sortie": "2026-04-30",
 "edition_physique": "Complet",
-"code": null,
+"code": "5056635620279",
 "editeur": "PM Studios"
 },
 {
@@ -2102,14 +2103,14 @@ const GAMES_DATA = {
 "nom": "Call of the Elder Gods",
 "date_sortie": "2026-05-12",
 "edition_physique": "GKC",
-"code": null,
+"code": "3701529517686",
 "editeur": "Kwalee"
 },
 {
 "nom": "Indiana Jones and the Great Circle",
 "date_sortie": "2026-05-12",
 "edition_physique": "Complet",
-"code": null,
+"code": "0196388816286",
 "editeur": "Bethesda Softworks"
 },
 {
@@ -2123,7 +2124,7 @@ const GAMES_DATA = {
 "nom": "Outbound",
 "date_sortie": "2026-05-14",
 "edition_physique": "Complet",
-"code": null,
+"code": "5061078711194",
 "editeur": "Square Glade Games"
 },
 {
@@ -2158,7 +2159,7 @@ const GAMES_DATA = {
 "nom": "R-Type Dimensions III",
 "date_sortie": "2026-05-19",
 "edition_physique": "Complet",
-"code": null,
+"code": "4262460628415",
 "editeur": "ININ Games"
 },
 {
@@ -2214,7 +2215,7 @@ const GAMES_DATA = {
 "nom": "Tales of Arise – Beyond the Dawn Edition",
 "date_sortie": "2026-05-22",
 "edition_physique": "GKC",
-"code": null,
+"code": "3391892041484",
 "editeur": "Bandai Namco Entertainment"
 },
 {
@@ -2242,7 +2243,7 @@ const GAMES_DATA = {
 "nom": "Bluey's Quest for the Gold Pen",
 "date_sortie": "2026-05-28",
 "edition_physique": "Complet",
-"code": null,
+"code": "5056635621818",
 "editeur": "PM Studios"
 },
 {
@@ -2333,7 +2334,7 @@ const GAMES_DATA = {
 "nom": "Final Fantasy VII Rebirth",
 "date_sortie": "2026-06-03",
 "edition_physique": "GKC",
-"code": null,
+"code": "5021290102811",
 "editeur": "Square Enix"
 },
 {
@@ -2417,14 +2418,14 @@ const GAMES_DATA = {
 "nom": "SnowRunner",
 "date_sortie": "2026-06-09",
 "edition_physique": "GKC",
-"code": null,
+"code": "4020628539481",
 "editeur": "Focus Home Interactive"
 },
 {
 "nom": "Xenoblade Chronicles: Definitive Edition – Nintendo Switch 2 Edition",
 "date_sortie": "2026-06-09",
 "edition_physique": "NS2E",
-"code": null,
+"code": "0045496405571",
 "editeur": "Nintendo"
 },
 {
@@ -2515,7 +2516,7 @@ const GAMES_DATA = {
 "nom": "The Adventures of Elliot: The Millennium Tales",
 "date_sortie": "2026-06-18",
 "edition_physique": "GKC",
-"code": null,
+"code": "5021290102729",
 "editeur": "Square Enix"
 },
 {
@@ -2536,7 +2537,7 @@ const GAMES_DATA = {
 "nom": "Destroy All Humans!",
 "date_sortie": "2026-06-23",
 "edition_physique": "GKC",
-"code": null,
+"code": "9120131604487",
 "editeur": "THQ Nordic"
 },
 {
@@ -2550,7 +2551,7 @@ const GAMES_DATA = {
 "nom": "Sonic Frontiers Definitive Edition",
 "date_sortie": "2026-06-23",
 "edition_physique": "GKC",
-"code": null,
+"code": "5055277057672",
 "editeur": "Sega"
 },
 {
@@ -2655,14 +2656,14 @@ const GAMES_DATA = {
 "nom": "Monopoly: Star Wars Heroes vs. Villains",
 "date_sortie": "2026-06-30",
 "edition_physique": "GKC",
-"code": null,
+"code": "3307216311508",
 "editeur": "Ubisoft"
 },
 {
 "nom": "High on Life 2",
 "date_sortie": "2026-07-01",
 "edition_physique": "GKC",
-"code": null,
+"code": "0884095226534",
 "editeur": "Squanch Games"
 },
 {
@@ -2697,7 +2698,7 @@ const GAMES_DATA = {
 "nom": "Moonlight Peaks – Nintendo Switch 2 Edition",
 "date_sortie": "2026-07-07",
 "edition_physique": "NS2E",
-"code": null,
+"code": "5060540773425",
 "editeur": "Marvelous"
 },
 {
@@ -2718,7 +2719,7 @@ const GAMES_DATA = {
 "nom": "Granblue Fantasy: Relink - Endless Ragnarok",
 "date_sortie": "2026-07-09",
 "edition_physique": "GKC",
-"code": null,
+"code": "4020628539825",
 "editeur": "Cygames"
 },
 {
@@ -2739,21 +2740,21 @@ const GAMES_DATA = {
 "nom": "Digimon Story: Time Stranger",
 "date_sortie": "2026-07-10",
 "edition_physique": "GKC",
-"code": null,
+"code": "3391892039252",
 "editeur": "Bandai Namco Entertainment"
 },
 {
 "nom": "Octopath Traveler",
 "date_sortie": "2026-07-13",
 "edition_physique": "GKC",
-"code": null,
+"code": "5021290103337",
 "editeur": "Square Enix"
 },
 {
 "nom": "Octopath Traveler II",
 "date_sortie": "2026-07-13",
 "edition_physique": "GKC",
-"code": null,
+"code": "5021290103375",
 "editeur": "Square Enix"
 },
 {
@@ -2823,7 +2824,7 @@ const GAMES_DATA = {
 "nom": "Culdcept Begins – Nintendo Switch 2 Edition",
 "date_sortie": "2026-07-16",
 "edition_physique": "NS2E",
-"code": null,
+"code": "7350002937860",
 "editeur": "Neos Corporation"
 },
 {
@@ -3068,14 +3069,14 @@ const GAMES_DATA = {
 "nom": "Village in the Shade",
 "date_sortie": "2026-07-30",
 "edition_physique": "GKC",
-"code": null,
+"code": "0810100867096",
 "editeur": "NIS America"
 },
 {
 "nom": "Xenoblade Chronicles 2 – Nintendo Switch 2 Edition",
 "date_sortie": "2026-07-30",
 "edition_physique": "NS2E",
-"code": null,
+"code": "0045496314811",
 "editeur": "Nintendo"
 },
 {
@@ -3166,7 +3167,7 @@ const GAMES_DATA = {
 "nom": "The Elder Scrolls IV: Oblivion Remastered",
 "date_sortie": "2026-08-11",
 "edition_physique": "CIAB",
-"code": null,
+"code": "0196388816897",
 "editeur": "Bethesda Softworks"
 },
 {

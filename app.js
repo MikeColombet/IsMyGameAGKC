@@ -70,7 +70,7 @@ function renderMeta() {
   const m = GAMES_DATA.meta;
   document.getElementById("meta-info").innerHTML =
     `Liste compilée le ${formatDate(m.date_compilation)} · ${m.nombre_total_jeux} jeux au total. ` +
-    `Le catalogue 100% numérique (petits titres eShop) peut être incomplet. Le champ "Code" est renseigné au cas par cas, quand disponible. ` +
+    `Le catalogue 100% numérique (petits titres eShop) peut être incomplet. Le champ "Code" est le code-barres EAN-13 du produit physique, renseigné quand trouvable (109/215 jeux physiques à ce jour). ` +
     `Sources : Wikipedia "List of Nintendo Switch 2 games", Nintendo Life, Nintendo Wire.`;
 }
 
