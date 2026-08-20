@@ -83,8 +83,6 @@ function render() {
       <p>${game.pitch_fr || "Synopsis non disponible pour ce jeu."}</p>
     </section>
 
-    ${trailerSection}
-
     <section class="detail-block">
       <h2>Informations</h2>
       <dl class="detail-grid">
@@ -104,6 +102,8 @@ function render() {
         <dd>${game.metacritic !== null && game.metacritic !== undefined ? game.metacritic + " / 100" : "NA"}</dd>
       </dl>
     </section>
+
+    ${trailerSection}
   `;
 }
 
