@@ -11,7 +11,7 @@
     "methodologie_edition_physique": "Le champ edition_physique donne priorite au libelle 'Nintendo Switch 2 Edition' present dans le titre (portage/upgrade physique ou numerique d'un jeu Switch 1) -> categorie NS2E, meme si le support physique sous-jacent est une cartouche complete, une Game-Key Card ou un Code-in-a-Box. Pour les autres jeux, la classification GKC / CIAB / Complet provient du croisement des deux sources communautaires citees. Tout jeu ne figurant dans aucune des listes physiques consultees est classe par defaut 'Numerique' (aucune edition physique identifiee) : cette hypothese est fiable pour les jeux AAA/mid-size mais peut comporter des erreurs pour de petits titres indes dont la sortie physique (souvent via des editeurs specialises type Limited Run Games) n'aurait pas ete recensee par ces sources.",
     "niveau_de_confiance": "Eleve pour les dates de sortie et les noms de jeux (source Wikipedia, tres suivie et sourcee). Bon pour la classification GKC/CIAB/Complet/NS2E des jeux a gros/moyen budget (croisement de 2 sources dediees + verification manuelle des ecarts). Le catalogue numerique pur (jeux eShop uniquement, notamment tres petits titres indes recents) est probablement incomplet : Wikipedia liste en priorite les jeux suffisamment notables/sources, et il manque tres certainement des sorties eShop mineures non couvertes par un article de presse. Le champ 'code' (identifiant produit) n'a pas ete renseigne (null) pour l'ensemble des jeux : cette recherche taille par taille n'a pas ete faite faute de source unique fiable couvrant les 464 titres.",
     "methodologie_code": "Le champ 'code' contient le code-barres EAN-13 du produit physique, quand trouvable, et non un code Nintendo interne (les codes internes BEE-P-xxxxx / POT-P-xxxxx / NXS-P-xxxxx existent mais ne sont documentes en masse par aucune source publique fiable a ce jour). Source : catalogue du comparateur de prix consollection.com (endpoint /ajax.moteur-jeux.php, 245 fiches produit Switch 2 avec EAN recuperees), rapproche des titres de games.json par correspondance de texte (ratio de similarite + recoupement de tokens, avec verification manuelle des cas ambigus et des doublons de suite numerotee, ex: distinguer 'WWE 2K25' de 'WWE 2K26'). 109 jeux physiques sur 215 ont un code EAN renseigne ; les autres (edition_physique != 'Numerique') restent a null, soit parce que le titre est absent du catalogue consulte (frequent pour les Nintendo Switch 2 Edition qui sont des mises a jour gratuites/patchs sans SKU physique dedie), soit par prudence en cas de correspondance ambigue entre plusieurs editions du meme jeu (ex: Resident Evil Village Gold Edition vs un pack groupe).",
-    "methodologie_enrichissement": "Score Metacritic : recupere en bloc depuis les pages de classement metacritic.com/browse/game/nintendo-switch-2/ (153 jeux notes au total sur la plateforme au 18/08/2026, avec au moins 7 critiques), puis rapproches des titres de ce catalogue par correspondance de nom (rapprochements manuels pour les bundles/editions, ex: la note du pack \"Atelier Ryza Secret Trilogy Deluxe Pack\" a ete appliquee aux 3 remasters DX individuels). 138/464 jeux ont un score (101/215 jeux physiques) ; les jeux sans score sont soit trop recents/confidentiels pour avoir 7 critiques, soit non notes du tout (indes eShop). Champ laisse a null plutot que d'invente, affiche \"NA\" sur le site.\nPitch en francais (pitch_fr) : redige a partir des connaissances generales du modele sur ces licences/jeux (portages, remasters et suites de titres deja connus pour la grande majorite du catalogue), sans recherche web systematique. 226/464 jeux ont un pitch (174/215 jeux physiques, priorite donnee au catalogue physique). Les jeux restants (petits titres eShop tres confidentiels, sorties japonaises tres niche, licences obscures) sont laisses a null plutot que de risquer un resume invente ; le site affiche alors \"Synopsis non disponible\".\n\neshop_url et youtube_trailer_id : recherche verifiee titre par titre (WebSearch), priorite absolue donnee a l'absence de faux positif plutot qu'a l'exhaustivite, conformement a la consigne utilisateur. eshop_url : uniquement rempli quand une URL exacte nintendo.com/fr-fr/Jeux/... a ete confirmee dans les resultats de recherche (pas de lien de recherche generique en repli) ; laisse a null sinon, y compris pour des jeux physiques majeurs dont la fiche FR n'est pas apparue dans les resultats consultes (ex: Skyrim Anniversary Edition, Oblivion Remastered, Hades II, Assassin's Creed Shadows, Red Dead Redemption NS2E — probablement existantes mais non confirmees ici). youtube_trailer_id : uniquement rempli quand le titre de la video et son contexte (chaine officielle Nintendo, de l'editeur ou du studio, mention explicite 'Official Trailer') indiquaient une source officielle avec un niveau de confiance raisonnable ; laisse a null en cas de doute. Couverture obtenue (best-effort, non exhaustif) : 14/464 jeux avec eshop_url, 19/464 jeux avec youtube_trailer_id, concentree sur les titres physiques/AAA les plus notables (Mario Kart World, Zelda BOTW/TOTK NS2E, Hogwarts Legacy, Cyberpunk 2077, Donkey Kong Bananza, Resident Evil Requiem, Final Fantasy VII Rebirth, etc.). Les ~440 jeux restants n'ont pas ete verifies individuellement faute de temps ; ils restent a null plutot que d'y mettre un lien non confirme. [Verification manuelle post-recherche du 20/08/2026 : sur les 19 youtube_trailer_id initialement trouves par le fork de recherche, 11 provenaient en realite de chaines tierces non officielles (IGN, ou des chaines de reupload sans lien avec Nintendo/l-editeur/le studio), en violation de la consigne zero-faux-positif. Verifies via l-API oEmbed YouTube (nom de chaine) et remis a null : Assassin's Creed Shadows, Cyberpunk 2077: Ultimate Edition, Donkey Kong Bananza, Hades II – Nintendo Switch 2 Edition, Hogwarts Legacy, Indiana Jones and the Great Circle, Mario Kart World, Pokémon Legends: Z-A – Nintendo Switch 2 Edition, Split Fiction, The Legend of Zelda: Breath of the Wild – Nintendo Switch 2 Edition, The Legend of Zelda: Tears of the Kingdom – Nintendo Switch 2 Edition. Seuls les trailers confirmes provenant de Nintendo of America, du studio/editeur officiel (Bethesda Softworks, Street Fighter/Capcom, FINAL FANTASY/Square Enix) sont conserves.]"
+    "methodologie_enrichissement": "Score Metacritic : recupere en bloc depuis les pages de classement metacritic.com/browse/game/nintendo-switch-2/ (153 jeux notes au total sur la plateforme au 18/08/2026, avec au moins 7 critiques), puis rapproches des titres de ce catalogue par correspondance de nom (rapprochements manuels pour les bundles/editions, ex: la note du pack \"Atelier Ryza Secret Trilogy Deluxe Pack\" a ete appliquee aux 3 remasters DX individuels). 138/464 jeux ont un score (101/215 jeux physiques) ; les jeux sans score sont soit trop recents/confidentiels pour avoir 7 critiques, soit non notes du tout (indes eShop). Champ laisse a null plutot que d'invente, affiche \"NA\" sur le site.\nPitch en francais (pitch_fr) : redige a partir des connaissances generales du modele sur ces licences/jeux (portages, remasters et suites de titres deja connus pour la grande majorite du catalogue), sans recherche web systematique. 226/464 jeux ont un pitch (174/215 jeux physiques, priorite donnee au catalogue physique). Les jeux restants (petits titres eShop tres confidentiels, sorties japonaises tres niche, licences obscures) sont laisses a null plutot que de risquer un resume invente ; le site affiche alors \"Synopsis non disponible\".\n\neshop_url et youtube_trailer_id : recherche verifiee titre par titre (WebSearch), priorite absolue donnee a l'absence de faux positif plutot qu'a l'exhaustivite, conformement a la consigne utilisateur. eshop_url : uniquement rempli quand une URL exacte nintendo.com/fr-fr/Jeux/... a ete confirmee dans les resultats de recherche (pas de lien de recherche generique en repli) ; laisse a null sinon, y compris pour des jeux physiques majeurs dont la fiche FR n'est pas apparue dans les resultats consultes (ex: Skyrim Anniversary Edition, Oblivion Remastered, Hades II, Assassin's Creed Shadows, Red Dead Redemption NS2E — probablement existantes mais non confirmees ici). youtube_trailer_id : uniquement rempli quand le titre de la video et son contexte (chaine officielle Nintendo, de l'editeur ou du studio, mention explicite 'Official Trailer') indiquaient une source officielle avec un niveau de confiance raisonnable ; laisse a null en cas de doute. Couverture obtenue (best-effort, non exhaustif) : 14/464 jeux avec eshop_url, 19/464 jeux avec youtube_trailer_id, concentree sur les titres physiques/AAA les plus notables (Mario Kart World, Zelda BOTW/TOTK NS2E, Hogwarts Legacy, Cyberpunk 2077, Donkey Kong Bananza, Resident Evil Requiem, Final Fantasy VII Rebirth, etc.). Les ~440 jeux restants n'ont pas ete verifies individuellement faute de temps ; ils restent a null plutot que d'y mettre un lien non confirme. [Verification manuelle post-recherche du 20/08/2026 : sur les 19 youtube_trailer_id initialement trouves par le fork de recherche, 11 provenaient en realite de chaines tierces non officielles (IGN, ou des chaines de reupload sans lien avec Nintendo/l-editeur/le studio), en violation de la consigne zero-faux-positif. Verifies via l-API oEmbed YouTube (nom de chaine) et remis a null : Assassin's Creed Shadows, Cyberpunk 2077: Ultimate Edition, Donkey Kong Bananza, Hades II – Nintendo Switch 2 Edition, Hogwarts Legacy, Indiana Jones and the Great Circle, Mario Kart World, Pokémon Legends: Z-A – Nintendo Switch 2 Edition, Split Fiction, The Legend of Zelda: Breath of the Wild – Nintendo Switch 2 Edition, The Legend of Zelda: Tears of the Kingdom – Nintendo Switch 2 Edition. Seuls les trailers confirmes provenant de Nintendo of America, du studio/editeur officiel (Bethesda Softworks, Street Fighter/Capcom, FINAL FANTASY/Square Enix) sont conserves.] [Passe de recherche renforcee du 20/08/2026, en 4 lots paralleles sur les jeux physiques restants : 66 nouveaux eshop_url et 57 nouveaux youtube_trailer_id ajoutes, tous reverifies independamment (contenu reel de la page nintendo.fr pour les liens eShop, car nintendo.fr renvoie parfois un statut 200 meme sur des pages inexistantes ; chaine YouTube via l-API oEmbed pour les trailers). Aucun faux positif detecte sur cette passe (contrairement a la premiere passe). Total cumule : 80/464 jeux avec eshop_url, 65/464 avec youtube_trailer_id. Note : faute de quota de recherche suffisant, une partie des jeux physiques les plus confidentiels (petits titres japonais/indes) n-a pas pu etre reellement recherchee sur cette passe (laissee a null par defaut de facon indiscernable d-une recherche negative) ; une passe supplementaire pourrait ameliorer encore la couverture.]"
   },
   "jeux": [
     {
@@ -35,8 +35,8 @@
       "id": 2,
       "metacritic": 84,
       "pitch_fr": "Remaster HD du J-RPG culte de Square Enix, mêlant combats au tour par tour et système de jobs hérité de Final Fantasy. Suit quatre héros partis rallumer les cristaux élémentaires d'un monde en péril.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/BRAVELY-DEFAULT-FLYING-FAIRY-HD-Remaster-2789461.html",
+      "youtube_trailer_id": "hndnB0ZaZN4"
     },
     {
       "nom": "Cyberpunk 2077: Ultimate Edition",
@@ -48,7 +48,7 @@
       "metacritic": 85,
       "pitch_fr": "RPG en monde ouvert de CD Projekt Red qui plonge le joueur dans Night City, mégalopole futuriste rongée par la violence et les implants cybernétiques. Cette édition Ultimate regroupe le jeu de base et l'extension Phantom Liberty.",
       "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Cyberpunk-2077-Ultimate-Edition-2791954.html",
-      "youtube_trailer_id": null
+      "youtube_trailer_id": "DtjZH9eIZbI"
     },
     {
       "nom": "Deltarune",
@@ -71,7 +71,7 @@
       "id": 5,
       "metacritic": null,
       "pitch_fr": "RPG de Level-5 mêlant vie simulée et aventure : le joueur choisit une « vie » (forgeron, chef, mage...) pour explorer un monde ouvert coloré. Cette édition Switch 2 profite d'améliorations graphiques et de performance.",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/FANTASY-LIFE-i-La-voleuse-de-temps-Nintendo-Switch-2-Edition-2842900.html",
       "youtube_trailer_id": null
     },
     {
@@ -107,8 +107,8 @@
       "id": 8,
       "metacritic": 77,
       "pitch_fr": "Trilogie Hitman réunie (World of Assassination) suivant l'Agent 47 dans des niveaux bac à sable où chaque cible peut être éliminée d'une multitude de façons. L'édition Signature inclut la majorité des contenus additionnels.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/HITMAN-World-of-Assassination-Signature-Edition-2792849.html",
+      "youtube_trailer_id": "FfKQgglhaBU"
     },
     {
       "nom": "Hogwarts Legacy",
@@ -120,7 +120,7 @@
       "metacritic": 82,
       "pitch_fr": "Action-RPG en monde ouvert se déroulant dans l'univers de Harry Potter au 19e siècle. Le joueur incarne un·e élève de Poudlard qui explore le château, apprend des sortilèges et perce le mystère d'une magie ancienne.",
       "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Hogwarts-Legacy-L-Heritage-de-Poudlard-2797135.html",
-      "youtube_trailer_id": null
+      "youtube_trailer_id": "kE8eSMi2gWg"
     },
     {
       "nom": "Kunitsu-Gami: Path of the Goddess",
@@ -144,7 +144,7 @@
       "metacritic": 86,
       "pitch_fr": "Nouvel épisode de la série Mario Kart et jeu de lancement de la Switch 2, introduisant un monde ouvert connecté reliant tous les circuits. Course, exploration libre et multijoueur jusqu'à 24 joueurs.",
       "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Mario-Kart-World-2790000.html",
-      "youtube_trailer_id": null
+      "youtube_trailer_id": "RLogERrKOrU"
     },
     {
       "nom": "Nintendo Switch 2 Welcome Tour",
@@ -167,8 +167,8 @@
       "id": 13,
       "metacritic": null,
       "pitch_fr": "Jeu d'exploration spatiale procédurale de Hello Games, offrant un univers quasi infini à explorer, avec construction de bases, vaisseaux et vie sauvage générée algorithmiquement. Cette édition Switch 2 tire parti de la puissance accrue de la console.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/No-Man-s-Sky-Nintendo-Switch-2-Edition-2843501.html",
+      "youtube_trailer_id": "hGtSgEgiGu4"
     },
     {
       "nom": "Nobunaga's Ambition: Awakening Complete Edition",
@@ -191,8 +191,8 @@
       "id": 15,
       "metacritic": 73,
       "pitch_fr": "Croisement entre Puyo Puyo et Tetris signé Sega, combinant les deux mécaniques de puzzle emblématiques dans des modes solo et multijoueur endiablés.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Puyo-Puyo-Tetris-2S-2807727.html",
+      "youtube_trailer_id": "qBWKSxRDtHw"
     },
     {
       "nom": "Rune Factory: Guardians of Azuma – Nintendo Switch 2 Edition",
@@ -227,8 +227,8 @@
       "id": 18,
       "metacritic": null,
       "pitch_fr": "Nouvel opus de la célèbre série de stratégie au tour par tour où le joueur guide une civilisation à travers les âges, de l'Antiquité à l'ère moderne, en gérant diplomatie, science et culture.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/Sid-Meier-s-Civilization-VII-Nintendo-Switch-2-Edition-2799402.html",
+      "youtube_trailer_id": "MGOdJMNN2b0"
     },
     {
       "nom": "Sonic X Shadow Generations",
@@ -239,8 +239,8 @@
       "id": 19,
       "metacritic": 79,
       "pitch_fr": "Remaster de Sonic Generations enrichi d'une campagne inédite centrée sur Shadow the Hedgehog, mêlant niveaux 2D classiques et 3D modernes.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/SONIC-X-SHADOW-GENERATIONS-2807539.html",
+      "youtube_trailer_id": "pg0oNqG9uSw"
     },
     {
       "nom": "Split Fiction",
@@ -252,7 +252,7 @@
       "metacritic": 88,
       "pitch_fr": "Jeu d'action-aventure coopératif d'Hazelight Studios (It Takes Two), où deux autrices de science-fiction et de fantasy se retrouvent piégées dans leurs propres histoires. Uniquement jouable à deux, en écran partagé ou en ligne.",
       "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/SPLIT-FICTION-2792072.html",
-      "youtube_trailer_id": null
+      "youtube_trailer_id": "zXQ7sjNV35k"
     },
     {
       "nom": "Street Fighter 6",
@@ -263,7 +263,7 @@
       "id": 21,
       "metacritic": 87,
       "pitch_fr": "Nouvel épisode de la série de combat culte de Capcom, avec un mode World Tour narratif, un online robuste et un roster varié de combattants.",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Street-Fighter-6-2792834.html",
       "youtube_trailer_id": "XbOK0XlyDmA"
     },
     {
@@ -275,7 +275,7 @@
       "id": 22,
       "metacritic": null,
       "pitch_fr": "Remaster HD des deux premiers épisodes du RPG culte Suikoden, connu pour son système des 108 étoiles du destin et ses intrigues politiques épiques.",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Suikoden-I-II-HD-Remaster-for-Nintendo-Switch-2-Gate-Rune-and-Dunan-Unification-Wars-2808569.html",
       "youtube_trailer_id": null
     },
     {
@@ -287,8 +287,8 @@
       "id": 23,
       "metacritic": 62,
       "pitch_fr": "Jeu d'aventure et de survie coopératif de Konami : retour de la licence culte où des enfants naufragés doivent explorer une île, fabriquer des outils et survivre ensemble.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Survival-Kids-2807680.html",
+      "youtube_trailer_id": "WOQ8oLhjJzs"
     },
     {
       "nom": "The Legend of Zelda: Breath of the Wild – Nintendo Switch 2 Edition",
@@ -300,7 +300,7 @@
       "metacritic": 94,
       "pitch_fr": "Édition Switch 2 de Breath of the Wild, qui a révolutionné la formule Zelda avec un monde ouvert où presque tout est possible : escalade libre, physique émergente et exploration sans limites.",
       "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/The-Legend-of-Zelda-Breath-of-the-Wild-Nintendo-Switch-2-Edition-2787250.html",
-      "youtube_trailer_id": null
+      "youtube_trailer_id": "dmDD7JSfhcE"
     },
     {
       "nom": "The Legend of Zelda: Tears of the Kingdom – Nintendo Switch 2 Edition",
@@ -312,7 +312,7 @@
       "metacritic": 95,
       "pitch_fr": "Édition Switch 2 de Tears of the Kingdom, suite directe de Breath of the Wild ajoutant la fusion d'objets, la construction de véhicules et l'exploration verticale (îles célestes, profondeurs).",
       "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/The-Legend-of-Zelda-Tears-of-the-Kingdom-Nintendo-Switch-2-Edition-2787249.html",
-      "youtube_trailer_id": null
+      "youtube_trailer_id": "dmDD7JSfhcE"
     },
     {
       "nom": "Yakuza 0 Director's Cut",
@@ -323,8 +323,8 @@
       "id": 26,
       "metacritic": 85,
       "pitch_fr": "Préquelle de la série Yakuza plongeant dans le Japon des années 80, entre drame criminel et mini-jeux loufoques. Cette version Director's Cut ajoute du contenu inédit.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Yakuza-0-Director-s-Cut-2792121.html",
+      "youtube_trailer_id": "N5E-R6NjMgk"
     },
     {
       "nom": "Raidou Remastered: The Mystery of the Soulless Army",
@@ -335,8 +335,8 @@
       "id": 27,
       "metacritic": 76,
       "pitch_fr": "Remaster du RPG d'action Atlus Raidou Kuzunoha vs. the Soulless Army, mêlant enquête surnaturelle dans le Tokyo des années 1920 et invocation de démons.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/RAIDOU-Remastered-The-Mystery-of-the-Soulless-Army-2807785.html",
+      "youtube_trailer_id": "wrbHRMm0txM"
     },
     {
       "nom": "Tamagotchi Plaza Nintendo Switch 2 Edition",
@@ -371,8 +371,8 @@
       "id": 30,
       "metacritic": 85,
       "pitch_fr": "Compilation remasterisée de deux jeux de skate culte d'Activision, avec ses niveaux emblématiques, sa bande-son punk/rock et son gameplay de combos technique.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Tony-Hawk-s-Pro-Skater-3-4-2797120.html",
+      "youtube_trailer_id": "wNqeZKzegyU"
     },
     {
       "nom": "Donkey Kong Bananza",
@@ -384,7 +384,7 @@
       "metacritic": 91,
       "pitch_fr": "Nouvelle aventure 3D de Donkey Kong, avec un monde entièrement destructible et une nouvelle transformation façon Kong-Zilla. Jeu vedette de l'été 2025 sur Switch 2.",
       "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Donkey-Kong-Bananza-2785804.html",
-      "youtube_trailer_id": null
+      "youtube_trailer_id": "tdsRPs6rX4w"
     },
     {
       "nom": "Shadow Labyrinth – Nintendo Switch 2 Edition",
@@ -395,7 +395,7 @@
       "id": 32,
       "metacritic": 65,
       "pitch_fr": "Jeu d'action à la Pac-Man mâtiné de plateforme cyberpunk, tiré de la série animée Shadow Labyrinth diffusée sur Cartoon Network/Adult Swim.",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/Shadow-Labyrinth-Nintendo-Switch-2-Edition-2848854.html",
       "youtube_trailer_id": null
     },
     {
@@ -420,7 +420,7 @@
       "metacritic": 76,
       "pitch_fr": "Compilation de plus de 110 mini-jeux façon Mario Party, jouable en équipe autour de la table ou à distance. Le pack Jamboree TV ajoute des défis diffusables sur téléviseur.",
       "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/Super-Mario-Party-Jamboree-Nintendo-Switch-2-Edition-Jamboree-TV-2785806.html",
-      "youtube_trailer_id": null
+      "youtube_trailer_id": "ygEdhJqzGUI"
     },
     {
       "nom": "No Sleep for Kaname Date – From AI: The Somnium Files",
@@ -443,8 +443,8 @@
       "id": 36,
       "metacritic": 75,
       "pitch_fr": "Version Switch 2 de Wild Hearts, jeu de chasse de Koei Tecmo/EA dans un Japon féodal fantastique où le joueur affronte des bêtes gigantesques (Kemono) en fabriquant des structures Karakuri.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/WILD-HEARTS-S-2848001.html",
+      "youtube_trailer_id": "H-T6v626vs4"
     },
     {
       "nom": "Chillin' by the Fire",
@@ -563,8 +563,8 @@
       "id": 46,
       "metacritic": 77,
       "pitch_fr": "Simulation de football américain annuelle d'EA Sports, avec gameplay retravaillé, mode Franchise et licences officielles NFL.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/EA-SPORTS-Madden-NFL-26-2807738.html",
+      "youtube_trailer_id": "-KAqdCZOJLA"
     },
     {
       "nom": "Story of Seasons: Grand Bazaar – Nintendo Switch 2 Edition",
@@ -575,7 +575,7 @@
       "id": 47,
       "metacritic": 83,
       "pitch_fr": "Simulation de vie agricole de Marvelous (série Story of Seasons) où le joueur cultive, élève des animaux et redynamise un marché local. Édition Switch 2.",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/Story-of-Seasons-Grand-Bazaar-Nintendo-Switch-2-Edition-2807329.html",
       "youtube_trailer_id": null
     },
     {
@@ -612,7 +612,7 @@
       "metacritic": 83,
       "pitch_fr": "Édition Switch 2 du jeu de plateforme Kirby and the Forgotten Land, prembelle aventure 3D de Kirby dans un monde post-apocalyptique abandonné par les humains. Inclut l'extension Star-Crossed World.",
       "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/Kirby-et-le-monde-oublie-Nintendo-Switch-2-Edition-Le-pays-des-etoiles-filantes-2787773.html",
-      "youtube_trailer_id": null
+      "youtube_trailer_id": "nGizlEktNiQ"
     },
     {
       "nom": "The Exit 8 – Nintendo Switch 2 Edition",
@@ -648,7 +648,7 @@
       "metacritic": 91,
       "pitch_fr": "Suite tant attendue de Hollow Knight, metroidvania acclamé de Team Cherry. Le joueur incarne cette fois Hornet dans le royaume de Pharloom, entre exploration, plateforme exigeante et combats précis.",
       "eshop_url": null,
-      "youtube_trailer_id": null
+      "youtube_trailer_id": "SyyNDebPKQE"
     },
     {
       "nom": "Star Wars Outlaws Gold Edition",
@@ -659,8 +659,8 @@
       "id": 54,
       "metacritic": 81,
       "pitch_fr": "Jeu d'infiltration en monde ouvert d'Ubisoft situé dans l'univers Star Wars, entre l'Empire et l'Alliance Rebelle, incarnant la hors-la-loi Kay Vess. L'édition Gold inclut le season pass.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Star-Wars-Outlaws-Gold-Edition-2883415.html",
+      "youtube_trailer_id": "EhLTeuDS_j0"
     },
     {
       "nom": "Cronos: The New Dawn",
@@ -671,7 +671,7 @@
       "id": 55,
       "metacritic": 76,
       "pitch_fr": "Jeu d'horreur à la troisième personne de Bloober Team (créateurs de Layers of Fear), mêlant survival-horror et exploration d'un futur dystopique rongé par une entité extraterrestre.",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Cronos-The-New-Dawn-2883430.html",
       "youtube_trailer_id": null
     },
     {
@@ -683,8 +683,8 @@
       "id": 56,
       "metacritic": 69,
       "pitch_fr": "Jeu de mecha-action de Marvelous, suite de Daemon X Machina, opposant des pilotes d'Arsenal dans des combats aériens et terrestres customisables.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Daemon-X-Machina-Titanic-Scion-2849025.html",
+      "youtube_trailer_id": "CBe1U4BWTc4"
     },
     {
       "nom": "NBA 2K26",
@@ -695,8 +695,8 @@
       "id": 57,
       "metacritic": null,
       "pitch_fr": "Simulation de basketball NBA annuelle de 2K, avec modes carrière MyCareer, MyTeam et gameplay retravaillé.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/NBA-2K26-2910946.html",
+      "youtube_trailer_id": "S5DUuVaozPQ"
     },
     {
       "nom": "Arcade Archives 2: Video Hustler",
@@ -839,7 +839,7 @@
       "id": 69,
       "metacritic": 77,
       "pitch_fr": "Remake du jeu de plateforme Pac-Man World 2, revisitant les niveaux 3D originaux avec des graphismes modernisés.",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/PAC-MAN-WORLD-2-Re-PAC-2881495.html",
       "youtube_trailer_id": null
     },
     {
@@ -851,8 +851,8 @@
       "id": 70,
       "metacritic": 87,
       "pitch_fr": "Édition Switch 2 du tactical-RPG Final Fantasy Tactics: The Ivalice Chronicles, remaster du classique de la Final Fantasy Tactics original avec grille de combat, jobs et intrigue politique dense.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/FINAL-FANTASY-TACTICS-The-Ivalice-Chronicles-Nintendo-Switch-2-Edition-2881480.html",
+      "youtube_trailer_id": "hpBxKcGb49A"
     },
     {
       "nom": "Arcade Archives 2: Gee Bee",
@@ -899,8 +899,8 @@
       "id": 74,
       "metacritic": 77,
       "pitch_fr": "Metroidvania coloré succédant spirituellement à Banjo-Kazooie, développé par une partie de l'équipe originale (Playtonic). Exploration, plateforme et humour anglais.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Yooka-Replaylee-2925507.html",
+      "youtube_trailer_id": "T1As5O96S4Q"
     },
     {
       "nom": "Disgaea 7 Complete",
@@ -923,7 +923,7 @@
       "id": 76,
       "metacritic": null,
       "pitch_fr": "Édition complète regroupant Little Nightmares et Little Nightmares II améliorés, jeux de plateforme-horreur où de petits personnages fragiles échappent à des créatures monstrueuses dans un monde démesuré.",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Little-Nightmares-Enhanced-Edition-Complete-Edition-2935560.html",
       "youtube_trailer_id": null
     },
     {
@@ -935,8 +935,8 @@
       "id": 77,
       "metacritic": null,
       "pitch_fr": "Troisième épisode de la série Little Nightmares, jeu de plateforme-horreur en coopération suivant deux nouveaux personnages, Low et Alone, fuyant à travers un monde cauchemardesque.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Little-Nightmares-III-2898361.html",
+      "youtube_trailer_id": "K9OREMjtjrU"
     },
     {
       "nom": "Pokémon Legends: Z-A – Nintendo Switch 2 Edition",
@@ -983,8 +983,8 @@
       "id": 81,
       "metacritic": 80,
       "pitch_fr": "RPG culte d'Atlus mêlant vie scolaire, liens sociaux et exploration de donjons générés (Tartare) peuplés d'ombres à combattre.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Persona-3-Reload-2882297.html",
+      "youtube_trailer_id": "av3IvFK6-ME"
     },
     {
       "nom": "Plants vs. Zombies: Replanted",
@@ -1055,8 +1055,8 @@
       "id": 87,
       "metacritic": 85,
       "pitch_fr": "Remake en HD-2D des deux premiers Dragon Quest, mêlant sprites détaillés et environnements 3D, avec l'exploration classique de la saga culte de Square Enix.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/DRAGON-QUEST-I-II-HD-2D-Remake-2909901.html",
+      "youtube_trailer_id": "CC1iBil7DR0"
     },
     {
       "nom": "Majogami",
@@ -1115,7 +1115,7 @@
       "id": 92,
       "metacritic": null,
       "pitch_fr": "Édition Switch 2 de Dave the Diver, jeu hybride mêlant exploration/pêche sous-marine le jour et gestion d'un restaurant de sushis le soir, best-seller indépendant coréen.",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/DAVE-THE-DIVER-Nintendo-Switch-2-Edition-2957273.html",
       "youtube_trailer_id": null
     },
     {
@@ -1127,8 +1127,8 @@
       "id": 93,
       "metacritic": 79,
       "pitch_fr": "Épisode musou situé dans l'univers Zelda, en préquelle des événements de Breath of the Wild, où le joueur affronte des hordes d'ennemis avec les héros du royaume d'Hyrule.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Hyrule-Warriors-Age-of-Imprisonment-2789659.html",
+      "youtube_trailer_id": "9pbyF3zpSgc"
     },
     {
       "nom": "Overcooked! 2 – Nintendo Switch 2 Edition",
@@ -1223,8 +1223,8 @@
       "id": 101,
       "metacritic": null,
       "pitch_fr": "Édition Switch 2 de Hello Kitty Island Adventure, jeu de vie et d'exploration où le joueur reconstruit une île peuplée de Hello Kitty et ses amis Sanrio.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/Hello-Kitty-Island-Adventure-Nintendo-Switch-2-Edition-2963361.html",
+      "youtube_trailer_id": "T9NMv6jrviY"
     },
     {
       "nom": "Inazuma Eleven: Victory Road – Nintendo Switch 2 Edition",
@@ -1259,8 +1259,8 @@
       "id": 104,
       "metacritic": 81,
       "pitch_fr": "Remake du tout premier épisode de la saga Yakuza, plongeant Kazuma Kiryu dans les guerres de clans du Kamurocho des années 2000.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Yakuza-Kiwami-2924782.html",
+      "youtube_trailer_id": "pPN8XvyOF1k"
     },
     {
       "nom": "Yakuza Kiwami 2",
@@ -1271,8 +1271,8 @@
       "id": 105,
       "metacritic": 83,
       "pitch_fr": "Remake de Yakuza 2, suite directe plongeant Kazuma Kiryu à Osaka dans un conflit entre clans yakuza rivaux.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Yakuza-Kiwami-2-2924802.html",
+      "youtube_trailer_id": "rwj_UaQlix4"
     },
     {
       "nom": "Dragon Ball: Sparking! Zero",
@@ -1283,8 +1283,8 @@
       "id": 106,
       "metacritic": null,
       "pitch_fr": "Jeu de combat/action Dragon Ball adaptant les arcs emblématiques de la série (Cell, Boo...) avec un système d'affrontement spectaculaire et destructible.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/DRAGON-BALL-Sparking-ZERO-2882381.html",
+      "youtube_trailer_id": "sNFBpWVSGWU"
     },
     {
       "nom": "SpongeBob SquarePants: Titans of the Tide",
@@ -1427,8 +1427,8 @@
       "id": 118,
       "metacritic": 72,
       "pitch_fr": "Jeu de combat/beat'em up en 2D réunissant des héros Marvel dans un style rétro, développé par Dotemu (Streets of Rage 4, TMNT Shredder's Revenge).",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/MARVEL-Cosmic-Invasion-2945386.html",
+      "youtube_trailer_id": "g5v-99VHcWw"
     },
     {
       "nom": "Assassin's Creed Shadows",
@@ -1439,8 +1439,8 @@
       "id": 119,
       "metacritic": 80,
       "pitch_fr": "Épisode Assassin's Creed situé dans le Japon féodal de l'époque Sengoku, avec deux protagonistes jouables : Naoe, kunoichi, et Yasuke, samouraï.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Assassin-s-Creed-Shadows-2967695.html",
+      "youtube_trailer_id": "OzyD_EFZzgc"
     },
     {
       "nom": "Red Dead Redemption – Nintendo Switch 2 Edition",
@@ -1451,7 +1451,7 @@
       "id": 120,
       "metacritic": 88,
       "pitch_fr": "Édition Switch 2 du western en monde ouvert de Rockstar Games, suivant John Marston dans une Amérique en déclin au tournant du 20e siècle.",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/Red-Dead-Redemption-Nintendo-Switch-2-Edition-2977386.html",
       "youtube_trailer_id": "HRuLKNxkR0w"
     },
     {
@@ -1487,8 +1487,8 @@
       "id": 123,
       "metacritic": 82,
       "pitch_fr": "Préquelle de la série Octopath Traveler, RPG au style pixel-art « HD-2D » suivant deux nouveaux héros dans le monde d'Orsterra.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/OCTOPATH-TRAVELER-0-2914713.html",
+      "youtube_trailer_id": "klKrQZXDWkI"
     },
     {
       "nom": "Run for Money: Hunters vs. Runners! Can You Win as Either?",
@@ -1571,7 +1571,7 @@
       "id": 130,
       "metacritic": 60,
       "pitch_fr": "Édition anniversaire de Skyrim, RPG en monde ouvert culte de Bethesda incluant le contenu Creation Club et les extensions officielles.",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/The-Elder-Scrolls-V-Skyrim-Anniversary-Edition-2983914.html",
       "youtube_trailer_id": null
     },
     {
@@ -1631,8 +1631,8 @@
       "id": 135,
       "metacritic": null,
       "pitch_fr": "Édition Switch 2 de Divinity: Original Sin II, RPG tactique au tour par tour de Larian Studios (avant Baldur's Gate 3), réputé pour sa liberté d'action et son écriture.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/Divinity-Original-Sin-2-Nintendo-Switch-2-Edition-2988295.html",
+      "youtube_trailer_id": "Mhrrg8GRRko"
     },
     {
       "nom": "Tomba! 2: The Evil Swine Return Special Edition",
@@ -1811,8 +1811,8 @@
       "id": 150,
       "metacritic": null,
       "pitch_fr": "Édition Switch 2 du phénomène indépendant Stardew Valley : simulation de vie agricole, pêche, mine et relations sociales dans une petite bourgade, créée par un seul développeur (ConcernedApe).",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/Stardew-Valley-Nintendo-Switch-2-Edition-3044087.html",
+      "youtube_trailer_id": "8ac2-LRIAeU"
     },
     {
       "nom": "Arcade Archives 2: Space Invaders Part 2",
@@ -1955,7 +1955,7 @@
       "id": 162,
       "metacritic": 84,
       "pitch_fr": "Reboot de la série musou Dynasty Warriors, revenant aux origines de la période des Trois Royaumes chinois avec un système de combat et une narration repensés.",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/DYNASTY-WARRIORS-ORIGINS-2987854.html",
       "youtube_trailer_id": null
     },
     {
@@ -1967,8 +1967,8 @@
       "id": 163,
       "metacritic": 89,
       "pitch_fr": "Remake du RPG culte Final Fantasy VII, réinventant le premier tiers de l'histoire originale avec des graphismes modernes et un système de combat hybride temps réel/stratégie.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/FINAL-FANTASY-VII-REMAKE-INTERGRADE-2789733.html",
+      "youtube_trailer_id": "G2CXcC3o4lo"
     },
     {
       "nom": "Isekai Rondo – Nintendo Switch 2 Edition",
@@ -2039,8 +2039,8 @@
       "id": 169,
       "metacritic": 85,
       "pitch_fr": "Aventure narrative des créateurs de jeux Telltale (studio AdHoc), où le joueur dirige une équipe de super-vilains reconvertis, avec choix qui influencent l'histoire.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/Dispatch-Nintendo-Switch-2-Edition-2991427.html",
+      "youtube_trailer_id": "LJt-4YgRAng"
     },
     {
       "nom": "Arcade Archives 2: Quester",
@@ -2171,8 +2171,8 @@
       "id": 180,
       "metacritic": 84,
       "pitch_fr": "Remake du septième épisode de Dragon Quest, RPG classique de Square Enix mêlant exploration de fragments de monde disparus et système de classes.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/DRAGON-QUEST-VII-Reimagined-2915159.html",
+      "youtube_trailer_id": "BSGQ3lg01EA"
     },
     {
       "nom": "Draw King",
@@ -2304,7 +2304,7 @@
       "metacritic": 76,
       "pitch_fr": "Nouvel épisode de la série Mario Tennis, mêlant tennis arcade accessible et coups spéciaux propres à chaque personnage de l'univers Mario.",
       "eshop_url": null,
-      "youtube_trailer_id": null
+      "youtube_trailer_id": "OV1gjqhHB2s"
     },
     {
       "nom": "Yakuza Kiwami 3 & Dark Ties",
@@ -2315,8 +2315,8 @@
       "id": 192,
       "metacritic": 77,
       "pitch_fr": "Remake dans le style « Kiwami » du troisième épisode de la saga Yakuza, avec combats modernisés ; le contenu Dark Ties ajoute une histoire annexe inédite.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Yakuza-Kiwami-3-Dark-Ties-2924805.html",
+      "youtube_trailer_id": "93DW9HLA8UI"
     },
     {
       "nom": "Reanimal",
@@ -2339,7 +2339,7 @@
       "id": 194,
       "metacritic": null,
       "pitch_fr": "Édition anniversaire de Braid, jeu de plateforme-puzzle pionnier basé sur la manipulation du temps, salué comme l'un des precurseurs du jeu indépendant moderne.",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/Braid-Anniversary-Edition-Nintendo-Switch-2-Edition-3028224.html",
       "youtube_trailer_id": null
     },
     {
@@ -2351,7 +2351,7 @@
       "id": 195,
       "metacritic": null,
       "pitch_fr": "Édition Switch 2 de la série de course arcade mobile Asphalt, avec courses nerveuses, voitures sous licence et cascades spectaculaires.",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/Asphalt-Legends-Nintendo-Switch-2-Edition-3029189.html",
       "youtube_trailer_id": null
     },
     {
@@ -2363,7 +2363,7 @@
       "id": 196,
       "metacritic": null,
       "pitch_fr": "Édition Switch 2 de Subnautica, jeu de survie et d'exploration sous-marine sur une planète océanique extraterrestre, réputé pour son ambiance oppressante.",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/Subnautica-Nintendo-Switch-2-Edition-3029193.html",
       "youtube_trailer_id": null
     },
     {
@@ -2435,7 +2435,7 @@
       "id": 202,
       "metacritic": 79,
       "pitch_fr": "Édition définitive et Switch 2 de Xenoblade Chronicles X, RPG en monde ouvert gigantesque mêlant exploration à pied et pilotage de méchas (Skells).",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/Xenoblade-Chronicles-X-Definitive-Edition-Nintendo-Switch-2-Edition-3026104.html",
       "youtube_trailer_id": null
     },
     {
@@ -2447,7 +2447,7 @@
       "id": 203,
       "metacritic": 80,
       "pitch_fr": "Édition anniversaire de Fallout 4, RPG en monde ouvert post-apocalyptique de Bethesda, incluant les extensions et contenus Creation Club.",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Fallout-4-Anniversary-Edition-3016467.html",
       "youtube_trailer_id": null
     },
     {
@@ -2555,8 +2555,8 @@
       "id": 212,
       "metacritic": 87,
       "pitch_fr": "Édition Gold du remake de Resident Evil 7: biohazard, survival-horror à la première personne qui a relancé la série dans le domaine de l'horreur pure. Inclut les extensions.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Resident-Evil-7-biohazard-Gold-Edition-2950806.html",
+      "youtube_trailer_id": "akQZ2CY-lto"
     },
     {
       "nom": "Resident Evil Requiem",
@@ -2579,8 +2579,8 @@
       "id": 214,
       "metacritic": 79,
       "pitch_fr": "Édition Gold du remake de Resident Evil Village, mêlant survival-horror et éléments d'action gothique dans un village d'Europe de l'Est peuplé de créatures.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Resident-Evil-Village-Gold-Edition-2950809.html",
+      "youtube_trailer_id": "akQZ2CY-lto"
     },
     {
       "nom": "Blue Prince",
@@ -2687,8 +2687,8 @@
       "id": 223,
       "metacritic": 89,
       "pitch_fr": "Spin-off Pokémon de simulation de vie/construction façon Animal Crossing, où le joueur façonne son propre village peuplé de Pokémon.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Pokemon-Pokopia-2915161.html",
+      "youtube_trailer_id": "-zpr21HzJ9Q"
     },
     {
       "nom": "Console Archives: Sonic Wings Special",
@@ -2759,8 +2759,8 @@
       "id": 229,
       "metacritic": 82,
       "pitch_fr": "Nouvel épisode dérivé de la série Monster Hunter, action-RPG de chasse aux créatures gigantesques avec artisanat d'armes et d'armures à partir de leurs dépouilles.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Monster-Hunter-Stories-3-Twisted-Reflection-2951637.html",
+      "youtube_trailer_id": "XszCdDNI-ls"
     },
     {
       "nom": "WWE 2K26",
@@ -2772,7 +2772,7 @@
       "metacritic": null,
       "pitch_fr": "Nouvel épisode annuel de la simulation de catch WWE 2K, avec roster mis à jour et modes carrière/création approfondis.",
       "eshop_url": null,
-      "youtube_trailer_id": null
+      "youtube_trailer_id": "6W6aMWj0wKg"
     },
     {
       "nom": "Royal Revolt Survivors",
@@ -2939,7 +2939,7 @@
       "id": 244,
       "metacritic": null,
       "pitch_fr": "Édition Switch 2 de Disney Dreamlight Valley, jeu de vie et d'aventure où le joueur restaure une vallée peuplée de personnages Disney et Pixar.",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/Disney-Dreamlight-Valley-Nintendo-Switch-2-Edition-3059211.html",
       "youtube_trailer_id": null
     },
     {
@@ -2951,7 +2951,7 @@
       "id": 245,
       "metacritic": null,
       "pitch_fr": "Édition Switch 2 de Tales of the Shire, jeu de vie situé dans la Comté du Seigneur des Anneaux, mêlant cuisine, jardinage et vie tranquille de Hobbit.",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/Tales-of-the-Shire-A-The-Lord-of-The-Rings-Game-Nintendo-Switch-2-Edition-3054164.html",
       "youtube_trailer_id": null
     },
     {
@@ -3012,7 +3012,7 @@
       "metacritic": 85,
       "pitch_fr": "Édition Switch 2 de Super Mario Bros. Wonder, plateforme 2D introduisant les « Fleurs Merveille » qui transforment radicalement chaque niveau. Inclut l'extension Meetup in Bellabel Park.",
       "eshop_url": null,
-      "youtube_trailer_id": null
+      "youtube_trailer_id": "d03kU7uoALs"
     },
     {
       "nom": "The Midnight Walk",
@@ -3287,8 +3287,8 @@
       "id": 273,
       "metacritic": 89,
       "pitch_fr": "Jeu d'action-aventure de science-fiction de Capcom mêlant tir à la première/troisième personne et résolution d'énigmes avec un compagnon robotique.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/PRAGMATA-2987033.html",
+      "youtube_trailer_id": "0dlHZUm0iU4"
     },
     {
       "nom": "Alien: Rogue Incursion Evolved Edition",
@@ -3792,7 +3792,7 @@
       "metacritic": 79,
       "pitch_fr": "Édition étendue de Tales of Arise, RPG d'action japonais mêlant combats dynamiques en temps réel et récit sur la libération d'un peuple opprimé.",
       "eshop_url": null,
-      "youtube_trailer_id": null
+      "youtube_trailer_id": "wctcaw1oHGE"
     },
     {
       "nom": "Amanda the Adventurer 3",
@@ -3863,7 +3863,7 @@
       "id": 321,
       "metacritic": null,
       "pitch_fr": "Remake de Lollipop Chainsaw, jeu d'action déjanté où une cheerleader chasseuse de zombies combat des hordes de morts-vivants à la tronçonneuse, sur fond d'humour pop culture.",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/LOLLIPOP-CHAINSAW-RePOP-Nintendo-Switch-2-Edition-3092763.html",
       "youtube_trailer_id": null
     },
     {
@@ -4151,7 +4151,7 @@
       "id": 345,
       "metacritic": 86,
       "pitch_fr": "Édition Switch 2 du RPG en monde ouvert Xenoblade Chronicles: Definitive Edition, remaster du tout premier épisode de la saga sur les dos de deux titans figés.",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/Xenoblade-Chronicles-Definitive-Edition-Nintendo-Switch-2-Edition-3116045.html",
       "youtube_trailer_id": null
     },
     {
@@ -4343,8 +4343,8 @@
       "id": 361,
       "metacritic": null,
       "pitch_fr": "Retour de la série culte Destroy All Humans!, où un extraterrestre sème le chaos dans l'Amérique des années 1950 avec des armes délirantes et des pouvoirs psychiques.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Destroy-All-Humans--3127148.html",
+      "youtube_trailer_id": "8QMu0agByoo"
     },
     {
       "nom": "Devil May Cry 5 Devil Hunter Edition",
@@ -4368,7 +4368,7 @@
       "metacritic": 57,
       "pitch_fr": "Édition définitive de Sonic Frontiers, premier jeu Sonic en monde ouvert, mêlant exploration d'îles mystérieuses et combats de boss spectaculaires.",
       "eshop_url": null,
-      "youtube_trailer_id": null
+      "youtube_trailer_id": "FlkkchmzVrA"
     },
     {
       "nom": "Wanderstop",
@@ -4451,7 +4451,7 @@
       "id": 370,
       "metacritic": null,
       "pitch_fr": "Édition Switch 2 de Citizen Sleeper, jeu de rôle narratif où un « sleeper » (esprit humain dans un corps artificiel) tente de survivre sur une station spatiale décrépite, entre choix aux dés et récit à embranchements.",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/Citizen-Sleeper-Nintendo-Switch-2-Edition-3116427.html",
       "youtube_trailer_id": null
     },
     {
@@ -4691,8 +4691,8 @@
       "id": 390,
       "metacritic": 80,
       "pitch_fr": "RPG d'aventure Digimon situé dans un futur cyberpunk, mêlant enquête, collection de Digimon et combats au tour par tour.",
-      "eshop_url": null,
-      "youtube_trailer_id": null
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/Digimon-Story-Time-Stranger-3016718.html",
+      "youtube_trailer_id": "YC5Yk6EWyQg"
     },
     {
       "nom": "Octopath Traveler",
@@ -4716,7 +4716,7 @@
       "metacritic": null,
       "pitch_fr": "Suite d'Octopath Traveler, RPG HD-2D introduisant un système jour/nuit et de nouveaux voyageurs aux histoires indépendantes.",
       "eshop_url": null,
-      "youtube_trailer_id": null
+      "youtube_trailer_id": "CbWT5KUr3FU"
     },
     {
       "nom": "D-topia",
@@ -5051,7 +5051,7 @@
       "id": 420,
       "metacritic": null,
       "pitch_fr": "Édition Switch 2 de Soma, jeu d'horreur narratif de science-fiction interrogeant la conscience et l'identité au fond d'une station sous-marine en déliquescence.",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-a-telecharger-sur-Nintendo-Switch/SOMA-Nintendo-Switch-2-Edition-3146678.html",
       "youtube_trailer_id": null
     },
     {
@@ -5267,7 +5267,7 @@
       "id": 438,
       "metacritic": 84,
       "pitch_fr": "Édition Switch 2 de Xenoblade Chronicles 2, RPG en monde ouvert mêlant exploration de Titans géants et système de combat basé sur les Lames (Blades), compagnons aux pouvoirs uniques.",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Nintendo-Switch-2-Edition/Xenoblade-Chronicles-2-Nintendo-Switch-2-Edition-3116254.html",
       "youtube_trailer_id": null
     },
     {
@@ -5423,7 +5423,7 @@
       "id": 451,
       "metacritic": 78,
       "pitch_fr": "Remaster de The Elder Scrolls IV: Oblivion, RPG en monde ouvert culte de Bethesda revisité avec des graphismes modernisés tout en conservant le gameplay original.",
-      "eshop_url": null,
+      "eshop_url": "https://www.nintendo.com/fr-fr/Jeux/Jeux-Nintendo-Switch-2/The-Elder-Scrolls-IV-Oblivion-Remastered-3131244.html",
       "youtube_trailer_id": "MCsctmDbbBo"
     },
     {
