@@ -14,6 +14,38 @@ const EDITION_DESC = {
   Numerique: "Ce jeu n'a pas d'édition physique, disponible uniquement sur l'eShop.",
 };
 
+function escapeHtml(value) {
+  if (value === null || value === undefined) return "";
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+// Only accept exact Nintendo eShop product pages — never render an
+// unrecognized scheme/host (e.g. javascript:) as a clickable link.
+function safeEshopUrl(url) {
+  if (!url) return null;
+  try {
+    const parsed = new URL(url);
+    if (parsed.protocol === "https:" && parsed.hostname === "www.nintendo.com") {
+      return parsed.href;
+    }
+  } catch (e) {
+    // fall through
+  }
+  return null;
+}
+
+// YouTube video IDs are always exactly 11 URL-safe characters — reject
+// anything else instead of interpolating it into the iframe src.
+function safeYoutubeId(id) {
+  if (typeof id === "string" && /^[A-Za-z0-9_-]{11}$/.test(id)) return id;
+  return null;
+}
+
 function formatDate(d) {
   if (!d || !/^\d{4}-\d{2}-\d{2}$/.test(d)) return d || "Date inconnue";
   const [y, m, day] = d.split("-");
@@ -45,22 +77,29 @@ function render() {
     return;
   }
 
+  const nom = escapeHtml(game.nom);
   document.getElementById("page-title").textContent = `${game.nom} — Is My Game A GKC ?`;
+  document.getElementById("page-description").setAttribute(
+    "content",
+    game.pitch_fr || `Fiche jeu ${game.nom} sur Nintendo Switch 2 : édition physique, date de sortie, score Metacritic.`
+  );
 
   const cls = "badge-" + game.edition_physique.toLowerCase();
 
-  const eshopLink = game.eshop_url
-    ? `<a class="eshop-link" href="${game.eshop_url}" target="_blank" rel="noopener noreferrer">Voir sur le Nintendo eShop &rarr;</a>`
+  const eshopUrl = safeEshopUrl(game.eshop_url);
+  const eshopLink = eshopUrl
+    ? `<a class="eshop-link" href="${escapeHtml(eshopUrl)}" target="_blank" rel="noopener noreferrer">Voir sur le Nintendo eShop &rarr;</a>`
     : "";
 
-  const trailerSection = game.youtube_trailer_id
+  const trailerId = safeYoutubeId(game.youtube_trailer_id);
+  const trailerSection = trailerId
     ? `
     <section class="detail-block">
       <h2>Bande-annonce</h2>
       <div class="video-wrapper">
         <iframe
-          src="https://www.youtube-nocookie.com/embed/${game.youtube_trailer_id}"
-          title="Bande-annonce officielle — ${game.nom}"
+          src="https://www.youtube-nocookie.com/embed/${trailerId}"
+          title="Bande-annonce officielle — ${nom}"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin"
@@ -70,8 +109,12 @@ function render() {
     </section>`
     : "";
 
+  const editeur = escapeHtml(game.editeur) || "—";
+  const code = escapeHtml(game.code) || "—";
+  const pitch = escapeHtml(game.pitch_fr) || "Synopsis non disponible pour ce jeu.";
+
   container.innerHTML = `
-    <h1>${game.nom}</h1>
+    <h1>${nom}</h1>
     <div class="detail-meta">
       <span class="badge ${cls}">${EDITION_LABELS[game.edition_physique] || game.edition_physique}</span>
       ${metacriticBadge(game.metacritic)}
@@ -80,7 +123,7 @@ function render() {
 
     <section class="detail-block">
       <h2>Pitch</h2>
-      <p>${game.pitch_fr || "Synopsis non disponible pour ce jeu."}</p>
+      <p>${pitch}</p>
     </section>
 
     <section class="detail-block">
@@ -90,13 +133,13 @@ function render() {
         <dd>${formatDate(game.date_sortie)}</dd>
 
         <dt>Éditeur</dt>
-        <dd>${game.editeur || "—"}</dd>
+        <dd>${editeur}</dd>
 
         <dt>Édition physique</dt>
         <dd>${EDITION_LABELS[game.edition_physique] || game.edition_physique} — ${EDITION_DESC[game.edition_physique] || ""}</dd>
 
         <dt>Code EAN</dt>
-        <dd>${game.code || "—"}</dd>
+        <dd>${code}</dd>
 
         <dt>Score Metacritic</dt>
         <dd>${game.metacritic !== null && game.metacritic !== undefined ? game.metacritic + " / 100" : "NA"}</dd>

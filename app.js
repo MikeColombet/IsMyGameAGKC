@@ -11,7 +11,18 @@ const state = {
   sortDir: 1,
   search: "",
   edition: "",
+  physicalOnly: false,
 };
+
+function escapeHtml(value) {
+  if (value === null || value === undefined) return "";
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
 
 function formatDate(d) {
   if (!d || !/^\d{4}-\d{2}-\d{2}$/.test(d)) return d || "—";
@@ -40,6 +51,9 @@ function render() {
 
   let games = GAMES_DATA.jeux.slice();
 
+  if (state.physicalOnly) {
+    games = games.filter((g) => g.edition_physique !== "Numerique");
+  }
   if (state.edition) {
     games = games.filter((g) => g.edition_physique === state.edition);
   }
@@ -61,21 +75,45 @@ function render() {
   });
 
   tbody.innerHTML = games
-    .map(
-      (g) => `
+    .map((g) => {
+      const nom = escapeHtml(g.nom);
+      const editeur = escapeHtml(g.editeur) || "—";
+      const code = escapeHtml(g.code) || "—";
+      return `
     <tr>
-      <td><a class="game-link" href="jeu.html?id=${g.id}">${g.nom}</a></td>
-      <td>${formatDate(g.date_sortie)}</td>
-      <td>${badge(g.edition_physique)}</td>
-      <td class="cell-editeur">${g.editeur || "—"}</td>
-      <td class="cell-code">${g.code || "—"}</td>
-      <td class="cell-metacritic">${metacriticBadge(g.metacritic)}</td>
-    </tr>`
-    )
+      <td data-label="Jeu"><a class="game-link" href="jeu.html?id=${g.id}">${nom}</a></td>
+      <td data-label="Date de sortie">${formatDate(g.date_sortie)}</td>
+      <td data-label="Édition physique">${badge(g.edition_physique)}</td>
+      <td class="cell-editeur" data-label="Éditeur">${editeur}</td>
+      <td class="cell-code" data-label="EAN">${code}</td>
+      <td class="cell-metacritic" data-label="Metacritic">${metacriticBadge(g.metacritic)}</td>
+    </tr>`;
+    })
     .join("");
 
   countEl.textContent = `${games.length} / ${GAMES_DATA.jeux.length} jeux`;
+  updateSortIndicators();
 }
+
+function updateSortIndicators() {
+  document.querySelectorAll("th[data-key]").forEach((th) => {
+    th.classList.remove("sort-asc", "sort-desc");
+    if (th.dataset.key === state.sortKey) {
+      th.classList.add(state.sortDir === 1 ? "sort-asc" : "sort-desc");
+    }
+  });
+}
+
+function syncStickyOffset() {
+  const controls = document.querySelector(".controls");
+  if (!controls) return;
+  document.documentElement.style.setProperty(
+    "--sticky-offset",
+    controls.getBoundingClientRect().height + "px"
+  );
+}
+
+window.addEventListener("resize", syncStickyOffset);
 
 function renderMeta() {
   const m = GAMES_DATA.meta;
@@ -95,6 +133,11 @@ document.getElementById("filter-edition").addEventListener("change", (e) => {
   render();
 });
 
+document.getElementById("filter-physical").addEventListener("change", (e) => {
+  state.physicalOnly = e.target.checked;
+  render();
+});
+
 document.querySelectorAll("th[data-key]").forEach((th) => {
   th.addEventListener("click", () => {
     const key = th.dataset.key;
@@ -110,3 +153,4 @@ document.querySelectorAll("th[data-key]").forEach((th) => {
 
 renderMeta();
 render();
+syncStickyOffset();

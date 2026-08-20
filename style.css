@@ -62,12 +62,34 @@ h1 {
 .badge-numerique { background: #555b66; }
 
 .controls {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--bg);
   max-width: 1100px;
-  margin: 1.2rem auto;
+  margin: 0 auto;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--border);
   display: flex;
   gap: 0.75rem;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.checkbox-label input {
+  accent-color: var(--accent);
+  cursor: pointer;
 }
 
 #search {
@@ -100,11 +122,11 @@ table {
   max-width: 1100px;
   margin: 0 auto;
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: 8px;
-  overflow: hidden;
 }
 
 th, td {
@@ -122,11 +144,14 @@ th {
   letter-spacing: 0.04em;
   user-select: none;
   position: sticky;
-  top: 0;
+  top: var(--sticky-offset, 60px);
   background: var(--panel);
 }
 
 th:hover { color: var(--text); }
+
+th.sort-asc::after { content: " \25B2"; }
+th.sort-desc::after { content: " \25BC"; }
 
 tbody tr:hover {
   background: rgba(255,255,255,0.03);
@@ -171,7 +196,53 @@ footer {
 }
 
 @media (max-width: 700px) {
-  .cell-editeur, th[data-key="editeur"] { display: none; }
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    padding: 0.3rem 0.9rem;
+    background: var(--panel);
+  }
+
+  td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+    text-align: right;
+  }
+
+  td:last-child { border-bottom: none; }
+
+  td::before {
+    content: attr(data-label);
+    color: var(--text-dim);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+    text-align: left;
+  }
+
+  td[data-label="Jeu"] {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  td[data-label="Jeu"]::before {
+    margin-bottom: 0.2rem;
+  }
 }
 
 .back-link {
