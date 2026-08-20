@@ -24,6 +24,16 @@ function badge(edition) {
   return `<span class="badge ${cls}">${EDITION_LABELS[edition] || edition}</span>`;
 }
 
+function metacriticBadge(score) {
+  if (score === null || score === undefined) {
+    return `<span class="mc-score mc-na">NA</span>`;
+  }
+  let cls = "mc-mixed";
+  if (score >= 75) cls = "mc-good";
+  else if (score < 50) cls = "mc-bad";
+  return `<span class="mc-score ${cls}">${score}</span>`;
+}
+
 function render() {
   const tbody = document.getElementById("games-body");
   const countEl = document.getElementById("result-count");
@@ -54,11 +64,12 @@ function render() {
     .map(
       (g) => `
     <tr>
-      <td>${g.nom}</td>
+      <td><a class="game-link" href="jeu.html?id=${g.id}">${g.nom}</a></td>
       <td>${formatDate(g.date_sortie)}</td>
       <td>${badge(g.edition_physique)}</td>
       <td class="cell-editeur">${g.editeur || "—"}</td>
       <td class="cell-code">${g.code || "—"}</td>
+      <td class="cell-metacritic">${metacriticBadge(g.metacritic)}</td>
     </tr>`
     )
     .join("");

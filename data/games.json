@@ -10,7 +10,8 @@
     ],
     "methodologie_edition_physique": "Le champ edition_physique donne priorite au libelle 'Nintendo Switch 2 Edition' present dans le titre (portage/upgrade physique ou numerique d'un jeu Switch 1) -> categorie NS2E, meme si le support physique sous-jacent est une cartouche complete, une Game-Key Card ou un Code-in-a-Box. Pour les autres jeux, la classification GKC / CIAB / Complet provient du croisement des deux sources communautaires citees. Tout jeu ne figurant dans aucune des listes physiques consultees est classe par defaut 'Numerique' (aucune edition physique identifiee) : cette hypothese est fiable pour les jeux AAA/mid-size mais peut comporter des erreurs pour de petits titres indes dont la sortie physique (souvent via des editeurs specialises type Limited Run Games) n'aurait pas ete recensee par ces sources.",
     "niveau_de_confiance": "Eleve pour les dates de sortie et les noms de jeux (source Wikipedia, tres suivie et sourcee). Bon pour la classification GKC/CIAB/Complet/NS2E des jeux a gros/moyen budget (croisement de 2 sources dediees + verification manuelle des ecarts). Le catalogue numerique pur (jeux eShop uniquement, notamment tres petits titres indes recents) est probablement incomplet : Wikipedia liste en priorite les jeux suffisamment notables/sources, et il manque tres certainement des sorties eShop mineures non couvertes par un article de presse. Le champ 'code' (identifiant produit) n'a pas ete renseigne (null) pour l'ensemble des jeux : cette recherche taille par taille n'a pas ete faite faute de source unique fiable couvrant les 464 titres.",
-    "methodologie_code": "Le champ 'code' contient le code-barres EAN-13 du produit physique, quand trouvable, et non un code Nintendo interne (les codes internes BEE-P-xxxxx / POT-P-xxxxx / NXS-P-xxxxx existent mais ne sont documentes en masse par aucune source publique fiable a ce jour). Source : catalogue du comparateur de prix consollection.com (endpoint /ajax.moteur-jeux.php, 245 fiches produit Switch 2 avec EAN recuperees), rapproche des titres de games.json par correspondance de texte (ratio de similarite + recoupement de tokens, avec verification manuelle des cas ambigus et des doublons de suite numerotee, ex: distinguer 'WWE 2K25' de 'WWE 2K26'). 109 jeux physiques sur 215 ont un code EAN renseigne ; les autres (edition_physique != 'Numerique') restent a null, soit parce que le titre est absent du catalogue consulte (frequent pour les Nintendo Switch 2 Edition qui sont des mises a jour gratuites/patchs sans SKU physique dedie), soit par prudence en cas de correspondance ambigue entre plusieurs editions du meme jeu (ex: Resident Evil Village Gold Edition vs un pack groupe)."
+    "methodologie_code": "Le champ 'code' contient le code-barres EAN-13 du produit physique, quand trouvable, et non un code Nintendo interne (les codes internes BEE-P-xxxxx / POT-P-xxxxx / NXS-P-xxxxx existent mais ne sont documentes en masse par aucune source publique fiable a ce jour). Source : catalogue du comparateur de prix consollection.com (endpoint /ajax.moteur-jeux.php, 245 fiches produit Switch 2 avec EAN recuperees), rapproche des titres de games.json par correspondance de texte (ratio de similarite + recoupement de tokens, avec verification manuelle des cas ambigus et des doublons de suite numerotee, ex: distinguer 'WWE 2K25' de 'WWE 2K26'). 109 jeux physiques sur 215 ont un code EAN renseigne ; les autres (edition_physique != 'Numerique') restent a null, soit parce que le titre est absent du catalogue consulte (frequent pour les Nintendo Switch 2 Edition qui sont des mises a jour gratuites/patchs sans SKU physique dedie), soit par prudence en cas de correspondance ambigue entre plusieurs editions du meme jeu (ex: Resident Evil Village Gold Edition vs un pack groupe).",
+    "methodologie_enrichissement": "Score Metacritic : recupere en bloc depuis les pages de classement metacritic.com/browse/game/nintendo-switch-2/ (153 jeux notes au total sur la plateforme au 18/08/2026, avec au moins 7 critiques), puis rapproches des titres de ce catalogue par correspondance de nom (rapprochements manuels pour les bundles/editions, ex: la note du pack \"Atelier Ryza Secret Trilogy Deluxe Pack\" a ete appliquee aux 3 remasters DX individuels). 138/464 jeux ont un score (101/215 jeux physiques) ; les jeux sans score sont soit trop recents/confidentiels pour avoir 7 critiques, soit non notes du tout (indes eShop). Champ laisse a null plutot que d'invente, affiche \"NA\" sur le site.\nPitch en francais (pitch_fr) : redige a partir des connaissances generales du modele sur ces licences/jeux (portages, remasters et suites de titres deja connus pour la grande majorite du catalogue), sans recherche web systematique. 226/464 jeux ont un pitch (174/215 jeux physiques, priorite donnee au catalogue physique). Les jeux restants (petits titres eShop tres confidentiels, sorties japonaises tres niche, licences obscures) sont laisses a null plutot que de risquer un resume invente ; le site affiche alors \"Synopsis non disponible\"."
   },
   "jeux": [
     {
@@ -18,3248 +19,4640 @@
       "date_sortie": "2025-06-05",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 1,
+      "metacritic": null,
+      "pitch_fr": "Portage arcade du classique de course de Namco Ridge Racer, avec ses dérapages emblématiques et son ambiance eurobeat, dans la collection Arcade Archives 2 d'Hamster qui restitue fidèlement les bornes d'origine."
     },
     {
       "nom": "Bravely Default: Flying Fairy HD Remaster",
       "date_sortie": "2025-06-05",
       "edition_physique": "GKC",
       "code": "0045496312510",
-      "editeur": "Square Enix"
+      "editeur": "Square Enix",
+      "id": 2,
+      "metacritic": 84,
+      "pitch_fr": "Remaster HD du J-RPG culte de Square Enix, mêlant combats au tour par tour et système de jobs hérité de Final Fantasy. Suit quatre héros partis rallumer les cristaux élémentaires d'un monde en péril."
     },
     {
       "nom": "Cyberpunk 2077: Ultimate Edition",
       "date_sortie": "2025-06-05",
       "edition_physique": "Complet",
       "code": "5902367642495",
-      "editeur": "CD Projekt"
+      "editeur": "CD Projekt",
+      "id": 3,
+      "metacritic": 85,
+      "pitch_fr": "RPG en monde ouvert de CD Projekt Red qui plonge le joueur dans Night City, mégalopole futuriste rongée par la violence et les implants cybernétiques. Cette édition Ultimate regroupe le jeu de base et l'extension Phantom Liberty."
     },
     {
       "nom": "Deltarune",
       "date_sortie": "2025-06-05",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "8-4"
+      "editeur": "8-4",
+      "id": 4,
+      "metacritic": 86,
+      "pitch_fr": "RPG narratif de Toby Fox (créateur d'Undertale), qui suit Kris et ses compagnons dans un monde parallèle peuplé de personnages attachants. Mélange combats tactiques, humour noir et bande-son mémorable."
     },
     {
       "nom": "Fantasy Life i: The Girl Who Steals Time – Nintendo Switch 2 Edition",
       "date_sortie": "2025-06-05",
       "edition_physique": "NS2E",
       "code": "4571237661303",
-      "editeur": "Level-5"
+      "editeur": "Level-5",
+      "id": 5,
+      "metacritic": null,
+      "pitch_fr": "RPG de Level-5 mêlant vie simulée et aventure : le joueur choisit une « vie » (forgeron, chef, mage...) pour explorer un monde ouvert coloré. Cette édition Switch 2 profite d'améliorations graphiques et de performance."
     },
     {
       "nom": "Fast Fusion",
       "date_sortie": "2025-06-05",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Shin'en Multimedia"
+      "editeur": "Shin'en Multimedia",
+      "id": 6,
+      "metacritic": 80,
+      "pitch_fr": "Jeu de course futuriste ultra-rapide de Shin'en Multimedia, dans la lignée de la série Fast RMX/Fast Racing : circuits antigravité, vitesse vertigineuse et réalisation technique soignée."
     },
     {
       "nom": "Fortnite",
       "date_sortie": "2025-06-05",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Epic Games"
+      "editeur": "Epic Games",
+      "id": 7,
+      "metacritic": null,
+      "pitch_fr": "Battle royale phénomène d'Epic Games mêlant construction, tir et événements culturels en direct. Gratuit, il évolue en permanence au fil de saisons thématiques."
     },
     {
       "nom": "Hitman: World of Assassination – Signature Edition",
       "date_sortie": "2025-06-05",
       "edition_physique": "GKC",
       "code": "0884095223342",
-      "editeur": "IO Interactive"
+      "editeur": "IO Interactive",
+      "id": 8,
+      "metacritic": 77,
+      "pitch_fr": "Trilogie Hitman réunie (World of Assassination) suivant l'Agent 47 dans des niveaux bac à sable où chaque cible peut être éliminée d'une multitude de façons. L'édition Signature inclut la majorité des contenus additionnels."
     },
     {
       "nom": "Hogwarts Legacy",
       "date_sortie": "2025-06-05",
       "edition_physique": "GKC",
       "code": "5051889748533",
-      "editeur": "Warner Bros. Games"
+      "editeur": "Warner Bros. Games",
+      "id": 9,
+      "metacritic": 82,
+      "pitch_fr": "Action-RPG en monde ouvert se déroulant dans l'univers de Harry Potter au 19e siècle. Le joueur incarne un·e élève de Poudlard qui explore le château, apprend des sortilèges et perce le mystère d'une magie ancienne."
     },
     {
       "nom": "Kunitsu-Gami: Path of the Goddess",
       "date_sortie": "2025-06-05",
       "edition_physique": "GKC",
       "code": null,
-      "editeur": "Capcom"
+      "editeur": "Capcom",
+      "id": 10,
+      "metacritic": 80,
+      "pitch_fr": "Jeu d'action et de tower-defense de Capcom mêlant combats au sabre le jour et défense d'un village contre des hordes démoniaques la nuit, dans une esthétique inspirée du folklore japonais."
     },
     {
       "nom": "Mario Kart World",
       "date_sortie": "2025-06-05",
       "edition_physique": "Complet",
       "code": "4255839710972",
-      "editeur": "Nintendo"
+      "editeur": "Nintendo",
+      "id": 11,
+      "metacritic": 86,
+      "pitch_fr": "Nouvel épisode de la série Mario Kart et jeu de lancement de la Switch 2, introduisant un monde ouvert connecté reliant tous les circuits. Course, exploration libre et multijoueur jusqu'à 24 joueurs."
     },
     {
       "nom": "Nintendo Switch 2 Welcome Tour",
       "date_sortie": "2025-06-05",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Nintendo"
+      "editeur": "Nintendo",
+      "id": 12,
+      "metacritic": 54,
+      "pitch_fr": "Visite guidée interactive présentant les fonctionnalités de la console Switch 2 sous forme de mini-jeux : Joy-Con 2, souris, écran, retour haptique."
     },
     {
       "nom": "No Man's Sky – Nintendo Switch 2 Edition",
       "date_sortie": "2025-06-05",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Hello Games"
+      "editeur": "Hello Games",
+      "id": 13,
+      "metacritic": null,
+      "pitch_fr": "Jeu d'exploration spatiale procédurale de Hello Games, offrant un univers quasi infini à explorer, avec construction de bases, vaisseaux et vie sauvage générée algorithmiquement. Cette édition Switch 2 tire parti de la puissance accrue de la console."
     },
     {
       "nom": "Nobunaga's Ambition: Awakening Complete Edition",
       "date_sortie": "2025-06-05",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Koei Tecmo"
+      "editeur": "Koei Tecmo",
+      "id": 14,
+      "metacritic": 76,
+      "pitch_fr": "Jeu de stratégie historique de Koei Tecmo où le joueur incarne un seigneur de la période Sengoku cherchant à unifier le Japon par la diplomatie, l'économie et la guerre."
     },
     {
       "nom": "Puyo Puyo Tetris 2S",
       "date_sortie": "2025-06-05",
       "edition_physique": "GKC",
       "code": null,
-      "editeur": "Sega"
+      "editeur": "Sega",
+      "id": 15,
+      "metacritic": 73,
+      "pitch_fr": "Croisement entre Puyo Puyo et Tetris signé Sega, combinant les deux mécaniques de puzzle emblématiques dans des modes solo et multijoueur endiablés."
     },
     {
       "nom": "Rune Factory: Guardians of Azuma – Nintendo Switch 2 Edition",
       "date_sortie": "2025-06-05",
       "edition_physique": "NS2E",
       "code": "5060540773104",
-      "editeur": "Marvelous"
+      "editeur": "Marvelous",
+      "id": 16,
+      "metacritic": 81,
+      "pitch_fr": "RPG de simulation de vie mêlant agriculture, combats et romance, situé dans un cadre inspiré du folklore japonais. Cette édition Switch 2 profite d'améliorations techniques."
     },
     {
       "nom": "Shine Post: Be Your Idol!",
       "date_sortie": "2025-06-05",
       "edition_physique": "GKC",
       "code": null,
-      "editeur": "Konami"
+      "editeur": "Konami",
+      "id": 17,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Sid Meier's Civilization VII – Nintendo Switch 2 Edition",
       "date_sortie": "2025-06-05",
       "edition_physique": "NS2E",
       "code": "5026555072069",
-      "editeur": "2K"
+      "editeur": "2K",
+      "id": 18,
+      "metacritic": null,
+      "pitch_fr": "Nouvel opus de la célèbre série de stratégie au tour par tour où le joueur guide une civilisation à travers les âges, de l'Antiquité à l'ère moderne, en gérant diplomatie, science et culture."
     },
     {
       "nom": "Sonic X Shadow Generations",
       "date_sortie": "2025-06-05",
       "edition_physique": "GKC",
       "code": "5055277055869",
-      "editeur": "Sega"
+      "editeur": "Sega",
+      "id": 19,
+      "metacritic": 79,
+      "pitch_fr": "Remaster de Sonic Generations enrichi d'une campagne inédite centrée sur Shadow the Hedgehog, mêlant niveaux 2D classiques et 3D modernes."
     },
     {
       "nom": "Split Fiction",
       "date_sortie": "2025-06-05",
       "edition_physique": "CIAB",
       "code": "5035226125416",
-      "editeur": "Electronic Arts"
+      "editeur": "Electronic Arts",
+      "id": 20,
+      "metacritic": 88,
+      "pitch_fr": "Jeu d'action-aventure coopératif d'Hazelight Studios (It Takes Two), où deux autrices de science-fiction et de fantasy se retrouvent piégées dans leurs propres histoires. Uniquement jouable à deux, en écran partagé ou en ligne."
     },
     {
       "nom": "Street Fighter 6",
       "date_sortie": "2025-06-05",
       "edition_physique": "GKC",
       "code": null,
-      "editeur": "Capcom"
+      "editeur": "Capcom",
+      "id": 21,
+      "metacritic": 87,
+      "pitch_fr": "Nouvel épisode de la série de combat culte de Capcom, avec un mode World Tour narratif, un online robuste et un roster varié de combattants."
     },
     {
       "nom": "Suikoden I & II HD Remaster: Gate Rune and Dunan Unification Wars",
       "date_sortie": "2025-06-05",
       "edition_physique": "GKC",
       "code": null,
-      "editeur": "Konami"
+      "editeur": "Konami",
+      "id": 22,
+      "metacritic": null,
+      "pitch_fr": "Remaster HD des deux premiers épisodes du RPG culte Suikoden, connu pour son système des 108 étoiles du destin et ses intrigues politiques épiques."
     },
     {
       "nom": "Survival Kids",
       "date_sortie": "2025-06-05",
       "edition_physique": "GKC",
       "code": "4012927077627",
-      "editeur": "Konami"
+      "editeur": "Konami",
+      "id": 23,
+      "metacritic": 62,
+      "pitch_fr": "Jeu d'aventure et de survie coopératif de Konami : retour de la licence culte où des enfants naufragés doivent explorer une île, fabriquer des outils et survivre ensemble."
     },
     {
       "nom": "The Legend of Zelda: Breath of the Wild – Nintendo Switch 2 Edition",
       "date_sortie": "2025-06-05",
       "edition_physique": "NS2E",
       "code": "0045496312671",
-      "editeur": "Nintendo"
+      "editeur": "Nintendo",
+      "id": 24,
+      "metacritic": 94,
+      "pitch_fr": "Édition Switch 2 de Breath of the Wild, qui a révolutionné la formule Zelda avec un monde ouvert où presque tout est possible : escalade libre, physique émergente et exploration sans limites."
     },
     {
       "nom": "The Legend of Zelda: Tears of the Kingdom – Nintendo Switch 2 Edition",
       "date_sortie": "2025-06-05",
       "edition_physique": "NS2E",
       "code": "0045496312589",
-      "editeur": "Nintendo"
+      "editeur": "Nintendo",
+      "id": 25,
+      "metacritic": 95,
+      "pitch_fr": "Édition Switch 2 de Tears of the Kingdom, suite directe de Breath of the Wild ajoutant la fusion d'objets, la construction de véhicules et l'exploration verticale (îles célestes, profondeurs)."
     },
     {
       "nom": "Yakuza 0 Director's Cut",
       "date_sortie": "2025-06-05",
       "edition_physique": "GKC",
       "code": "5055277055944",
-      "editeur": "Sega"
+      "editeur": "Sega",
+      "id": 26,
+      "metacritic": 85,
+      "pitch_fr": "Préquelle de la série Yakuza plongeant dans le Japon des années 80, entre drame criminel et mini-jeux loufoques. Cette version Director's Cut ajoute du contenu inédit."
     },
     {
       "nom": "Raidou Remastered: The Mystery of the Soulless Army",
       "date_sortie": "2025-06-19",
       "edition_physique": "GKC",
       "code": "5055277056002",
-      "editeur": "Atlus, Sega"
+      "editeur": "Atlus, Sega",
+      "id": 27,
+      "metacritic": 76,
+      "pitch_fr": "Remaster du RPG d'action Atlus Raidou Kuzunoha vs. the Soulless Army, mêlant enquête surnaturelle dans le Tokyo des années 1920 et invocation de démons."
     },
     {
       "nom": "Tamagotchi Plaza Nintendo Switch 2 Edition",
       "date_sortie": "2025-06-26",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Bandai Namco Entertainment"
+      "editeur": "Bandai Namco Entertainment",
+      "id": 28,
+      "metacritic": 43,
+      "pitch_fr": "Jeu de simulation de vie reprenant l'univers Tamagotchi, où le joueur élève des créatures virtuelles et anime une place commerçante."
     },
     {
       "nom": "Arcade Archives 2: Air Combat 22",
       "date_sortie": "2025-07-03",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 29,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Tony Hawk's Pro Skater 3 + 4",
       "date_sortie": "2025-07-11",
       "edition_physique": "CIAB",
       "code": "0196388600571",
-      "editeur": "Activision"
+      "editeur": "Activision",
+      "id": 30,
+      "metacritic": 85,
+      "pitch_fr": "Compilation remasterisée de deux jeux de skate culte d'Activision, avec ses niveaux emblématiques, sa bande-son punk/rock et son gameplay de combos technique."
     },
     {
       "nom": "Donkey Kong Bananza",
       "date_sortie": "2025-07-17",
       "edition_physique": "Complet",
       "code": "4255839710996",
-      "editeur": "Nintendo"
+      "editeur": "Nintendo",
+      "id": 31,
+      "metacritic": 91,
+      "pitch_fr": "Nouvelle aventure 3D de Donkey Kong, avec un monde entièrement destructible et une nouvelle transformation façon Kong-Zilla. Jeu vedette de l'été 2025 sur Switch 2."
     },
     {
       "nom": "Shadow Labyrinth – Nintendo Switch 2 Edition",
       "date_sortie": "2025-07-18",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Bandai Namco Entertainment"
+      "editeur": "Bandai Namco Entertainment",
+      "id": 32,
+      "metacritic": 65,
+      "pitch_fr": "Jeu d'action à la Pac-Man mâtiné de plateforme cyberpunk, tiré de la série animée Shadow Labyrinth diffusée sur Cartoon Network/Adult Swim."
     },
     {
       "nom": "WWE 2K25",
       "date_sortie": "2025-07-23",
       "edition_physique": "CIAB",
       "code": "5026555072144",
-      "editeur": "2K"
+      "editeur": "2K",
+      "id": 33,
+      "metacritic": 78,
+      "pitch_fr": "Simulation de catch de 2K reprenant le roster et les mises en scène de la WWE, avec modes carrière, création de superstars et matchs spectaculaires."
     },
     {
       "nom": "Super Mario Party Jamboree – Nintendo Switch 2 Edition + Jamboree TV",
       "date_sortie": "2025-07-24",
       "edition_physique": "NS2E",
       "code": "0045496312862",
-      "editeur": "Nintendo"
+      "editeur": "Nintendo",
+      "id": 34,
+      "metacritic": 76,
+      "pitch_fr": "Compilation de plus de 110 mini-jeux façon Mario Party, jouable en équipe autour de la table ou à distance. Le pack Jamboree TV ajoute des défis diffusables sur téléviseur."
     },
     {
       "nom": "No Sleep for Kaname Date – From AI: The Somnium Files",
       "date_sortie": "2025-07-25",
       "edition_physique": "GKC",
       "code": null,
-      "editeur": "Spike Chunsoft"
+      "editeur": "Spike Chunsoft",
+      "id": 35,
+      "metacritic": 68,
+      "pitch_fr": "Spin-off de la série AI: The Somnium Files, thriller visuel mêlant enquête policière et plongée dans les rêves des suspects."
     },
     {
       "nom": "Wild Hearts S",
       "date_sortie": "2025-07-25",
       "edition_physique": "GKC",
       "code": "5060327537882",
-      "editeur": "Koei Tecmo"
+      "editeur": "Koei Tecmo",
+      "id": 36,
+      "metacritic": 75,
+      "pitch_fr": "Version Switch 2 de Wild Hearts, jeu de chasse de Koei Tecmo/EA dans un Japon féodal fantastique où le joueur affronte des bêtes gigantesques (Kemono) en fabriquant des structures Karakuri."
     },
     {
       "nom": "Chillin' by the Fire",
       "date_sortie": "2025-07-31",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Oink Games"
+      "editeur": "Oink Games",
+      "id": 37,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Dear me, I was...",
       "date_sortie": "2025-07-31",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Arc System Works"
+      "editeur": "Arc System Works",
+      "id": 38,
+      "metacritic": 76,
+      "pitch_fr": "Visual novel japonais d'Arc System Works exploré à travers des tranches de vie touchantes et introspectives."
     },
     {
       "nom": "Handy Hockey",
       "date_sortie": "2025-07-31",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "ITL"
+      "editeur": "ITL",
+      "id": 39,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Romancing SaGa 2: Revenge of the Seven – Nintendo Switch 2 Edition",
       "date_sortie": "2025-07-31",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Square Enix"
+      "editeur": "Square Enix",
+      "id": 40,
+      "metacritic": null,
+      "pitch_fr": "Remake du RPG culte Romancing SaGa 2 de Square Enix, avec son système de combat non linéaire et sa liberté de progression caractéristique de la série SaGa."
     },
     {
       "nom": "Ys X: Proud Nordics",
       "date_sortie": "2025-07-31",
       "edition_physique": "GKC",
       "code": "0810100866198",
-      "editeur": "Nihon Falcom"
+      "editeur": "Nihon Falcom",
+      "id": 41,
+      "metacritic": 83,
+      "pitch_fr": "Nouvel épisode de la série Ys de Nihon Falcom, action-RPG dynamique suivant Adol Christin dans une contrée nordique à explorer et défendre."
     },
     {
       "nom": "Apex Legends",
       "date_sortie": "2025-08-05",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Electronic Arts"
+      "editeur": "Electronic Arts",
+      "id": 42,
+      "metacritic": null,
+      "pitch_fr": "Battle royale gratuit d'Electronic Arts situé dans l'univers Titanfall, réputé pour son gunplay précis et sa mobilité verticale (grappin, double saut)."
     },
     {
       "nom": "Bokura: planet",
       "date_sortie": "2025-08-07",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Kodansha"
+      "editeur": "Kodansha",
+      "id": 43,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Aqua Jet",
       "date_sortie": "2025-08-14",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 44,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Drag x Drive",
       "date_sortie": "2025-08-14",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Nintendo"
+      "editeur": "Nintendo",
+      "id": 45,
+      "metacritic": 60,
+      "pitch_fr": null
     },
     {
       "nom": "Madden NFL 26",
       "date_sortie": "2025-08-14",
       "edition_physique": "GKC",
       "code": null,
-      "editeur": "EA Sports"
+      "editeur": "EA Sports",
+      "id": 46,
+      "metacritic": 77,
+      "pitch_fr": "Simulation de football américain annuelle d'EA Sports, avec gameplay retravaillé, mode Franchise et licences officielles NFL."
     },
     {
       "nom": "Story of Seasons: Grand Bazaar – Nintendo Switch 2 Edition",
       "date_sortie": "2025-08-27",
       "edition_physique": "NS2E",
       "code": "5060540773173",
-      "editeur": "Marvelous"
+      "editeur": "Marvelous",
+      "id": 47,
+      "metacritic": 83,
+      "pitch_fr": "Simulation de vie agricole de Marvelous (série Story of Seasons) où le joueur cultive, élève des animaux et redynamise un marché local. Édition Switch 2."
     },
     {
       "nom": "Arcade Archives 2: Scrambled Egg",
       "date_sortie": "2025-08-28",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 48,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "High on Life – Nintendo Switch 2 Edition",
       "date_sortie": "2025-08-28",
       "edition_physique": "NS2E",
       "code": "7350002938133",
-      "editeur": "Squanch Games"
+      "editeur": "Squanch Games",
+      "id": 49,
+      "metacritic": null,
+      "pitch_fr": "Jeu de tir à la première personne humoristique de Squanch Games (créateurs de Rick et Morty), où le joueur devient chasseur de primes intergalactique aux côtés d'armes vivantes et sarcastiques."
     },
     {
       "nom": "Kirby and the Forgotten Land – Nintendo Switch 2 Edition + Star-Crossed World",
       "date_sortie": "2025-08-28",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Nintendo"
+      "editeur": "Nintendo",
+      "id": 50,
+      "metacritic": 83,
+      "pitch_fr": "Édition Switch 2 du jeu de plateforme Kirby and the Forgotten Land, prembelle aventure 3D de Kirby dans un monde post-apocalyptique abandonné par les humains. Inclut l'extension Star-Crossed World."
     },
     {
       "nom": "The Exit 8 – Nintendo Switch 2 Edition",
       "date_sortie": "2025-08-29",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Kotake Create"
+      "editeur": "Kotake Create",
+      "id": 51,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 du jeu narratif à énigmes The Exit 8, où le joueur doit repérer des anomalies dans un couloir de métro en boucle pour trouver la sortie."
     },
     {
       "nom": "Arcade Archives 2: Mach Breakers",
       "date_sortie": "2025-09-04",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 52,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Hollow Knight: Silksong – Nintendo Switch 2 Edition",
       "date_sortie": "2025-09-04",
       "edition_physique": "NS2E",
       "code": "8721082792882",
-      "editeur": "Team Cherry"
+      "editeur": "Team Cherry",
+      "id": 53,
+      "metacritic": 91,
+      "pitch_fr": "Suite tant attendue de Hollow Knight, metroidvania acclamé de Team Cherry. Le joueur incarne cette fois Hornet dans le royaume de Pharloom, entre exploration, plateforme exigeante et combats précis."
     },
     {
       "nom": "Star Wars Outlaws Gold Edition",
       "date_sortie": "2025-09-04",
       "edition_physique": "GKC",
       "code": "3307216304807",
-      "editeur": "Ubisoft"
+      "editeur": "Ubisoft",
+      "id": 54,
+      "metacritic": 81,
+      "pitch_fr": "Jeu d'infiltration en monde ouvert d'Ubisoft situé dans l'univers Star Wars, entre l'Empire et l'Alliance Rebelle, incarnant la hors-la-loi Kay Vess. L'édition Gold inclut le season pass."
     },
     {
       "nom": "Cronos: The New Dawn",
       "date_sortie": "2025-09-05",
       "edition_physique": "GKC",
       "code": "3391892039078",
-      "editeur": "Bloober Team"
+      "editeur": "Bloober Team",
+      "id": 55,
+      "metacritic": 76,
+      "pitch_fr": "Jeu d'horreur à la troisième personne de Bloober Team (créateurs de Layers of Fear), mêlant survival-horror et exploration d'un futur dystopique rongé par une entité extraterrestre."
     },
     {
       "nom": "Daemon X Machina: Titanic Scion",
       "date_sortie": "2025-09-05",
       "edition_physique": "Complet",
       "code": "5060540773265",
-      "editeur": "Marvelous"
+      "editeur": "Marvelous",
+      "id": 56,
+      "metacritic": 69,
+      "pitch_fr": "Jeu de mecha-action de Marvelous, suite de Daemon X Machina, opposant des pilotes d'Arsenal dans des combats aériens et terrestres customisables."
     },
     {
       "nom": "NBA 2K26",
       "date_sortie": "2025-09-05",
       "edition_physique": "GKC",
       "code": "5026555072571",
-      "editeur": "2K"
+      "editeur": "2K",
+      "id": 57,
+      "metacritic": null,
+      "pitch_fr": "Simulation de basketball NBA annuelle de 2K, avec modes carrière MyCareer, MyTeam et gameplay retravaillé."
     },
     {
       "nom": "Arcade Archives 2: Video Hustler",
       "date_sortie": "2025-09-11",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 58,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Lynked: Banner of the Spark – Nintendo Switch 2 Edition",
       "date_sortie": "2025-09-12",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Dreamhaven"
+      "editeur": "Dreamhaven",
+      "id": 59,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Lego Voyagers",
       "date_sortie": "2025-09-15",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Annapurna Interactive"
+      "editeur": "Annapurna Interactive",
+      "id": 60,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Steel Worker",
       "date_sortie": "2025-09-18",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 61,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Kuukiyomi 4: Consider It Nintendo Switch 2 Edition",
       "date_sortie": "2025-09-18",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "G-Mode"
+      "editeur": "G-Mode",
+      "id": 62,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "ShapeHero Factory",
       "date_sortie": "2025-09-18",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Asobism"
+      "editeur": "Asobism",
+      "id": 63,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Trails in the Sky 1st Chapter – Nintendo Switch 2 Edition",
       "date_sortie": "2025-09-19",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "GungHo"
+      "editeur": "GungHo",
+      "id": 64,
+      "metacritic": 90,
+      "pitch_fr": "Premier chapitre de la trilogie Trails in the Sky de Nihon Falcom, RPG au tour par tour réputé pour la richesse de son monde (Liberl) et de son scénario. Édition Switch 2."
     },
     {
       "nom": "Hades II – Nintendo Switch 2 Edition",
       "date_sortie": "2025-09-25",
       "edition_physique": "NS2E",
       "code": "0045496313241",
-      "editeur": "Supergiant Games"
+      "editeur": "Supergiant Games",
+      "id": 65,
+      "metacritic": 95,
+      "pitch_fr": "Suite du rogue-like d'action culte de Supergiant Games, où Mélinoé, fille d'Hadès, part combattre le Titan du Temps pour sauver sa famille. Édition Switch 2."
     },
     {
       "nom": "Relayer Advanced Definitive Edition",
       "date_sortie": "2025-09-25",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Dragami Games"
+      "editeur": "Dragami Games",
+      "id": 66,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "The Touryst: Deluxe",
       "date_sortie": "2025-09-25",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Shin'en Multimedia"
+      "editeur": "Shin'en Multimedia",
+      "id": 67,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "EA Sports FC 26",
       "date_sortie": "2025-09-26",
       "edition_physique": "GKC",
       "code": "5030944125427",
-      "editeur": "EA Sports"
+      "editeur": "EA Sports",
+      "id": 68,
+      "metacritic": null,
+      "pitch_fr": "Nouvel épisode annuel de la simulation de football d'EA Sports (ex-FIFA), avec clubs et compétitions sous licence officielle."
     },
     {
       "nom": "Pac-Man World 2 Re-Pac",
       "date_sortie": "2025-09-26",
       "edition_physique": "GKC",
       "code": null,
-      "editeur": "Bandai Namco Entertainment"
+      "editeur": "Bandai Namco Entertainment",
+      "id": 69,
+      "metacritic": 77,
+      "pitch_fr": "Remake du jeu de plateforme Pac-Man World 2, revisitant les niveaux 3D originaux avec des graphismes modernisés."
     },
     {
       "nom": "Final Fantasy Tactics: The Ivalice Chronicles – Nintendo Switch 2 Edition",
       "date_sortie": "2025-09-30",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Square Enix"
+      "editeur": "Square Enix",
+      "id": 70,
+      "metacritic": 87,
+      "pitch_fr": "Édition Switch 2 du tactical-RPG Final Fantasy Tactics: The Ivalice Chronicles, remaster du classique de la Final Fantasy Tactics original avec grille de combat, jobs et intrigue politique dense."
     },
     {
       "nom": "Arcade Archives 2: Gee Bee",
       "date_sortie": "2025-10-02",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 71,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Battlantis",
       "date_sortie": "2025-10-09",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 72,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Obakeidoro 2: Chase & Seek",
       "date_sortie": "2025-10-09",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Free Style"
+      "editeur": "Free Style",
+      "id": 73,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Yooka-Replaylee",
       "date_sortie": "2025-10-09",
       "edition_physique": "Complet",
       "code": "5056635619945",
-      "editeur": "Playtonic Friends, PM Studios"
+      "editeur": "Playtonic Friends, PM Studios",
+      "id": 74,
+      "metacritic": 77,
+      "pitch_fr": "Metroidvania coloré succédant spirituellement à Banjo-Kazooie, développé par une partie de l'équipe originale (Playtonic). Exploration, plateforme et humour anglais."
     },
     {
       "nom": "Disgaea 7 Complete",
       "date_sortie": "2025-10-10",
       "edition_physique": "GKC",
       "code": "0810100865627",
-      "editeur": "NIS America"
+      "editeur": "NIS America",
+      "id": 75,
+      "metacritic": 80,
+      "pitch_fr": "RPG tactique de Nippon Ichi Software, septième épisode de la série Disgaea, mêlant combats sur grille, humour absurde et progression de personnages sans limite de niveau."
     },
     {
       "nom": "Little Nightmares Enhanced Edition Complete Edition",
       "date_sortie": "2025-10-10",
       "edition_physique": "GKC",
       "code": "3391892037661",
-      "editeur": "Bandai Namco Entertainment"
+      "editeur": "Bandai Namco Entertainment",
+      "id": 76,
+      "metacritic": null,
+      "pitch_fr": "Édition complète regroupant Little Nightmares et Little Nightmares II améliorés, jeux de plateforme-horreur où de petits personnages fragiles échappent à des créatures monstrueuses dans un monde démesuré."
     },
     {
       "nom": "Little Nightmares III",
       "date_sortie": "2025-10-10",
       "edition_physique": "GKC",
       "code": "3391892036459",
-      "editeur": "Bandai Namco Entertainment"
+      "editeur": "Bandai Namco Entertainment",
+      "id": 77,
+      "metacritic": null,
+      "pitch_fr": "Troisième épisode de la série Little Nightmares, jeu de plateforme-horreur en coopération suivant deux nouveaux personnages, Low et Alone, fuyant à travers un monde cauchemardesque."
     },
     {
       "nom": "Pokémon Legends: Z-A – Nintendo Switch 2 Edition",
       "date_sortie": "2025-10-16",
       "edition_physique": "NS2E",
       "code": "0045496313050",
-      "editeur": "Nintendo, The Pokémon Company"
+      "editeur": "Nintendo, The Pokémon Company",
+      "id": 78,
+      "metacritic": 78,
+      "pitch_fr": "Nouvel épisode Pokémon en monde ouvert, situé dans la mégapole de Lumiose City. Édition Switch 2 du jeu sorti fin 2025."
     },
     {
       "nom": "Arcade Archives 2: Midnight Landing",
       "date_sortie": "2025-10-23",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 79,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Full Metal Schoolgirl",
       "date_sortie": "2025-10-23",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "D3 Publisher"
+      "editeur": "D3 Publisher",
+      "id": 80,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Persona 3 Reload",
       "date_sortie": "2025-10-23",
       "edition_physique": "GKC",
       "code": "5055277056767",
-      "editeur": "Sega"
+      "editeur": "Sega",
+      "id": 81,
+      "metacritic": 80,
+      "pitch_fr": "RPG culte d'Atlus mêlant vie scolaire, liens sociaux et exploration de donjons générés (Tartare) peuplés d'ombres à combattre."
     },
     {
       "nom": "Plants vs. Zombies: Replanted",
       "date_sortie": "2025-10-23",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Electronic Arts"
+      "editeur": "Electronic Arts",
+      "id": 82,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "PowerWash Simulator 2",
       "date_sortie": "2025-10-23",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "FuturLab"
+      "editeur": "FuturLab",
+      "id": 83,
+      "metacritic": null,
+      "pitch_fr": "Suite du jeu de nettoyage relaxant PowerWash Simulator, où l'on débarrasse à grand jet d'eau des surfaces sales dans une ambiance apaisante et méticuleuse."
     },
     {
       "nom": "Ball x Pit – Nintendo Switch 2 Edition",
       "date_sortie": "2025-10-28",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Devolver Digital"
+      "editeur": "Devolver Digital",
+      "id": 84,
+      "metacritic": 86,
+      "pitch_fr": "Jeu d'action roguelite mêlant tower-defense et progression verticale façon « vertical shooter », signé Devolver Digital. Édition Switch 2."
     },
     {
       "nom": "Two Point Museum",
       "date_sortie": "2025-10-28",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Sega"
+      "editeur": "Sega",
+      "id": 85,
+      "metacritic": 81,
+      "pitch_fr": "Jeu de gestion où le joueur dirige un musée d'objets étranges et paranormaux, dans la lignée de Two Point Hospital."
     },
     {
       "nom": "Arcade Archives 2: Scion",
       "date_sortie": "2025-10-30",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 86,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Dragon Quest I & II HD-2D Remake",
       "date_sortie": "2025-10-30",
       "edition_physique": "GKC",
       "code": "5021290100855",
-      "editeur": "Square Enix"
+      "editeur": "Square Enix",
+      "id": 87,
+      "metacritic": 85,
+      "pitch_fr": "Remake en HD-2D des deux premiers Dragon Quest, mêlant sprites détaillés et environnements 3D, avec l'exploration classique de la saga culte de Square Enix."
     },
     {
       "nom": "Majogami",
       "date_sortie": "2025-10-30",
       "edition_physique": "Complet",
       "code": null,
-      "editeur": "Inti Creates"
+      "editeur": "Inti Creates",
+      "id": 88,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Mortal Kombat: Legacy Kollection",
       "date_sortie": "2025-10-30",
       "edition_physique": "Complet",
       "code": "5056635617903",
-      "editeur": "Atari"
+      "editeur": "Atari",
+      "id": 89,
+      "metacritic": 78,
+      "pitch_fr": "Compilation de plusieurs jeux de combat Mortal Kombat classiques, avec leur brutalité et leurs Fatalities emblématiques restaurés pour les consoles modernes."
     },
     {
       "nom": "Yobarai Detective: Miasma Breaker – Nintendo Switch 2 Edition",
       "date_sortie": "2025-10-30",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Mebius"
+      "editeur": "Mebius",
+      "id": 90,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Tokyo Wars",
       "date_sortie": "2025-11-06",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 91,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Dave the Diver – Nintendo Switch 2 Edition",
       "date_sortie": "2025-11-06",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Mintrocket"
+      "editeur": "Mintrocket",
+      "id": 92,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 de Dave the Diver, jeu hybride mêlant exploration/pêche sous-marine le jour et gestion d'un restaurant de sushis le soir, best-seller indépendant coréen."
     },
     {
       "nom": "Hyrule Warriors: Age of Imprisonment",
       "date_sortie": "2025-11-06",
       "edition_physique": "Complet",
       "code": "0045496313517",
-      "editeur": "Koei Tecmo, Nintendo"
+      "editeur": "Koei Tecmo, Nintendo",
+      "id": 93,
+      "metacritic": 79,
+      "pitch_fr": "Épisode musou situé dans l'univers Zelda, en préquelle des événements de Breath of the Wild, où le joueur affronte des hordes d'ennemis avec les héros du royaume d'Hyrule."
     },
     {
       "nom": "Overcooked! 2 – Nintendo Switch 2 Edition",
       "date_sortie": "2025-11-06",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Team17"
+      "editeur": "Team17",
+      "id": 94,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 d'Overcooked! 2, jeu de cuisine coopératif chaotique où les joueurs doivent préparer des commandes dans des cuisines toujours plus improbables."
     },
     {
       "nom": "Goodnight Universe",
       "date_sortie": "2025-11-11",
       "edition_physique": "GKC",
       "code": "0810161631384",
-      "editeur": "Skybound Games"
+      "editeur": "Skybound Games",
+      "id": 95,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Broken Sword – Shadow of the Templars: Reforged – Nintendo Switch 2 Edition",
       "date_sortie": "2025-11-12",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Revolution Software"
+      "editeur": "Revolution Software",
+      "id": 96,
+      "metacritic": null,
+      "pitch_fr": "Remaster (« Reforged ») du point'n click culte Broken Sword: Shadow of the Templars, aventure narrative suivant George Stobbart dans un complot ésotérique à travers l'Europe."
     },
     {
       "nom": "Arcade Archives 2: Galactic Warriors",
       "date_sortie": "2025-11-13",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 97,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Atelier Ryza 2: Lost Legends & the Secret Fairy DX",
       "date_sortie": "2025-11-13",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Koei Tecmo"
+      "editeur": "Koei Tecmo",
+      "id": 98,
+      "metacritic": 87,
+      "pitch_fr": "Remaster DX du RPG d'alchimie Atelier Ryza, où Ryza et ses amis explorent une île et concoctent des objets. Fait partie de la trilogie Ryza remasterisée."
     },
     {
       "nom": "Atelier Ryza 3: Alchemist of the End & the Secret Key DX",
       "date_sortie": "2025-11-13",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Koei Tecmo"
+      "editeur": "Koei Tecmo",
+      "id": 99,
+      "metacritic": 87,
+      "pitch_fr": "Remaster DX du troisième épisode de la trilogie Atelier Ryza, conclusion de l'histoire de Ryza et de ses compagnons alchimistes."
     },
     {
       "nom": "Atelier Ryza: Ever Darkness & the Secret Hideout DX",
       "date_sortie": "2025-11-13",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Koei Tecmo"
+      "editeur": "Koei Tecmo",
+      "id": 100,
+      "metacritic": 87,
+      "pitch_fr": "Remaster DX du premier épisode de la trilogie Atelier Ryza, RPG d'alchimie et de tranche de vie estivale sur une île japonaise fictive."
     },
     {
       "nom": "Hello Kitty Island Adventure – Nintendo Switch 2 Edition",
       "date_sortie": "2025-11-13",
       "edition_physique": "NS2E",
       "code": "5056635628817",
-      "editeur": "Sunblink"
+      "editeur": "Sunblink",
+      "id": 101,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 de Hello Kitty Island Adventure, jeu de vie et d'exploration où le joueur reconstruit une île peuplée de Hello Kitty et ses amis Sanrio."
     },
     {
       "nom": "Inazuma Eleven: Victory Road – Nintendo Switch 2 Edition",
       "date_sortie": "2025-11-13",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Level-5"
+      "editeur": "Level-5",
+      "id": 102,
+      "metacritic": 81,
+      "pitch_fr": "Nouvel épisode de la série de football Inazuma Eleven, mêlant matchs stylisés aux capacités spéciales spectaculaires et aventure scolaire. Édition Switch 2."
     },
     {
       "nom": "Momotaro Dentetsu 2: Anata no Machi mo Kitto Aru – Nintendo Switch 2 Edition",
       "date_sortie": "2025-11-13",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Konami"
+      "editeur": "Konami",
+      "id": 103,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Yakuza Kiwami",
       "date_sortie": "2025-11-13",
       "edition_physique": "GKC",
       "code": "4020628547981",
-      "editeur": "Sega"
+      "editeur": "Sega",
+      "id": 104,
+      "metacritic": 81,
+      "pitch_fr": "Remake du tout premier épisode de la saga Yakuza, plongeant Kazuma Kiryu dans les guerres de clans du Kamurocho des années 2000."
     },
     {
       "nom": "Yakuza Kiwami 2",
       "date_sortie": "2025-11-13",
       "edition_physique": "GKC",
       "code": "4020628547950",
-      "editeur": "Sega"
+      "editeur": "Sega",
+      "id": 105,
+      "metacritic": 83,
+      "pitch_fr": "Remake de Yakuza 2, suite directe plongeant Kazuma Kiryu à Osaka dans un conflit entre clans yakuza rivaux."
     },
     {
       "nom": "Dragon Ball: Sparking! Zero",
       "date_sortie": "2025-11-14",
       "edition_physique": "GKC",
       "code": "3391892038002",
-      "editeur": "Bandai Namco Entertainment"
+      "editeur": "Bandai Namco Entertainment",
+      "id": 106,
+      "metacritic": null,
+      "pitch_fr": "Jeu de combat/action Dragon Ball adaptant les arcs emblématiques de la série (Cell, Boo...) avec un système d'affrontement spectaculaire et destructible."
     },
     {
       "nom": "SpongeBob SquarePants: Titans of the Tide",
       "date_sortie": "2025-11-18",
       "edition_physique": "GKC",
       "code": null,
-      "editeur": "THQ Nordic"
+      "editeur": "THQ Nordic",
+      "id": 107,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Squirrel with a Gun",
       "date_sortie": "2025-11-18",
       "edition_physique": "GKC",
       "code": "3700664533353",
-      "editeur": "Maximum Entertainment"
+      "editeur": "Maximum Entertainment",
+      "id": 108,
+      "metacritic": null,
+      "pitch_fr": "Jeu d'infiltration loufoque devenu viral où un écureuil armé d'un pistolet sème le chaos dans un laboratoire, en toute discrétion... ou pas."
     },
     {
       "nom": "Tomb Raider: Definitive Edition",
       "date_sortie": "2025-11-18",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Aspyr"
+      "editeur": "Aspyr",
+      "id": 109,
+      "metacritic": 73,
+      "pitch_fr": "Remaster du reboot de Tomb Raider (2013), qui a modernisé la série avec une Lara Croft plus jeune, survivaliste, sur une île mystérieuse."
     },
     {
       "nom": "Arcade Archives 2: Bomb Bee",
       "date_sortie": "2025-11-20",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 110,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Brotato – Nintendo Switch 2 Edition",
       "date_sortie": "2025-11-20",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Seaven Studio"
+      "editeur": "Seaven Studio",
+      "id": 111,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 de Brotato, roguelite de survie où une patate armée jusqu'aux dents affronte des vagues d'ennemis dans des parties courtes et rejouables."
     },
     {
       "nom": "Kirby Air Riders",
       "date_sortie": "2025-11-20",
       "edition_physique": "Complet",
       "code": "0045496313159",
-      "editeur": "Nintendo"
+      "editeur": "Nintendo",
+      "id": 112,
+      "metacritic": 79,
+      "pitch_fr": "Jeu de course aérienne de Nintendo mettant en scène Kirby sur des « Air Riders » (véhicules volants), suite spirituelle de Kirby Air Ride sur GameCube."
     },
     {
       "nom": "Punyan for Nintendo Switch 2",
       "date_sortie": "2025-11-20",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "G-Mode"
+      "editeur": "G-Mode",
+      "id": 113,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "One Piece: Pirate Warriors 4 – Nintendo Switch 2 Edition",
       "date_sortie": "2025-11-21",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Bandai Namco Entertainment"
+      "editeur": "Bandai Namco Entertainment",
+      "id": 114,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 d'One Piece: Pirate Warriors 4, musou reprenant l'histoire de l'équipage de Luffy à travers des combats de masse spectaculaires contre des hordes d'ennemis."
     },
     {
       "nom": "LoveR Kiss: Endless Memories",
       "date_sortie": "2025-11-27",
       "edition_physique": "Complet",
       "code": null,
-      "editeur": "Dragami Games"
+      "editeur": "Dragami Games",
+      "id": 115,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Ripple Island: Kyle & Cal's Restaurant",
       "date_sortie": "2025-11-27",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Sunsoft"
+      "editeur": "Sunsoft",
+      "id": 116,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Shuten Order – Nintendo Switch 2 Edition",
       "date_sortie": "2025-11-27",
       "edition_physique": "NS2E",
       "code": "5061077022291",
-      "editeur": "DMM Games"
+      "editeur": "DMM Games",
+      "id": 117,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Marvel Cosmic Invasion",
       "date_sortie": "2025-12-01",
       "edition_physique": "Complet",
       "code": "5056635619488",
-      "editeur": "Dotemu"
+      "editeur": "Dotemu",
+      "id": 118,
+      "metacritic": 72,
+      "pitch_fr": "Jeu de combat/beat'em up en 2D réunissant des héros Marvel dans un style rétro, développé par Dotemu (Streets of Rage 4, TMNT Shredder's Revenge)."
     },
     {
       "nom": "Assassin's Creed Shadows",
       "date_sortie": "2025-12-02",
       "edition_physique": "GKC",
       "code": "3307216307129",
-      "editeur": "Ubisoft"
+      "editeur": "Ubisoft",
+      "id": 119,
+      "metacritic": 80,
+      "pitch_fr": "Épisode Assassin's Creed situé dans le Japon féodal de l'époque Sengoku, avec deux protagonistes jouables : Naoe, kunoichi, et Yasuke, samouraï."
     },
     {
       "nom": "Red Dead Redemption – Nintendo Switch 2 Edition",
       "date_sortie": "2025-12-02",
       "edition_physique": "NS2E",
       "code": "5026555073110",
-      "editeur": "Rockstar Games"
+      "editeur": "Rockstar Games",
+      "id": 120,
+      "metacritic": 88,
+      "pitch_fr": "Édition Switch 2 du western en monde ouvert de Rockstar Games, suivant John Marston dans une Amérique en déclin au tournant du 20e siècle."
     },
     {
       "nom": "Simogo Legacy Collection – Nintendo Switch 2 Edition",
       "date_sortie": "2025-12-02",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Simogo"
+      "editeur": "Simogo",
+      "id": 121,
+      "metacritic": 88,
+      "pitch_fr": "Compilation Switch 2 des jeux narratifs cultes du studio suédois Simogo (Sayonara Wild Hearts, Year Walk, Device 6...), réputés pour leur originalité formelle."
     },
     {
       "nom": "Metroid Prime 4: Beyond – Nintendo Switch 2 Edition",
       "date_sortie": "2025-12-04",
       "edition_physique": "NS2E",
       "code": "0045496313388",
-      "editeur": "Nintendo"
+      "editeur": "Nintendo",
+      "id": 122,
+      "metacritic": 78,
+      "pitch_fr": "Retour très attendu de la série Metroid en vue subjective, où Samus Aran explore une planète hostile peuplée de créatures et de mystères. Édition Switch 2."
     },
     {
       "nom": "Octopath Traveler 0",
       "date_sortie": "2025-12-04",
       "edition_physique": "GKC",
       "code": "5021290101494",
-      "editeur": "Square Enix"
+      "editeur": "Square Enix",
+      "id": 123,
+      "metacritic": 82,
+      "pitch_fr": "Préquelle de la série Octopath Traveler, RPG au style pixel-art « HD-2D » suivant deux nouveaux héros dans le monde d'Orsterra."
     },
     {
       "nom": "Run for Money: Hunters vs. Runners! Can You Win as Either?",
       "date_sortie": "2025-12-04",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "D3 Publisher"
+      "editeur": "D3 Publisher",
+      "id": 124,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Sonic Racing: CrossWorlds – Nintendo Switch 2 Edition",
       "date_sortie": "2025-12-04",
       "edition_physique": "NS2E",
       "code": "5055277057450",
-      "editeur": "Sega"
+      "editeur": "Sega",
+      "id": 125,
+      "metacritic": 85,
+      "pitch_fr": "Jeu de course d'arcade Sonic avec transformation des véhicules (terre, air, mer) et personnages de l'univers Sonic. Édition Switch 2."
     },
     {
       "nom": "Nicktoons & the Dice of Destiny",
       "date_sortie": "2025-12-05",
       "edition_physique": "GKC",
       "code": "5060968303532",
-      "editeur": "GameMill Entertainment"
+      "editeur": "GameMill Entertainment",
+      "id": 126,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Skate Story",
       "date_sortie": "2025-12-08",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Devolver Digital"
+      "editeur": "Devolver Digital",
+      "id": 127,
+      "metacritic": 83,
+      "pitch_fr": "Jeu de glisse urbaine mêlant skateboard et éléments narratifs oniriques, dans une ambiance visuelle stylisée."
     },
     {
       "nom": "Farming Simulator: Signature Edition",
       "date_sortie": "2025-12-09",
       "edition_physique": "GKC",
       "code": "4064635430041",
-      "editeur": "Giants Software"
+      "editeur": "Giants Software",
+      "id": 128,
+      "metacritic": null,
+      "pitch_fr": "Édition Signature de Farming Simulator, simulation agricole réaliste où le joueur gère champs, machines et bétail sur de vastes exploitations."
     },
     {
       "nom": "Storm Lancers – Nintendo Switch 2 Edition",
       "date_sortie": "2025-12-09",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "ProbablyMonsters"
+      "editeur": "ProbablyMonsters",
+      "id": 129,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "The Elder Scrolls V: Skyrim Anniversary Edition",
       "date_sortie": "2025-12-09",
       "edition_physique": "CIAB",
       "code": "0196388816446",
-      "editeur": "Bethesda Softworks"
+      "editeur": "Bethesda Softworks",
+      "id": 130,
+      "metacritic": 60,
+      "pitch_fr": "Édition anniversaire de Skyrim, RPG en monde ouvert culte de Bethesda incluant le contenu Creation Club et les extensions officielles."
     },
     {
       "nom": "Ultimate Sheep Raccoon",
       "date_sortie": "2025-12-09",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Clever Endeavour Games"
+      "editeur": "Clever Endeavour Games",
+      "id": 131,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Little Rocket Lab – Nintendo Switch 2 Edition",
       "date_sortie": "2025-12-10",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "No More Robots"
+      "editeur": "No More Robots",
+      "id": 132,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Roc'n Rope",
       "date_sortie": "2025-12-11",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 133,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Warhammer 40,000: Rogue Trader",
       "date_sortie": "2025-12-11",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Owlcat Games"
+      "editeur": "Owlcat Games",
+      "id": 134,
+      "metacritic": 53,
+      "pitch_fr": "Adaptation vidéoludique de l'univers de jeu de rôle Warhammer 40,000: Rogue Trader, RPG tactique au tour par tour dans le Grimdark futur de l'humanité."
     },
     {
       "nom": "Divinity: Original Sin II – Nintendo Switch 2 Edition",
       "date_sortie": "2025-12-15",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Larian Studios"
+      "editeur": "Larian Studios",
+      "id": 135,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 de Divinity: Original Sin II, RPG tactique au tour par tour de Larian Studios (avant Baldur's Gate 3), réputé pour sa liberté d'action et son écriture."
     },
     {
       "nom": "Tomba! 2: The Evil Swine Return Special Edition",
       "date_sortie": "2025-12-15",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Limited Run Games"
+      "editeur": "Limited Run Games",
+      "id": 136,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Teenage Mutant Ninja Turtles: Splintered Fate – Nintendo Switch 2 Edition",
       "date_sortie": "2025-12-16",
       "edition_physique": "NS2E",
       "code": "5056635625465",
-      "editeur": "Super Evil Megacorp"
+      "editeur": "Super Evil Megacorp",
+      "id": 137,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 de TMNT: Splintered Fate, jeu d'action roguelite coopératif mettant en scène les Tortues Ninja contre les sbires du Clan des Pieds."
     },
     {
       "nom": "The Rogue Prince of Persia",
       "date_sortie": "2025-12-16",
       "edition_physique": "GKC",
       "code": "5056635622143",
-      "editeur": "Ubisoft"
+      "editeur": "Ubisoft",
+      "id": 138,
+      "metacritic": 82,
+      "pitch_fr": "Jeu de plateforme-action situé dans l'univers du premier Prince of Persia, avec un rogue-lite basé sur la maîtrise du combat et du déplacement acrobatique."
     },
     {
       "nom": "A-Train: All Aboard! Tourism – Nintendo Switch 2 Edition",
       "date_sortie": "2025-12-18",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Artdink"
+      "editeur": "Artdink",
+      "id": 139,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: The Outfoxies",
       "date_sortie": "2025-12-18",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 140,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Beyblade X Evobattle Nintendo Switch 2 Edition",
       "date_sortie": "2025-12-18",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "FuRyu"
+      "editeur": "FuRyu",
+      "id": 141,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Cast n Chill – Nintendo Switch 2 Edition",
       "date_sortie": "2025-12-18",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Wombat Brawler"
+      "editeur": "Wombat Brawler",
+      "id": 142,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "System Shock",
       "date_sortie": "2025-12-18",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Atari"
+      "editeur": "Atari",
+      "id": 143,
+      "metacritic": null,
+      "pitch_fr": "Remake du classique culte de la SF-horreur System Shock (1994), immersive sim où le joueur affronte SHODAN, IA maléfique prenant le contrôle d'une station spatiale."
     },
     {
       "nom": "Underward: Lastboss, Genius Gyaru Doctor",
       "date_sortie": "2025-12-18",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Intense"
+      "editeur": "Intense",
+      "id": 144,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Layers of Fear: Final Masterpiece Edition",
       "date_sortie": "2025-12-19",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Bloober Team"
+      "editeur": "Bloober Team",
+      "id": 145,
+      "metacritic": null,
+      "pitch_fr": "Compilation des jeux d'horreur psychologique Layers of Fear de Bloober Team, explorant la folie créative à travers des manoirs labyrinthiques qui se déforment sous les yeux du joueur."
     },
     {
       "nom": "Factorio – Nintendo Switch 2 Edition",
       "date_sortie": "2025-12-22",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Wube Software"
+      "editeur": "Wube Software",
+      "id": 146,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 de Factorio, jeu de gestion et d'automatisation culte où le joueur construit des chaînes de production industrielles toujours plus complexes sur une planète extraterrestre."
     },
     {
       "nom": "Arcade Archives 2: Space Invaders",
       "date_sortie": "2025-12-25",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 147,
+      "metacritic": null,
+      "pitch_fr": "Portage du tout premier jeu de tir culte Space Invaders de Taito, fondateur du genre shoot'em up. Collection Arcade Archives 2."
     },
     {
       "nom": "Pritto Prisoner – Nintendo Switch 2 Edition",
       "date_sortie": "2025-12-25",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "PinCool"
+      "editeur": "PinCool",
+      "id": 148,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Riichi Mahjong",
       "date_sortie": "2025-12-25",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "D3 Publisher"
+      "editeur": "D3 Publisher",
+      "id": 149,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Stardew Valley – Nintendo Switch 2 Edition",
       "date_sortie": "2025-12-25",
       "edition_physique": "NS2E",
       "code": "8721593149359",
-      "editeur": "ConcernedApe"
+      "editeur": "ConcernedApe",
+      "id": 150,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 du phénomène indépendant Stardew Valley : simulation de vie agricole, pêche, mine et relations sociales dans une petite bourgade, créée par un seul développeur (ConcernedApe)."
     },
     {
       "nom": "Arcade Archives 2: Space Invaders Part 2",
       "date_sortie": "2026-01-01",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 151,
+      "metacritic": null,
+      "pitch_fr": "Suite arcade de Space Invaders, avec vagues d'ennemis plus rapides et boucliers destructibles. Collection Arcade Archives 2."
     },
     {
       "nom": "Suika Game Planet",
       "date_sortie": "2026-01-05",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Aladdin X"
+      "editeur": "Aladdin X",
+      "id": 152,
+      "metacritic": null,
+      "pitch_fr": "Version dédiée de Suika Game, puzzle viral où l'on fusionne des fruits qui tombent pour créer des fruits toujours plus gros, sans dépasser le rebord du bocal."
     },
     {
       "nom": "Tomba! Special Edition",
       "date_sortie": "2026-01-05",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Limited Run Games"
+      "editeur": "Limited Run Games",
+      "id": 153,
+      "metacritic": null,
+      "pitch_fr": "Édition spéciale du jeu de plateforme-aventure culte de la PS1 Tomba!, connu pour son level design non linéaire et son atmosphère haute en couleur."
     },
     {
       "nom": "Animal Crossing: New Horizons – Nintendo Switch 2 Edition",
       "date_sortie": "2026-01-15",
       "edition_physique": "NS2E",
       "code": "0045496313722",
-      "editeur": "Nintendo"
+      "editeur": "Nintendo",
+      "id": 154,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 du plus gros succès de la série Animal Crossing : simulation de vie sur une île déserte à personnaliser, entre collecte, décoration et vie sociale au fil des saisons."
     },
     {
       "nom": "Arcade Archives 2: Bomb Jack Twin",
       "date_sortie": "2026-01-15",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 155,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Overrogue – Nintendo Switch 2 Edition",
       "date_sortie": "2026-01-15",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Kemco"
+      "editeur": "Kemco",
+      "id": 156,
+      "metacritic": null,
+      "pitch_fr": "RPG roguelike de Kemco mêlant génération procédurale de donjons et progression de personnages, dans un format de parties courtes et rejouables. Édition Switch 2."
     },
     {
       "nom": "The Legend of Heroes: Trails Beyond the Horizon",
       "date_sortie": "2026-01-15",
       "edition_physique": "GKC",
       "code": "0810100865504",
-      "editeur": "NIS America"
+      "editeur": "NIS America",
+      "id": 157,
+      "metacritic": 80,
+      "pitch_fr": "Nouvel épisode de la saga Trails (Nihon Falcom), RPG au tour par tour réputé pour son worldbuilding minutieux et ses intrigues politiques sur le long terme."
     },
     {
       "nom": "Sail Forth – Nintendo Switch 2 Edition",
       "date_sortie": "2026-01-16",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "The Quantum Astrophysicists Guild"
+      "editeur": "The Quantum Astrophysicists Guild",
+      "id": 158,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "MIO: Memories in Orbit",
       "date_sortie": "2026-01-20",
       "edition_physique": "Complet",
       "code": "3760415190297",
-      "editeur": "Focus Entertainment"
+      "editeur": "Focus Entertainment",
+      "id": 159,
+      "metacritic": 81,
+      "pitch_fr": "Metroidvania mêlant plateforme précise et pilotage d'un vaisseau/mecha, dans un monde en ruine à explorer verticalement."
     },
     {
       "nom": "Arcade Archives 2: Labyrinth Runner",
       "date_sortie": "2026-01-22",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 160,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Citadelum",
       "date_sortie": "2026-01-22",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Abylight"
+      "editeur": "Abylight",
+      "id": 161,
+      "metacritic": 77,
+      "pitch_fr": "Jeu de construction de cité antique dans la veine de Caesar/Pharaoh : gestion des ressources, de la population et de l'urbanisme d'une civilisation romaine."
     },
     {
       "nom": "Dynasty Warriors: Origins",
       "date_sortie": "2026-01-22",
       "edition_physique": "GKC",
       "code": "5060327538117",
-      "editeur": "Koei Tecmo"
+      "editeur": "Koei Tecmo",
+      "id": 162,
+      "metacritic": 84,
+      "pitch_fr": "Reboot de la série musou Dynasty Warriors, revenant aux origines de la période des Trois Royaumes chinois avec un système de combat et une narration repensés."
     },
     {
       "nom": "Final Fantasy VII Remake Intergrade",
       "date_sortie": "2026-01-22",
       "edition_physique": "GKC",
       "code": "5021290101739",
-      "editeur": "Square Enix"
+      "editeur": "Square Enix",
+      "id": 163,
+      "metacritic": 89,
+      "pitch_fr": "Remake du RPG culte Final Fantasy VII, réinventant le premier tiers de l'histoire originale avec des graphismes modernes et un système de combat hybride temps réel/stratégie."
     },
     {
       "nom": "Isekai Rondo – Nintendo Switch 2 Edition",
       "date_sortie": "2026-01-22",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Kemco"
+      "editeur": "Kemco",
+      "id": 164,
+      "metacritic": null,
+      "pitch_fr": "RPG traditionnel de Kemco sur le thème isekai (un héros transporté dans un monde fantastique), avec combats au tour par tour et progression classique du genre. Édition Switch 2."
     },
     {
       "nom": "Pool Room Billiard",
       "date_sortie": "2026-01-22",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "D3 Publisher"
+      "editeur": "D3 Publisher",
+      "id": 165,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "The Rumble Fish 2 – Nintendo Switch 2 Edition",
       "date_sortie": "2026-01-22",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "3goo"
+      "editeur": "3goo",
+      "id": 166,
+      "metacritic": null,
+      "pitch_fr": "Jeu de combat 2D nerveux et technique, suite du culte The Rumble Fish, réputé dans la scène compétitive pour son système de combos rapide."
     },
     {
       "nom": "They Are Billions",
       "date_sortie": "2026-01-22",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Suncrest Games"
+      "editeur": "Suncrest Games",
+      "id": 167,
+      "metacritic": null,
+      "pitch_fr": "Jeu de stratégie et tower-defense où le joueur bâtit et défend une colonie contre des vagues de robots zombies (« Billions »), chaque erreur pouvant être fatale."
     },
     {
       "nom": "Core Keeper – Nintendo Switch 2 Edition",
       "date_sortie": "2026-01-28",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Fireshine Games"
+      "editeur": "Fireshine Games",
+      "id": 168,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 de Core Keeper, jeu de survie et d'exploration de mine en pixel-art, avec artisanat, boss et coopération en ligne."
     },
     {
       "nom": "Dispatch – Nintendo Switch 2 Edition",
       "date_sortie": "2026-01-28",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "AdHoc Studio"
+      "editeur": "AdHoc Studio",
+      "id": 169,
+      "metacritic": 85,
+      "pitch_fr": "Aventure narrative des créateurs de jeux Telltale (studio AdHoc), où le joueur dirige une équipe de super-vilains reconvertis, avec choix qui influencent l'histoire."
     },
     {
       "nom": "Arcade Archives 2: Quester",
       "date_sortie": "2026-01-29",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 170,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Card-en-Ciel – Nintendo Switch 2 Edition",
       "date_sortie": "2026-01-29",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Inti Creates"
+      "editeur": "Inti Creates",
+      "id": 171,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Disgaea Mayhem",
       "date_sortie": "2026-01-29",
       "edition_physique": "GKC",
       "code": "0810100866792",
-      "editeur": "NIS America"
+      "editeur": "NIS America",
+      "id": 172,
+      "metacritic": 53,
+      "pitch_fr": "Spin-off d'action de la série Disgaea, remplaçant le tour par tour par des combats dynamiques en temps réel tout en gardant l'humour et les personnages de la licence."
     },
     {
       "nom": "Ending the Happy Route",
       "date_sortie": "2026-01-29",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Kemco"
+      "editeur": "Kemco",
+      "id": 173,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "GRID Legends: Deluxe Edition",
       "date_sortie": "2026-01-29",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Feral Interactive"
+      "editeur": "Feral Interactive",
+      "id": 174,
+      "metacritic": 82,
+      "pitch_fr": "Jeu de course de Codemasters mêlant circuits, rallycross et cascades spectaculaires, avec un mode carrière narratif."
     },
     {
       "nom": "Novel Rogue – Nintendo Switch 2 Edition",
       "date_sortie": "2026-01-29",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Kemco"
+      "editeur": "Kemco",
+      "id": 175,
+      "metacritic": null,
+      "pitch_fr": "RPG de Kemco à la progression basée sur la lecture et les choix narratifs, mêlant mécaniques de roguelite et récit à embranchements. Édition Switch 2."
     },
     {
       "nom": "4PGP – Nintendo Switch 2 Edition",
       "date_sortie": "2026-02-04",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "3goo"
+      "editeur": "3goo",
+      "id": 176,
+      "metacritic": 80,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Top Speed",
       "date_sortie": "2026-02-05",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 177,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Console Archives: Cool Boarders",
       "date_sortie": "2026-02-05",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 178,
+      "metacritic": null,
+      "pitch_fr": "Portage du jeu de snowboard culte de la PS1 Cool Boarders, précurseur des jeux de glisse extrême en 3D. Collection Console Archives."
     },
     {
       "nom": "Console Archives: Ninja Gaiden II: The Dark Sword of Chaos",
       "date_sortie": "2026-02-05",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 179,
+      "metacritic": null,
+      "pitch_fr": "Portage du classique d'action NES Ninja Gaiden II: The Dark Sword of Chaos, réputé pour sa difficulté et son scénario cinématographique pour l'époque. Collection Console Archives."
     },
     {
       "nom": "Dragon Quest VII Reimagined",
       "date_sortie": "2026-02-05",
       "edition_physique": "GKC",
       "code": "5021290102125",
-      "editeur": "Square Enix"
+      "editeur": "Square Enix",
+      "id": 180,
+      "metacritic": 84,
+      "pitch_fr": "Remake du septième épisode de Dragon Quest, RPG classique de Square Enix mêlant exploration de fragments de monde disparus et système de classes."
     },
     {
       "nom": "Draw King",
       "date_sortie": "2026-02-05",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Takahiro Miyazawa"
+      "editeur": "Takahiro Miyazawa",
+      "id": 181,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Hollow Knight – Nintendo Switch 2 Edition",
       "date_sortie": "2026-02-05",
       "edition_physique": "NS2E",
       "code": "8721593149090",
-      "editeur": "Team Cherry"
+      "editeur": "Team Cherry",
+      "id": 182,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 du metroidvania culte Hollow Knight, exploration d'un royaume souterrain d'insectes en décrépitude, réputé pour son ambiance et sa difficulté."
     },
     {
       "nom": "Lovish",
       "date_sortie": "2026-02-05",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Dangen Entertainment"
+      "editeur": "Dangen Entertainment",
+      "id": 183,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Super Bomberman Collection – Nintendo Switch 2 Edition",
       "date_sortie": "2026-02-05",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Konami"
+      "editeur": "Konami",
+      "id": 184,
+      "metacritic": 84,
+      "pitch_fr": "Compilation regroupant plusieurs épisodes classiques de Bomberman, avec leurs modes multijoueur explosifs en local. Édition Switch 2."
     },
     {
       "nom": "Carmageddon: Rogue Shift",
       "date_sortie": "2026-02-06",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "34BigThings"
+      "editeur": "34BigThings",
+      "id": 185,
+      "metacritic": null,
+      "pitch_fr": "Retour de la série de courses destructrices Carmageddon, où l'objectif est autant de finir la course que de démolir adversaires et piétons."
     },
     {
       "nom": "PGA Tour 2K25",
       "date_sortie": "2026-02-06",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "2K"
+      "editeur": "2K",
+      "id": 186,
+      "metacritic": null,
+      "pitch_fr": "Simulation de golf professionnel 2K sous licence PGA Tour, avec parcours réels et système de progression MyPlayer."
     },
     {
       "nom": "Tokyo Scramble",
       "date_sortie": "2026-02-11",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Binary Haze Interactive"
+      "editeur": "Binary Haze Interactive",
+      "id": 187,
+      "metacritic": 43,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Mega Zone",
       "date_sortie": "2026-02-12",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 188,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "ChromaGun 2: Dye Hard",
       "date_sortie": "2026-02-12",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "PM Studios"
+      "editeur": "PM Studios",
+      "id": 189,
+      "metacritic": null,
+      "pitch_fr": "Suite du jeu de puzzle-FPS ChromaGun, où il faut peindre les ennemis de couleurs complémentaires pour les neutraliser plutôt que de les éliminer par la force."
     },
     {
       "nom": "Dream Shogi 4K",
       "date_sortie": "2026-02-12",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Silverstar"
+      "editeur": "Silverstar",
+      "id": 190,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Mario Tennis Fever",
       "date_sortie": "2026-02-12",
       "edition_physique": "Complet",
       "code": "0045496313623",
-      "editeur": "Nintendo"
+      "editeur": "Nintendo",
+      "id": 191,
+      "metacritic": 76,
+      "pitch_fr": "Nouvel épisode de la série Mario Tennis, mêlant tennis arcade accessible et coups spéciaux propres à chaque personnage de l'univers Mario."
     },
     {
       "nom": "Yakuza Kiwami 3 & Dark Ties",
       "date_sortie": "2026-02-12",
       "edition_physique": "GKC",
       "code": "5055277057283",
-      "editeur": "Sega"
+      "editeur": "Sega",
+      "id": 192,
+      "metacritic": 77,
+      "pitch_fr": "Remake dans le style « Kiwami » du troisième épisode de la saga Yakuza, avec combats modernisés ; le contenu Dark Ties ajoute une histoire annexe inédite."
     },
     {
       "nom": "Reanimal",
       "date_sortie": "2026-02-13",
       "edition_physique": "GKC",
       "code": "9120131603091",
-      "editeur": "THQ Nordic"
+      "editeur": "THQ Nordic",
+      "id": 193,
+      "metacritic": 83,
+      "pitch_fr": "Jeu d'aventure-horreur coopératif où deux joueurs incarnant des créatures liées par une chaîne doivent s'entraider pour échapper à un orphelinat cauchemardesque."
     },
     {
       "nom": "Braid, Anniversary Edition – Nintendo Switch 2 Edition",
       "date_sortie": "2026-02-14",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Thekla"
+      "editeur": "Thekla",
+      "id": 194,
+      "metacritic": null,
+      "pitch_fr": "Édition anniversaire de Braid, jeu de plateforme-puzzle pionnier basé sur la manipulation du temps, salué comme l'un des precurseurs du jeu indépendant moderne."
     },
     {
       "nom": "Asphalt Legends – Nintendo Switch 2 Edition",
       "date_sortie": "2026-02-16",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Gameloft"
+      "editeur": "Gameloft",
+      "id": 195,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 de la série de course arcade mobile Asphalt, avec courses nerveuses, voitures sous licence et cascades spectaculaires."
     },
     {
       "nom": "Subnautica – Nintendo Switch 2 Edition",
       "date_sortie": "2026-02-17",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Unknown Worlds Entertainment"
+      "editeur": "Unknown Worlds Entertainment",
+      "id": 196,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 de Subnautica, jeu de survie et d'exploration sous-marine sur une planète océanique extraterrestre, réputé pour son ambiance oppressante."
     },
     {
       "nom": "Subnautica: Below Zero – Nintendo Switch 2 Edition",
       "date_sortie": "2026-02-17",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Unknown Worlds Entertainment"
+      "editeur": "Unknown Worlds Entertainment",
+      "id": 197,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 de Subnautica: Below Zero, suite se déroulant dans une région polaire de la même planète, mêlant survie et récit plus intimiste."
     },
     {
       "nom": "Star Trek: Voyager – Across the Unknown",
       "date_sortie": "2026-02-18",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Daedalic Entertainment"
+      "editeur": "Daedalic Entertainment",
+      "id": 198,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Adventure Canoe",
       "date_sortie": "2026-02-19",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 199,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Console Archives: Dezaemon",
       "date_sortie": "2026-02-19",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 200,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Gear.Club Unlimited 3",
       "date_sortie": "2026-02-19",
       "edition_physique": "GKC",
       "code": "3665962034226",
-      "editeur": "Nacon"
+      "editeur": "Nacon",
+      "id": 201,
+      "metacritic": null,
+      "pitch_fr": "Jeu de course d'arcade avec véhicules customisables, spin-off de la série Gear.Club dans un style plus fun et accessible."
     },
     {
       "nom": "Xenoblade Chronicles X: Definitive Edition – Nintendo Switch 2 Edition",
       "date_sortie": "2026-02-19",
       "edition_physique": "NS2E",
       "code": "0045496314026",
-      "editeur": "Nintendo"
+      "editeur": "Nintendo",
+      "id": 202,
+      "metacritic": 79,
+      "pitch_fr": "Édition définitive et Switch 2 de Xenoblade Chronicles X, RPG en monde ouvert gigantesque mêlant exploration à pied et pilotage de méchas (Skells)."
     },
     {
       "nom": "Fallout 4: Anniversary Edition",
       "date_sortie": "2026-02-24",
       "edition_physique": "CIAB",
       "code": "0196388816408",
-      "editeur": "Bethesda Softworks"
+      "editeur": "Bethesda Softworks",
+      "id": 203,
+      "metacritic": 80,
+      "pitch_fr": "Édition anniversaire de Fallout 4, RPG en monde ouvert post-apocalyptique de Bethesda, incluant les extensions et contenus Creation Club."
     },
     {
       "nom": "Balatro",
       "date_sortie": "2026-02-25",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Playstack"
+      "editeur": "Playstack",
+      "id": 204,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Rave Racer",
       "date_sortie": "2026-02-26",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 205,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "City Hunter",
       "date_sortie": "2026-02-26",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Sunsoft, Clouded Leopard Entertainment"
+      "editeur": "Sunsoft, Clouded Leopard Entertainment",
+      "id": 206,
+      "metacritic": null,
+      "pitch_fr": "Jeu d'action inspiré du manga/anime culte City Hunter, suivant le détective privé Ryo Saeba dans les rues de Shinjuku."
     },
     {
       "nom": "Daisenryaku SSB2",
       "date_sortie": "2026-02-26",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "SystemSoft Beta"
+      "editeur": "SystemSoft Beta",
+      "id": 207,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Exit Lab: 15 Rooms",
       "date_sortie": "2026-02-26",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Intense"
+      "editeur": "Intense",
+      "id": 208,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Sushi Bar Moebius for Nintendo Switch 2",
       "date_sortie": "2026-02-26",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "G-Mode"
+      "editeur": "G-Mode",
+      "id": 209,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "The Disney Afternoon Collection",
       "date_sortie": "2026-02-26",
       "edition_physique": "Complet",
       "code": "5056635623072",
-      "editeur": "Atari"
+      "editeur": "Atari",
+      "id": 210,
+      "metacritic": 78,
+      "pitch_fr": "Compilation de jeux de plateforme Disney des années 90 (DuckTales, Darkwing Duck, Chip 'n Dale...), restaurés avec options d'affichage modernes."
     },
     {
       "nom": "The Fox's Way Home – Nintendo Switch 2 Edition",
       "date_sortie": "2026-02-26",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "BeXide"
+      "editeur": "BeXide",
+      "id": 211,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Resident Evil 7: Biohazard Gold Edition",
       "date_sortie": "2026-02-27",
       "edition_physique": "GKC",
       "code": null,
-      "editeur": "Capcom"
+      "editeur": "Capcom",
+      "id": 212,
+      "metacritic": 87,
+      "pitch_fr": "Édition Gold du remake de Resident Evil 7: biohazard, survival-horror à la première personne qui a relancé la série dans le domaine de l'horreur pure. Inclut les extensions."
     },
     {
       "nom": "Resident Evil Requiem",
       "date_sortie": "2026-02-27",
       "edition_physique": "GKC",
       "code": "5055060908167",
-      "editeur": "Capcom"
+      "editeur": "Capcom",
+      "id": 213,
+      "metacritic": 90,
+      "pitch_fr": "Nouvel épisode principal de la saga Resident Evil, survival-horror de Capcom poursuivant l'évolution de la série vers une horreur psychologique à la première personne."
     },
     {
       "nom": "Resident Evil Village Gold Edition",
       "date_sortie": "2026-02-27",
       "edition_physique": "GKC",
       "code": null,
-      "editeur": "Capcom"
+      "editeur": "Capcom",
+      "id": 214,
+      "metacritic": 79,
+      "pitch_fr": "Édition Gold du remake de Resident Evil Village, mêlant survival-horror et éléments d'action gothique dans un village d'Europe de l'Est peuplé de créatures."
     },
     {
       "nom": "Blue Prince",
       "date_sortie": "2026-03-03",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Raw Fury"
+      "editeur": "Raw Fury",
+      "id": 215,
+      "metacritic": 87,
+      "pitch_fr": "Jeu d'énigmes et d'exploration primé où chaque jour se répète dans un manoir dont les pièces se réarrangent aléatoirement, offrant un puzzle géant à résoudre par la déduction."
     },
     {
       "nom": "Minishoot' Adventures: Nintendo Switch 2 Edition",
       "date_sortie": "2026-03-03",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Seaven Studio"
+      "editeur": "Seaven Studio",
+      "id": 216,
+      "metacritic": 85,
+      "pitch_fr": "Jeu d'action-exploration en pixel-art mêlant shoot'em up et metroidvania, où un petit vaisseau explore un monde ouvert semé de secrets. Édition Switch 2."
     },
     {
       "nom": "Rotwood",
       "date_sortie": "2026-03-03",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Klei Entertainment"
+      "editeur": "Klei Entertainment",
+      "id": 217,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Scott Pilgrim EX",
       "date_sortie": "2026-03-03",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Tribute Games"
+      "editeur": "Tribute Games",
+      "id": 218,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Plump Pop",
       "date_sortie": "2026-03-05",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 219,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Back to the Dawn",
       "date_sortie": "2026-03-05",
       "edition_physique": "GKC",
       "code": null,
-      "editeur": "Clouded Leopard Entertainment, Spiral Up Games"
+      "editeur": "Clouded Leopard Entertainment, Spiral Up Games",
+      "id": 220,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Console Archives: Nobunaga's Ambition",
       "date_sortie": "2026-03-05",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 221,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Planet of Lana II: Nintendo Switch 2 Edition",
       "date_sortie": "2026-03-05",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Thunderful Games"
+      "editeur": "Thunderful Games",
+      "id": 222,
+      "metacritic": null,
+      "pitch_fr": "Suite de Planet of Lana, plateforme cinématographique où une jeune héroïne et sa créature compagne résolvent des énigmes environnementales dans des paysages somptueux. Édition Switch 2."
     },
     {
       "nom": "Pokémon Pokopia",
       "date_sortie": "2026-03-05",
       "edition_physique": "GKC",
       "code": "4255839760403",
-      "editeur": "Nintendo, The Pokémon Company"
+      "editeur": "Nintendo, The Pokémon Company",
+      "id": 223,
+      "metacritic": 89,
+      "pitch_fr": "Spin-off Pokémon de simulation de vie/construction façon Animal Crossing, où le joueur façonne son propre village peuplé de Pokémon."
     },
     {
       "nom": "Console Archives: Sonic Wings Special",
       "date_sortie": "2026-03-12",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 224,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Cozy Grove – Nintendo Switch 2 Edition",
       "date_sortie": "2026-03-12",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "The Quantum Astrophysicists Guild"
+      "editeur": "The Quantum Astrophysicists Guild",
+      "id": 225,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 de Cozy Grove, jeu de vie apaisant où un scout fantôme aide les esprits d'une île à trouver la paix, avec une progression limitée par jour réel."
     },
     {
       "nom": "Fatal Frame II: Crimson Butterfly Remake",
       "date_sortie": "2026-03-12",
       "edition_physique": "GKC",
       "code": "5060327538322",
-      "editeur": "Koei Tecmo"
+      "editeur": "Koei Tecmo",
+      "id": 226,
+      "metacritic": 78,
+      "pitch_fr": "Remake du survival-horror culte Fatal Frame II: Crimson Butterfly, où le joueur combat des fantômes non pas avec des armes mais avec un appareil photo, la Camera Obscura."
     },
     {
       "nom": "R-Type Tactics I – II Cosmos – Nintendo Switch 2 Edition",
       "date_sortie": "2026-03-12",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Granzella"
+      "editeur": "Granzella",
+      "id": 227,
+      "metacritic": null,
+      "pitch_fr": "Compilation Switch 2 des jeux de stratégie R-Type Tactics, déclinaison tour par tour de la série de shoot'em up R-Type."
     },
     {
       "nom": "Tomb Raider I–III Remastered",
       "date_sortie": "2026-03-12",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Aspyr"
+      "editeur": "Aspyr",
+      "id": 228,
+      "metacritic": null,
+      "pitch_fr": "Compilation remasterisée des trois premiers jeux Tomb Raider originaux (1996-1998), revisitant les débuts de Lara Croft avec des graphismes modernisés."
     },
     {
       "nom": "Monster Hunter Stories 3: Twisted Reflection",
       "date_sortie": "2026-03-13",
       "edition_physique": "GKC",
       "code": "5055060955833",
-      "editeur": "Capcom"
+      "editeur": "Capcom",
+      "id": 229,
+      "metacritic": 82,
+      "pitch_fr": "Nouvel épisode dérivé de la série Monster Hunter, action-RPG de chasse aux créatures gigantesques avec artisanat d'armes et d'armures à partir de leurs dépouilles."
     },
     {
       "nom": "WWE 2K26",
       "date_sortie": "2026-03-13",
       "edition_physique": "GKC",
       "code": "5026555073196",
-      "editeur": "2K"
+      "editeur": "2K",
+      "id": 230,
+      "metacritic": null,
+      "pitch_fr": "Nouvel épisode annuel de la simulation de catch WWE 2K, avec roster mis à jour et modes carrière/création approfondis."
     },
     {
       "nom": "Royal Revolt Survivors",
       "date_sortie": "2026-03-16",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Headup Games"
+      "editeur": "Headup Games",
+      "id": 231,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Starship Troopers: Ultimate Bug War!",
       "date_sortie": "2026-03-16",
       "edition_physique": "GKC",
       "code": "3700664533759",
-      "editeur": "Dotemu"
+      "editeur": "Dotemu",
+      "id": 232,
+      "metacritic": 73,
+      "pitch_fr": "Adaptation vidéoludique de l'univers Starship Troopers : jeu de tir coopératif contre des hordes d'insectes extraterrestres (les « Bugs »), dans l'esprit du film culte."
     },
     {
       "nom": "Deadzone Rogue",
       "date_sortie": "2026-03-17",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Prophecy Games"
+      "editeur": "Prophecy Games",
+      "id": 233,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Dread Delusion",
       "date_sortie": "2026-03-17",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "DreadXP"
+      "editeur": "DreadXP",
+      "id": 234,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Snoopy & The Great Mystery Club",
       "date_sortie": "2026-03-17",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "GameMill Entertainment"
+      "editeur": "GameMill Entertainment",
+      "id": 235,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Shadow Tactics: Blades of the Shogun",
       "date_sortie": "2026-03-18",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Daedalic Entertainment"
+      "editeur": "Daedalic Entertainment",
+      "id": 236,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Shadow Tactics: Blades of the Shogun - Aiko's Choice",
       "date_sortie": "2026-03-18",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Daedalic Entertainment"
+      "editeur": "Daedalic Entertainment",
+      "id": 237,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Devastators",
       "date_sortie": "2026-03-19",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 238,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Bang! Bang! Bandits – Nintendo Switch 2 Edition",
       "date_sortie": "2026-03-19",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Nippon Columbia"
+      "editeur": "Nippon Columbia",
+      "id": 239,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Console Archives: Ninja-Kid II",
       "date_sortie": "2026-03-19",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 240,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Human: Fall Flat – Nintendo Switch 2 Edition",
       "date_sortie": "2026-03-19",
       "edition_physique": "NS2E",
       "code": "5056635626349",
-      "editeur": "Curve Digital"
+      "editeur": "Curve Digital",
+      "id": 241,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 de Human: Fall Flat, jeu de puzzle-plateforme physique loufoque où des bonshommes désarticulés résolvent des énigmes environnementales, seul ou à plusieurs."
     },
     {
       "nom": "Psyvariar 3 – Nintendo Switch 2 Edition",
       "date_sortie": "2026-03-19",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Success, Red Art Games"
+      "editeur": "Success, Red Art Games",
+      "id": 242,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Rushing Beat X: Return of Brawl Brothers",
       "date_sortie": "2026-03-19",
       "edition_physique": "Complet",
       "code": "7350002938065",
-      "editeur": "Clear River Games"
+      "editeur": "Clear River Games",
+      "id": 243,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Disney Dreamlight Valley – Nintendo Switch 2 Edition",
       "date_sortie": "2026-03-25",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Gameloft"
+      "editeur": "Gameloft",
+      "id": 244,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 de Disney Dreamlight Valley, jeu de vie et d'aventure où le joueur restaure une vallée peuplée de personnages Disney et Pixar."
     },
     {
       "nom": "Tales of the Shire: A The Lord of the Rings Game Nintendo Switch 2 Edition",
       "date_sortie": "2026-03-25",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Fictions"
+      "editeur": "Fictions",
+      "id": 245,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 de Tales of the Shire, jeu de vie situé dans la Comté du Seigneur des Anneaux, mêlant cuisine, jardinage et vie tranquille de Hobbit."
     },
     {
       "nom": "Warframe",
       "date_sortie": "2026-03-25",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Digital Extremes"
+      "editeur": "Digital Extremes",
+      "id": 246,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Final Lap",
       "date_sortie": "2026-03-26",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 247,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Console Archives: Terra Cresta",
       "date_sortie": "2026-03-26",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 248,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Kena: Bridge of Spirits",
       "date_sortie": "2026-03-26",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Ember Lab"
+      "editeur": "Ember Lab",
+      "id": 249,
+      "metacritic": null,
+      "pitch_fr": "Jeu d'action-aventure primé où une jeune esprit gardienne, accompagnée de petites créatures (les Rot), explore une forêt enchantée à l'esthétique Pixar."
     },
     {
       "nom": "Super Mario Bros. Wonder – Nintendo Switch 2 Edition + Meetup in Bellabel Park",
       "date_sortie": "2026-03-26",
       "edition_physique": "NS2E",
       "code": "0045496313920",
-      "editeur": "Nintendo"
+      "editeur": "Nintendo",
+      "id": 250,
+      "metacritic": 85,
+      "pitch_fr": "Édition Switch 2 de Super Mario Bros. Wonder, plateforme 2D introduisant les « Fleurs Merveille » qui transforment radicalement chaque niveau. Inclut l'extension Meetup in Bellabel Park."
     },
     {
       "nom": "The Midnight Walk",
       "date_sortie": "2026-03-26",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Fast Travel Games"
+      "editeur": "Fast Travel Games",
+      "id": 251,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Virtua Fighter 5 R.E.V.O. World Stage",
       "date_sortie": "2026-03-26",
       "edition_physique": "GKC",
       "code": "4020628541880",
-      "editeur": "Sega"
+      "editeur": "Sega",
+      "id": 252,
+      "metacritic": 84,
+      "pitch_fr": "Nouvel épisode du jeu de combat 3D culte de Sega Virtua Fighter, réputé pour la technicité et le réalisme de son système de combat."
     },
     {
       "nom": "Winning Post 10 2026",
       "date_sortie": "2026-03-26",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Koei Tecmo"
+      "editeur": "Koei Tecmo",
+      "id": 253,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "South of Midnight Weaver's Edition",
       "date_sortie": "2026-03-31",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Xbox Game Studios"
+      "editeur": "Xbox Game Studios",
+      "id": 254,
+      "metacritic": 74,
+      "pitch_fr": "Édition Weaver's Edition de South of Midnight, jeu d'action-aventure inspiré du folklore du sud des États-Unis, à l'esthétique en stop-motion numérique."
     },
     {
       "nom": "Super Meat Boy 3D",
       "date_sortie": "2026-03-31",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Headup Games"
+      "editeur": "Headup Games",
+      "id": 255,
+      "metacritic": 70,
+      "pitch_fr": "Remake en 3D du platformer culte et exigeant Super Meat Boy, réputé pour sa difficulté chirurgicale et ses niveaux ultra courts à recommencer sans fin."
     },
     {
       "nom": "Content Warning",
       "date_sortie": "2026-04-01",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Landfall"
+      "editeur": "Landfall",
+      "id": 256,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Goat Simulator 3",
       "date_sortie": "2026-04-01",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Coffee Stain Publishing"
+      "editeur": "Coffee Stain Publishing",
+      "id": 257,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Haste",
       "date_sortie": "2026-04-01",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Landfall"
+      "editeur": "Landfall",
+      "id": 258,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Darwin's Paradox!",
       "date_sortie": "2026-04-02",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Konami"
+      "editeur": "Konami",
+      "id": 259,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "The New Denpa Men",
       "date_sortie": "2026-04-06",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Genius Sonority"
+      "editeur": "Genius Sonority",
+      "id": 260,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "AFL 26",
       "date_sortie": "2026-04-07",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Nacon"
+      "editeur": "Nacon",
+      "id": 261,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "People of Note",
       "date_sortie": "2026-04-07",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Annapurna Interactive"
+      "editeur": "Annapurna Interactive",
+      "id": 262,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Polaris",
       "date_sortie": "2026-04-09",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 263,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Console Archives: Seicross",
       "date_sortie": "2026-04-09",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 264,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Demon Castle Story – Nintendo Switch 2 Edition",
       "date_sortie": "2026-04-09",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Kairosoft"
+      "editeur": "Kairosoft",
+      "id": 265,
+      "metacritic": null,
+      "pitch_fr": "Jeu de gestion Kairosoft où le joueur bâtit et développe un château fort médiéval peuplé de créatures, dans le style pixel-art et l'humour caractéristiques du studio. Édition Switch 2."
     },
     {
       "nom": "Dosa Divas",
       "date_sortie": "2026-04-14",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Outerloop Games"
+      "editeur": "Outerloop Games",
+      "id": 266,
+      "metacritic": 73,
+      "pitch_fr": null
     },
     {
       "nom": "Overwatch 2",
       "date_sortie": "2026-04-14",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Blizzard Entertainment"
+      "editeur": "Blizzard Entertainment",
+      "id": 267,
+      "metacritic": null,
+      "pitch_fr": "Jeu de tir en équipe orienté héros de Blizzard, avec rôles (tank, dégâts, soutien), modes compétitifs et roster de personnages aux capacités variées."
     },
     {
       "nom": "Arcade Archives 2: Konami GT",
       "date_sortie": "2026-04-16",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 268,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Console Archives: Ishin no Arashi",
       "date_sortie": "2026-04-16",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 269,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Mouse: P.I. for Hire",
       "date_sortie": "2026-04-16",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "PlaySide Studios"
+      "editeur": "PlaySide Studios",
+      "id": 270,
+      "metacritic": 75,
+      "pitch_fr": null
     },
     {
       "nom": "Opus: Prism Peak",
       "date_sortie": "2026-04-16",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Shueisha Games"
+      "editeur": "Shueisha Games",
+      "id": 271,
+      "metacritic": 76,
+      "pitch_fr": null
     },
     {
       "nom": "Under Par Golf Architect",
       "date_sortie": "2026-04-16",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Broken Arms Games"
+      "editeur": "Broken Arms Games",
+      "id": 272,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Pragmata",
       "date_sortie": "2026-04-17",
       "edition_physique": "GKC",
       "code": "5055060909188",
-      "editeur": "Capcom"
+      "editeur": "Capcom",
+      "id": 273,
+      "metacritic": 89,
+      "pitch_fr": "Jeu d'action-aventure de science-fiction de Capcom mêlant tir à la première/troisième personne et résolution d'énigmes avec un compagnon robotique."
     },
     {
       "nom": "Alien: Rogue Incursion Evolved Edition",
       "date_sortie": "2026-04-21",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Survios"
+      "editeur": "Survios",
+      "id": 274,
+      "metacritic": null,
+      "pitch_fr": "Édition étendue d'Alien: Rogue Incursion, jeu d'horreur à la première personne dans l'univers Alien, où la survie face au Xénomorphe repose sur la discrétion."
     },
     {
       "nom": "Dinkum – Nintendo Switch 2 Edition",
       "date_sortie": "2026-04-22",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Krafton"
+      "editeur": "Krafton",
+      "id": 275,
+      "metacritic": null,
+      "pitch_fr": "Jeu de survie et de vie simulée dans l'outback australien fictif, mêlant artisanat, agriculture et exploration dans une ambiance décontractée. Édition Switch 2."
     },
     {
       "nom": "Card & Casino",
       "date_sortie": "2026-04-23",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "D3 Publisher"
+      "editeur": "D3 Publisher",
+      "id": 276,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Console Archives: Ninja Gaiden III: The Ancient Ship of Doom",
       "date_sortie": "2026-04-23",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 277,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Fruit Mountain Party – Nintendo Switch 2 Edition",
       "date_sortie": "2026-04-23",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "BeXide"
+      "editeur": "BeXide",
+      "id": 278,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Kingdom's Return: Time-Eating Fruit and the Ancient Monster – Nintendo Switch 2 Edition",
       "date_sortie": "2026-04-23",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Inti Creates"
+      "editeur": "Inti Creates",
+      "id": 279,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Lorelei and the Laser Eyes – Nintendo Switch 2 Edition",
       "date_sortie": "2026-04-23",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Annapurna Interactive"
+      "editeur": "Annapurna Interactive",
+      "id": 280,
+      "metacritic": null,
+      "pitch_fr": "Jeu d'énigmes narratif primé (BAFTA) où le joueur explore un manoir isolé aux multiples niveaux temporels pour percer le mystère d'une disparition, à l'esthétique rétro évocatrice des années 90."
     },
     {
       "nom": "Sayonara Wild Hearts – Nintendo Switch 2 Edition",
       "date_sortie": "2026-04-23",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Annapurna Interactive"
+      "editeur": "Annapurna Interactive",
+      "id": 281,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 de Sayonara Wild Hearts, jeu d'arcade musical où le joueur traverse des niveaux stylisés au rythme d'une pop épique, en skate, moto ou à cheval."
     },
     {
       "nom": "Vampire Crawlers: The Turbo Wildcard from Vampire Survivors",
       "date_sortie": "2026-04-23",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "poncle"
+      "editeur": "poncle",
+      "id": 282,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "MotoGP 26",
       "date_sortie": "2026-04-29",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Milestone"
+      "editeur": "Milestone",
+      "id": 283,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Possessor(s)",
       "date_sortie": "2026-04-29",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Devolver Digital"
+      "editeur": "Devolver Digital",
+      "id": 284,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Total Chaos",
       "date_sortie": "2026-04-29",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Apogee Entertainment"
+      "editeur": "Apogee Entertainment",
+      "id": 285,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Amnesia: Rebirth",
       "date_sortie": "2026-04-30",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Abylight Studios"
+      "editeur": "Abylight Studios",
+      "id": 286,
+      "metacritic": null,
+      "pitch_fr": "Suite du jeu d'horreur psychologique Amnesia: Rebirth, plongeant le joueur dans le désert algérien à la poursuite de souvenirs traumatisants et de monstruosités."
     },
     {
       "nom": "Arcade Archives 2: Cyber Commando",
       "date_sortie": "2026-04-30",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 287,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Bandit Trap",
       "date_sortie": "2026-04-30",
       "edition_physique": "Complet",
       "code": "5056635620279",
-      "editeur": "PM Studios"
+      "editeur": "PM Studios",
+      "id": 288,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Chippy & Noppo – Nintendo Switch 2 Edition",
       "date_sortie": "2026-04-30",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "O-Two"
+      "editeur": "O-Two",
+      "id": 289,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Console Archives: Rohga: Armor Force",
       "date_sortie": "2026-04-30",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 290,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "InKonbini: One Store. Many Stories",
       "date_sortie": "2026-04-30",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Nagai Industries"
+      "editeur": "Nagai Industries",
+      "id": 291,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Our Flick Erasers 4 – Nintendo Switch 2 Edition",
       "date_sortie": "2026-04-30",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Sat-Box"
+      "editeur": "Sat-Box",
+      "id": 292,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Shinigami Hime to Ishokan no Kaibutsu",
       "date_sortie": "2026-04-30",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Nippon Ichi Software"
+      "editeur": "Nippon Ichi Software",
+      "id": 293,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Skyship Quest Story – Nintendo Switch 2 Edition",
       "date_sortie": "2026-04-30",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Kairosoft"
+      "editeur": "Kairosoft",
+      "id": 294,
+      "metacritic": null,
+      "pitch_fr": "Jeu de gestion Kairosoft où le joueur dirige un navire volant explorant un monde de ciel, recrutant équipage et améliorant son appareil. Édition Switch 2."
     },
     {
       "nom": "Arcade Archives 2: Arkanoid",
       "date_sortie": "2026-05-07",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 295,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Blood: Refreshed Supply – Nintendo Switch 2 Edition",
       "date_sortie": "2026-05-07",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Atari, Nightdive Studios, Warner Bros. Games"
+      "editeur": "Atari, Nightdive Studios, Warner Bros. Games",
+      "id": 296,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Console Archives: MagMax",
       "date_sortie": "2026-05-07",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 297,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Mixtape",
       "date_sortie": "2026-05-07",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Annapurna Interactive"
+      "editeur": "Annapurna Interactive",
+      "id": 298,
+      "metacritic": 81,
+      "pitch_fr": "Album jouable façon jeu narratif musical, où le joueur explore les souvenirs liés à une mixtape des années 90-2000."
     },
     {
       "nom": "Call of the Elder Gods",
       "date_sortie": "2026-05-12",
       "edition_physique": "GKC",
       "code": "3701529517686",
-      "editeur": "Kwalee"
+      "editeur": "Kwalee",
+      "id": 299,
+      "metacritic": 75,
+      "pitch_fr": "Jeu d'action roguelite coopératif où le joueur invoque des créatures anciennes façon Lovecraft pour affronter des cultistes et des monstres cosmiques."
     },
     {
       "nom": "Indiana Jones and the Great Circle",
       "date_sortie": "2026-05-12",
       "edition_physique": "Complet",
       "code": "0196388816286",
-      "editeur": "Bethesda Softworks"
+      "editeur": "Bethesda Softworks",
+      "id": 300,
+      "metacritic": 82,
+      "pitch_fr": "Jeu d'action-aventure à la troisième personne développé par MachineGames, adaptation d'une aventure originale d'Indiana Jones mêlant exploration, énigmes et infiltration."
     },
     {
       "nom": "Console Archives: Master of Monsters: Disciples of Gaia",
       "date_sortie": "2026-05-14",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 301,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Outbound",
       "date_sortie": "2026-05-14",
       "edition_physique": "Complet",
       "code": "5061078711194",
-      "editeur": "Square Glade Games"
+      "editeur": "Square Glade Games",
+      "id": 302,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Sektori",
       "date_sortie": "2026-05-14",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Kimmo Factor"
+      "editeur": "Kimmo Factor",
+      "id": 303,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Smalland: Survive the Wilds",
       "date_sortie": "2026-05-14",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Maximum Entertainment"
+      "editeur": "Maximum Entertainment",
+      "id": 304,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Mr. Do!",
       "date_sortie": "2026-05-15",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 305,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Shikhondo: Blue Pieta",
       "date_sortie": "2026-05-18",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "DeerFarm"
+      "editeur": "DeerFarm",
+      "id": 306,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "R-Type Dimensions III",
       "date_sortie": "2026-05-19",
       "edition_physique": "Complet",
       "code": "4262460628415",
-      "editeur": "ININ Games"
+      "editeur": "ININ Games",
+      "id": 307,
+      "metacritic": 56,
+      "pitch_fr": "Compilation de plusieurs épisodes du célèbre shoot'em up R-Type, réputé pour sa difficulté redoutable et son bestiaire de boss organiques mémorables."
     },
     {
       "nom": "Arcade Archives 2: Tag Team Wrestling",
       "date_sortie": "2026-05-21",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 308,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Coffee Talk Tokyo",
       "date_sortie": "2026-05-21",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Chorus Worldwide"
+      "editeur": "Chorus Worldwide",
+      "id": 309,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Console Archives: Toujinmakyouden Hercules no eikou",
       "date_sortie": "2026-05-21",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 310,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Dream Town Island – Nintendo Switch 2 Edition",
       "date_sortie": "2026-05-21",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Kairosoft"
+      "editeur": "Kairosoft",
+      "id": 311,
+      "metacritic": null,
+      "pitch_fr": "Jeu de gestion Kairosoft consacré à la construction et au développement d'une ville insulaire de rêve, dans le style pixel-art signature du studio. Édition Switch 2."
     },
     {
       "nom": "FZ: Formation Z",
       "date_sortie": "2026-05-21",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Clear River Games"
+      "editeur": "Clear River Games",
+      "id": 312,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Yoshi and the Mysterious Book",
       "date_sortie": "2026-05-21",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Nintendo"
+      "editeur": "Nintendo",
+      "id": 313,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Bubsy 4D",
       "date_sortie": "2026-05-22",
       "edition_physique": "Complet",
       "code": null,
-      "editeur": "Atari"
+      "editeur": "Atari",
+      "id": 314,
+      "metacritic": 61,
+      "pitch_fr": "Reboot en 3D de Bubsy, plateforme mettant en scène le chat orange bondissant à la répartie légendaire, entre hommage et autodérision de la mascotte culte des années 90."
     },
     {
       "nom": "Tales of Arise – Beyond the Dawn Edition",
       "date_sortie": "2026-05-22",
       "edition_physique": "GKC",
       "code": "3391892041484",
-      "editeur": "Bandai Namco Entertainment"
+      "editeur": "Bandai Namco Entertainment",
+      "id": 315,
+      "metacritic": 79,
+      "pitch_fr": "Édition étendue de Tales of Arise, RPG d'action japonais mêlant combats dynamiques en temps réel et récit sur la libération d'un peuple opprimé."
     },
     {
       "nom": "Amanda the Adventurer 3",
       "date_sortie": "2026-05-28",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Dread XP"
+      "editeur": "Dread XP",
+      "id": 316,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Ace Driver",
       "date_sortie": "2026-05-28",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 317,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Tatakae! Big Fighter",
       "date_sortie": "2026-05-28",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 318,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Bluey's Quest for the Gold Pen",
       "date_sortie": "2026-05-28",
       "edition_physique": "Complet",
       "code": "5056635621818",
-      "editeur": "PM Studios"
+      "editeur": "PM Studios",
+      "id": 319,
+      "metacritic": 72,
+      "pitch_fr": "Jeu de plateforme-aventure basé sur la série animée Bluey, où le joueur incarne la petite chienne bleue dans des mini-jeux familiaux hauts en couleur."
     },
     {
       "nom": "Console Archives: Geki-Oh ShienRyu",
       "date_sortie": "2026-05-28",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 320,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Lollipop Chainsaw RePOP – Nintendo Switch 2 Edition",
       "date_sortie": "2026-05-28",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Dragami Games"
+      "editeur": "Dragami Games",
+      "id": 321,
+      "metacritic": null,
+      "pitch_fr": "Remake de Lollipop Chainsaw, jeu d'action déjanté où une cheerleader chasseuse de zombies combat des hordes de morts-vivants à la tronçonneuse, sur fond d'humour pop culture."
     },
     {
       "nom": "Monochrome Mobius: Rights and Wrongs Forgotten",
       "date_sortie": "2026-05-28",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "NIS America"
+      "editeur": "NIS America",
+      "id": 322,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "One Military Camp",
       "date_sortie": "2026-05-28",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Abylight"
+      "editeur": "Abylight",
+      "id": 323,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "One Move Away",
       "date_sortie": "2026-05-28",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Playstack"
+      "editeur": "Playstack",
+      "id": 324,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "RollerCoaster Tycoon Classic – Nintendo Switch 2 Edition",
       "date_sortie": "2026-05-28",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Atari"
+      "editeur": "Atari",
+      "id": 325,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 de RollerCoaster Tycoon Classic, jeu de gestion de parc d'attractions culte où le joueur construit montagnes russes et attractions pour satisfaire ses visiteurs."
     },
     {
       "nom": "Stray",
       "date_sortie": "2026-05-28",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Annapurna Interactive"
+      "editeur": "Annapurna Interactive",
+      "id": 326,
+      "metacritic": null,
+      "pitch_fr": "Jeu d'aventure primé où le joueur incarne un chat errant explorant une cité cyberpunk peuplée de robots, dans une ambiance mélancolique et contemplative."
     },
     {
       "nom": "Touhou Yukkuri Mountain – Nintendo Switch 2 Edition",
       "date_sortie": "2026-05-28",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "BeXide"
+      "editeur": "BeXide",
+      "id": 327,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Utawarerumono: Past and Present Rediscovered",
       "date_sortie": "2026-05-28",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Aquaplus"
+      "editeur": "Aquaplus",
+      "id": 328,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Little Nightmares II Enhanced Edition",
       "date_sortie": "2026-05-29",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Bandai Namco Entertainment"
+      "editeur": "Bandai Namco Entertainment",
+      "id": 329,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Mina the Hollower – Nintendo Switch 2 Edition",
       "date_sortie": "2026-05-29",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Yacht Club Games"
+      "editeur": "Yacht Club Games",
+      "id": 330,
+      "metacritic": 90,
+      "pitch_fr": "Jeu d'action-aventure en pixel-art à la Zelda-like, où une voleuse alliée à des créatures nocturnes explore un royaume gothique. Édition Switch 2."
     },
     {
       "nom": "EFootball Kick Off!",
       "date_sortie": "2026-06-03",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Konami"
+      "editeur": "Konami",
+      "id": 331,
+      "metacritic": 76,
+      "pitch_fr": null
     },
     {
       "nom": "Final Fantasy VII Rebirth",
       "date_sortie": "2026-06-03",
       "edition_physique": "GKC",
       "code": "5021290102811",
-      "editeur": "Square Enix"
+      "editeur": "Square Enix",
+      "id": 332,
+      "metacritic": 87,
+      "pitch_fr": "Suite du remake de Final Fantasy VII, poursuivant l'histoire de Cloud et ses compagnons à travers le monde ouvert au-delà de Midgar."
     },
     {
       "nom": "System Shock 2: 25th Anniversary Remaster – Nintendo Switch 2 Edition",
       "date_sortie": "2026-06-03",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Nightdive Studios"
+      "editeur": "Nightdive Studios",
+      "id": 333,
+      "metacritic": null,
+      "pitch_fr": "Remaster anniversaire de System Shock 2, immersive sim culte mêlant horreur spatiale, RPG et infiltration, influence majeure du genre. Édition Switch 2."
     },
     {
       "nom": "A-Train 9 Evolution",
       "date_sortie": "2026-06-04",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Artdink"
+      "editeur": "Artdink",
+      "id": 334,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Cameltry",
       "date_sortie": "2026-06-04",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 335,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Console Archives: Firework Thrower Kantaro's 53 Stations of the Tokaido",
       "date_sortie": "2026-06-04",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 336,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Isekai Villain – Nintendo Switch 2 Edition",
       "date_sortie": "2026-06-04",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Kemco"
+      "editeur": "Kemco",
+      "id": 337,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Police Simulator: Patrol Officers",
       "date_sortie": "2026-06-04",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Astragon"
+      "editeur": "Astragon",
+      "id": 338,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Rugby League 26",
       "date_sortie": "2026-06-05",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Nacon"
+      "editeur": "Nacon",
+      "id": 339,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Sea of Stars",
       "date_sortie": "2026-06-08",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Sabotage Studio"
+      "editeur": "Sabotage Studio",
+      "id": 340,
+      "metacritic": null,
+      "pitch_fr": "RPG d'aventure coloré à l'ambiance chaleureuse, suivant un groupe de héros à travers un monde inspiré des pixels-arts 16-bit classiques, salué pour son écriture et sa musique."
     },
     {
       "nom": "Solarpunk",
       "date_sortie": "2026-06-08",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Rokaplay"
+      "editeur": "Rokaplay",
+      "id": 341,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Atelier Yumia: The Alchemist of Memories & the Envisioned Land – Nintendo Switch 2 Edition",
       "date_sortie": "2026-06-09",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Koei Tecmo"
+      "editeur": "Koei Tecmo",
+      "id": 342,
+      "metacritic": null,
+      "pitch_fr": "RPG d'alchimie de la série Atelier (Koei Tecmo/Gust), suivant Yumia qui explore une terre marquée par une catastrophe magique tout en synthétisant objets et équipements. Édition Switch 2."
     },
     {
       "nom": "Rise of the Tomb Raider: 20 Year Celebration",
       "date_sortie": "2026-06-09",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Aspyr"
+      "editeur": "Aspyr",
+      "id": 343,
+      "metacritic": 78,
+      "pitch_fr": "Édition anniversaire de Rise of the Tomb Raider, deuxième volet du reboot suivant Lara Croft à la recherche de la Cité de lumière en Sibérie."
     },
     {
       "nom": "SnowRunner",
       "date_sortie": "2026-06-09",
       "edition_physique": "GKC",
       "code": "4020628539481",
-      "editeur": "Focus Home Interactive"
+      "editeur": "Focus Home Interactive",
+      "id": 344,
+      "metacritic": null,
+      "pitch_fr": "Jeu de simulation de conduite tout-terrain où le joueur transporte du fret à travers des environnements boueux et difficiles avec des poids lourds réalistes."
     },
     {
       "nom": "Xenoblade Chronicles: Definitive Edition – Nintendo Switch 2 Edition",
       "date_sortie": "2026-06-09",
       "edition_physique": "NS2E",
       "code": "0045496405571",
-      "editeur": "Nintendo"
+      "editeur": "Nintendo",
+      "id": 345,
+      "metacritic": 86,
+      "pitch_fr": "Édition Switch 2 du RPG en monde ouvert Xenoblade Chronicles: Definitive Edition, remaster du tout premier épisode de la saga sur les dos de deux titans figés."
     },
     {
       "nom": "Dark Auction – Nintendo Switch 2 Edition",
       "date_sortie": "2026-06-10",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Good Smile Company"
+      "editeur": "Good Smile Company",
+      "id": 346,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Rack 'Em Up",
       "date_sortie": "2026-06-11",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 347,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Console Archives: L'Empereur",
       "date_sortie": "2026-06-11",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 348,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Starseeker: Astroneer Expeditions",
       "date_sortie": "2026-06-11",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Devolver Digital"
+      "editeur": "Devolver Digital",
+      "id": 349,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "To a T",
       "date_sortie": "2026-06-11",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Annapurna Interactive"
+      "editeur": "Annapurna Interactive",
+      "id": 350,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Unrailed 2: Back on Track – Nintendo Switch 2 Edition",
       "date_sortie": "2026-06-11",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Indoor Astronaut"
+      "editeur": "Indoor Astronaut",
+      "id": 351,
+      "metacritic": null,
+      "pitch_fr": "Suite du jeu coopératif chaotique Unrailed, où une équipe doit poser des rails à la volée pour faire avancer un train sans fin à travers des biomes procéduraux. Édition Switch 2."
     },
     {
       "nom": "Demeo x Dungeons & Dragons: Battlemarked",
       "date_sortie": "2026-06-16",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Resolution Games"
+      "editeur": "Resolution Games",
+      "id": 352,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Junkster",
       "date_sortie": "2026-06-16",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Stormcloud Games"
+      "editeur": "Stormcloud Games",
+      "id": 353,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "And Roger",
       "date_sortie": "2026-06-18",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Kodansha"
+      "editeur": "Kodansha",
+      "id": 354,
+      "metacritic": 90,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Space Cyclone",
       "date_sortie": "2026-06-18",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 355,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Console Archives: The Legend of Kage",
       "date_sortie": "2026-06-18",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 356,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Observer: System Redux",
       "date_sortie": "2026-06-18",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Aspyr"
+      "editeur": "Aspyr",
+      "id": 357,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "The Adventures of Elliot: The Millennium Tales",
       "date_sortie": "2026-06-18",
       "edition_physique": "GKC",
       "code": "5021290102729",
-      "editeur": "Square Enix"
+      "editeur": "Square Enix",
+      "id": 358,
+      "metacritic": 79,
+      "pitch_fr": null
     },
     {
       "nom": "The Last Salvage Squad",
       "date_sortie": "2026-06-18",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Waku Waku Games"
+      "editeur": "Waku Waku Games",
+      "id": 359,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "The Drifter – Nintendo Switch 2 Edition",
       "date_sortie": "2026-06-22",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Powerhoof"
+      "editeur": "Powerhoof",
+      "id": 360,
+      "metacritic": 89,
+      "pitch_fr": "Jeu d'aventure en pixel-art situé dans un désert post-apocalyptique, mêlant exploration contemplative et tension narrative."
     },
     {
       "nom": "Destroy All Humans!",
       "date_sortie": "2026-06-23",
       "edition_physique": "GKC",
       "code": "9120131604487",
-      "editeur": "THQ Nordic"
+      "editeur": "THQ Nordic",
+      "id": 361,
+      "metacritic": null,
+      "pitch_fr": "Retour de la série culte Destroy All Humans!, où un extraterrestre sème le chaos dans l'Amérique des années 1950 avec des armes délirantes et des pouvoirs psychiques."
     },
     {
       "nom": "Devil May Cry 5 Devil Hunter Edition",
       "date_sortie": "2026-06-23",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Capcom"
+      "editeur": "Capcom",
+      "id": 362,
+      "metacritic": 86,
+      "pitch_fr": "Édition Devil Hunter de Devil May Cry 5, hack'n'slash stylé de Capcom mettant en scène Dante, Nero et V dans des combats chorégraphiés à la notation de style."
     },
     {
       "nom": "Sonic Frontiers Definitive Edition",
       "date_sortie": "2026-06-23",
       "edition_physique": "GKC",
       "code": "5055277057672",
-      "editeur": "Sega"
+      "editeur": "Sega",
+      "id": 363,
+      "metacritic": 57,
+      "pitch_fr": "Édition définitive de Sonic Frontiers, premier jeu Sonic en monde ouvert, mêlant exploration d'îles mystérieuses et combats de boss spectaculaires."
     },
     {
       "nom": "Wanderstop",
       "date_sortie": "2026-06-23",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Annapurna Interactive"
+      "editeur": "Annapurna Interactive",
+      "id": 364,
+      "metacritic": null,
+      "pitch_fr": "Jeu narratif contemplatif où le joueur explore un café abandonné en pleine nature, mêlant cuisine paisible et récit émotionnel sur le deuil."
     },
     {
       "nom": "Kokutoto",
       "date_sortie": "2026-06-24",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Tenda Games"
+      "editeur": "Tenda Games",
+      "id": 365,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "The Necromancer's Tale",
       "date_sortie": "2026-06-24",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Silver Lining"
+      "editeur": "Silver Lining",
+      "id": 366,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Moon Shuttle",
       "date_sortie": "2026-06-25",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 367,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Tekken",
       "date_sortie": "2026-06-25",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 368,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Citizen Sleeper 2: Starward Vector – Nintendo Switch 2 Edition",
       "date_sortie": "2026-06-25",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Fellow Traveller"
+      "editeur": "Fellow Traveller",
+      "id": 369,
+      "metacritic": null,
+      "pitch_fr": "Suite du jeu narratif de science-fiction Citizen Sleeper, où un esprit numérisé dans un corps synthétique explore de nouveaux mystères entre choix narratifs et gestion de ressources. Édition Switch 2."
     },
     {
       "nom": "Citizen Sleeper – Nintendo Switch 2 Edition",
       "date_sortie": "2026-06-25",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Fellow Traveller"
+      "editeur": "Fellow Traveller",
+      "id": 370,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 de Citizen Sleeper, jeu de rôle narratif où un « sleeper » (esprit humain dans un corps artificiel) tente de survivre sur une station spatiale décrépite, entre choix aux dés et récit à embranchements."
     },
     {
       "nom": "Console Archives: Bokosuka Wars",
       "date_sortie": "2026-06-25",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 371,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Game Dev Story – Nintendo Switch 2 Edition",
       "date_sortie": "2026-06-25",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Kairosoft"
+      "editeur": "Kairosoft",
+      "id": 372,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 du classique de gestion Kairosoft Game Dev Story, où le joueur dirige un studio de jeux vidéo, du recrutement à la sortie de succès (ou de flops)."
     },
     {
       "nom": "Gecko Gods",
       "date_sortie": "2026-06-25",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Super Rare Originals"
+      "editeur": "Super Rare Originals",
+      "id": 373,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Namco Legendary Mountains",
       "date_sortie": "2026-06-25",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "BeXide"
+      "editeur": "BeXide",
+      "id": 374,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Star Fox",
       "date_sortie": "2026-06-25",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Nintendo"
+      "editeur": "Nintendo",
+      "id": 375,
+      "metacritic": 81,
+      "pitch_fr": "Retour de la série culte Star Fox de Nintendo, shoot'em up sur rail mettant en scène Fox McCloud et son escadrille à bord de vaisseaux Arwing."
     },
     {
       "nom": "Villion:Code",
       "date_sortie": "2026-06-25",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Compile Heart"
+      "editeur": "Compile Heart",
+      "id": 376,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Momento",
       "date_sortie": "2026-06-30",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Silver Lining"
+      "editeur": "Silver Lining",
+      "id": 377,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Monopoly: Star Wars Heroes vs. Villains",
       "date_sortie": "2026-06-30",
       "edition_physique": "GKC",
       "code": "3307216311508",
-      "editeur": "Ubisoft"
+      "editeur": "Ubisoft",
+      "id": 378,
+      "metacritic": null,
+      "pitch_fr": "Version Star Wars du célèbre jeu de plateau Monopoly, opposant les héros et vilains de la saga sur un plateau thématisé."
     },
     {
       "nom": "High on Life 2",
       "date_sortie": "2026-07-01",
       "edition_physique": "GKC",
       "code": "0884095226534",
-      "editeur": "Squanch Games"
+      "editeur": "Squanch Games",
+      "id": 379,
+      "metacritic": null,
+      "pitch_fr": "Suite du jeu de tir humoristique High on Life, avec de nouvelles armes vivantes sarcastiques et une nouvelle menace intergalactique à combattre."
     },
     {
       "nom": "Arcade Archives 2: Lady Bug",
       "date_sortie": "2026-07-02",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 380,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Botany Manor – Nintendo Switch 2 Edition",
       "date_sortie": "2026-07-02",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Whitethorn Games"
+      "editeur": "Whitethorn Games",
+      "id": 381,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 de Botany Manor, jeu d'énigmes contemplatif où une botaniste retraitée perce les secrets de cultures de plantes fantastiques dans son manoir victorien."
     },
     {
       "nom": "Console Archives: T.R.A.G.: Tactical Rescue Assault Group - Mission of Mercy",
       "date_sortie": "2026-07-02",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 382,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Escape the Backrooms",
       "date_sortie": "2026-07-07",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Secret Mode"
+      "editeur": "Secret Mode",
+      "id": 383,
+      "metacritic": null,
+      "pitch_fr": "Jeu d'horreur d'exploration inspiré du phénomène internet des « Backrooms » : des couloirs infinis et inquiétants générés dans une esthétique de bureaux vides des années 90."
     },
     {
       "nom": "Moonlight Peaks – Nintendo Switch 2 Edition",
       "date_sortie": "2026-07-07",
       "edition_physique": "NS2E",
       "code": "5060540773425",
-      "editeur": "Marvelous"
+      "editeur": "Marvelous",
+      "id": 384,
+      "metacritic": 81,
+      "pitch_fr": "Jeu de vie et de gestion apaisant se déroulant dans une station de montagne, mêlant décoration, activités saisonnières et rencontres. Édition Switch 2."
     },
     {
       "nom": "Arcade Archives 2: Hyper Crash",
       "date_sortie": "2026-07-09",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 385,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Console Archives: Rhapsody: A Musical Adventure",
       "date_sortie": "2026-07-09",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 386,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Granblue Fantasy: Relink - Endless Ragnarok",
       "date_sortie": "2026-07-09",
       "edition_physique": "GKC",
       "code": "4020628539825",
-      "editeur": "Cygames"
+      "editeur": "Cygames",
+      "id": 387,
+      "metacritic": 81,
+      "pitch_fr": "Extension « Endless Ragnarok » de Granblue Fantasy: Relink, action-RPG haut en couleur de Cygames mêlant combats dynamiques en équipe et univers issu du jeu mobile culte."
     },
     {
       "nom": "Gunvolt Chronicles: Luminous Avenger iX 1+2 Dual Collection – Nintendo Switch 2 Edition",
       "date_sortie": "2026-07-09",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Inti Creates"
+      "editeur": "Inti Creates",
+      "id": 388,
+      "metacritic": null,
+      "pitch_fr": "Compilation Switch 2 des deux épisodes Gunvolt Chronicles: Luminous Avenger iX, action-plateforme nerveuse dans l'univers Azure Striker Gunvolt, par Inti Creates."
     },
     {
       "nom": "Space Warlord Baby Trading Simulator",
       "date_sortie": "2026-07-09",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Strange Scaffold, Frosty Pop"
+      "editeur": "Strange Scaffold, Frosty Pop",
+      "id": 389,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Digimon Story: Time Stranger",
       "date_sortie": "2026-07-10",
       "edition_physique": "GKC",
       "code": "3391892039252",
-      "editeur": "Bandai Namco Entertainment"
+      "editeur": "Bandai Namco Entertainment",
+      "id": 390,
+      "metacritic": 80,
+      "pitch_fr": "RPG d'aventure Digimon situé dans un futur cyberpunk, mêlant enquête, collection de Digimon et combats au tour par tour."
     },
     {
       "nom": "Octopath Traveler",
       "date_sortie": "2026-07-13",
       "edition_physique": "GKC",
       "code": "5021290103337",
-      "editeur": "Square Enix"
+      "editeur": "Square Enix",
+      "id": 391,
+      "metacritic": null,
+      "pitch_fr": "RPG au style « HD-2D » suivant huit voyageurs aux histoires entrelacées à travers le monde d'Orsterra, réputé pour son système de combat par rupture (Break) et son ambiance visuelle unique."
     },
     {
       "nom": "Octopath Traveler II",
       "date_sortie": "2026-07-13",
       "edition_physique": "GKC",
       "code": "5021290103375",
-      "editeur": "Square Enix"
+      "editeur": "Square Enix",
+      "id": 392,
+      "metacritic": null,
+      "pitch_fr": "Suite d'Octopath Traveler, RPG HD-2D introduisant un système jour/nuit et de nouveaux voyageurs aux histoires indépendantes."
     },
     {
       "nom": "D-topia",
       "date_sortie": "2026-07-14",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Annapurna Interactive"
+      "editeur": "Annapurna Interactive",
+      "id": 393,
+      "metacritic": 71,
+      "pitch_fr": null
     },
     {
       "nom": "Starbites – Nintendo Switch 2 Edition",
       "date_sortie": "2026-07-14",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "NIS America"
+      "editeur": "NIS America",
+      "id": 394,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Cozy Grove: Camp Spirit – Nintendo Switch 2 Edition",
       "date_sortie": "2026-07-15",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "The Quantum Astrophysicists Guild"
+      "editeur": "The Quantum Astrophysicists Guild",
+      "id": 395,
+      "metacritic": null,
+      "pitch_fr": "Extension « Camp Spirit » de Cozy Grove, ajoutant du contenu au jeu de vie apaisant sur l'île hantée par des esprits à réconforter. Édition Switch 2."
     },
     {
       "nom": "Denshattack!",
       "date_sortie": "2026-07-15",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Fireshine Games"
+      "editeur": "Fireshine Games",
+      "id": 396,
+      "metacritic": 87,
+      "pitch_fr": null
     },
     {
       "nom": "Disney Speedstorm – Nintendo Switch 2 Edition",
       "date_sortie": "2026-07-15",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Gameloft"
+      "editeur": "Gameloft",
+      "id": 397,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 de Disney Speedstorm, jeu de karting arcade mettant en scène des personnages Disney et Pixar sur des circuits inspirés de leurs films."
     },
     {
       "nom": "Star Ocean: The Second Story R",
       "date_sortie": "2026-07-15",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Square Enix"
+      "editeur": "Square Enix",
+      "id": 398,
+      "metacritic": null,
+      "pitch_fr": "Remake de Star Ocean: The Second Story, RPG d'action culte des années 90 mêlant science-fiction et fantasy, avec système de combat en temps réel et ramifications scénaristiques."
     },
     {
       "nom": "Teeto",
       "date_sortie": "2026-07-15",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Super Rare Games"
+      "editeur": "Super Rare Games",
+      "id": 399,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Syvalion",
       "date_sortie": "2026-07-16",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 400,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Console Archives: Hercules no Eikou II: Taitan no Metsubou",
       "date_sortie": "2026-07-16",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 401,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Culdcept Begins – Nintendo Switch 2 Edition",
       "date_sortie": "2026-07-16",
       "edition_physique": "NS2E",
       "code": "7350002937860",
-      "editeur": "Neos Corporation"
+      "editeur": "Neos Corporation",
+      "id": 402,
+      "metacritic": 76,
+      "pitch_fr": "Origine de la série Culdcept, jeu hybride entre jeu de plateau façon Monopoly et jeu de cartes à collectionner, où le joueur conquiert un royaume case par case."
     },
     {
       "nom": "Decollate Decoration",
       "date_sortie": "2026-07-16",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Kemco"
+      "editeur": "Kemco",
+      "id": 403,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Fitness Boxing 3: Your Personal Trainer – Nintendo Switch 2 Edition",
       "date_sortie": "2026-07-16",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Nintendo"
+      "editeur": "Nintendo",
+      "id": 404,
+      "metacritic": null,
+      "pitch_fr": "Nouvel épisode de Fitness Boxing, jeu d'exercice rythmé où le joueur enchaîne des mouvements de boxe cardio au rythme de la musique, avec coachs virtuels. Édition Switch 2."
     },
     {
       "nom": "Go-Go Town! – Nintendo Switch 2 Edition",
       "date_sortie": "2026-07-16",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Prideful Sloth"
+      "editeur": "Prideful Sloth",
+      "id": 405,
+      "metacritic": null,
+      "pitch_fr": "Jeu de construction et de gestion de ville où le joueur développe une bourgade en pleine nature, entre artisanat, commerce et relations avec les habitants. Édition Switch 2."
     },
     {
       "nom": "Heave Ho 2",
       "date_sortie": "2026-07-16",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Devolver Digital"
+      "editeur": "Devolver Digital",
+      "id": 406,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Kyoto Xanadu",
       "date_sortie": "2026-07-16",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Nihon Falcom"
+      "editeur": "Nihon Falcom",
+      "id": 407,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Monster Girls and the Mysterious Adventure Remastered Edition",
       "date_sortie": "2026-07-16",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Waku Waku Games"
+      "editeur": "Waku Waku Games",
+      "id": 408,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Moss: The Forgotten Relic",
       "date_sortie": "2026-07-16",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Polyarc"
+      "editeur": "Polyarc",
+      "id": 409,
+      "metacritic": null,
+      "pitch_fr": "Jeu de plateforme-aventure où un petit compagnon volant explore des ruines mystiques aux côtés d'un partenaire humain (en coopération locale), dans une ambiance contemplative."
     },
     {
       "nom": "Outlaws + Handful of Missions: Remaster – Nintendo Switch 2 Edition",
       "date_sortie": "2026-07-16",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Atari"
+      "editeur": "Atari",
+      "id": 410,
+      "metacritic": null,
+      "pitch_fr": "Remaster du FPS western culte Outlaws (LucasArts, 1997), suivant un ancien marshal en quête de vengeance dans le Far West, avec ses missions bonus. Édition Switch 2."
     },
     {
       "nom": "The Mermaid Mask",
       "date_sortie": "2026-07-16",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "SFB Games"
+      "editeur": "SFB Games",
+      "id": 411,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Xenotilt: Hostile Pinball Action",
       "date_sortie": "2026-07-16",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Flarb"
+      "editeur": "Flarb",
+      "id": 412,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Pit Panic",
       "date_sortie": "2026-07-21",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Flying Rat Studio"
+      "editeur": "Flying Rat Studio",
+      "id": 413,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Armadillo Racing",
       "date_sortie": "2026-07-23",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 414,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Mouser",
       "date_sortie": "2026-07-23",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 415,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Console Archives: The Conveni",
       "date_sortie": "2026-07-23",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 416,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Dungeon Village 2 – Nintendo Switch 2 Edition",
       "date_sortie": "2026-07-23",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Kairosoft"
+      "editeur": "Kairosoft",
+      "id": 417,
+      "metacritic": null,
+      "pitch_fr": "Jeu de gestion Kairosoft où le joueur construit et peuple un donjon, entre défense contre les aventuriers et optimisation de salles. Édition Switch 2."
     },
     {
       "nom": "Final Fantasy X/X-2 HD Remaster",
       "date_sortie": "2026-07-23",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Square Enix"
+      "editeur": "Square Enix",
+      "id": 418,
+      "metacritic": 84,
+      "pitch_fr": null
     },
     {
       "nom": "Memory of Memorie: A Chill Story – Nintendo Switch 2 Edition",
       "date_sortie": "2026-07-23",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "BeXide"
+      "editeur": "BeXide",
+      "id": 419,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Soma – Nintendo Switch 2 Edition",
       "date_sortie": "2026-07-23",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Abylight Studios"
+      "editeur": "Abylight Studios",
+      "id": 420,
+      "metacritic": null,
+      "pitch_fr": "Édition Switch 2 de Soma, jeu d'horreur narratif de science-fiction interrogeant la conscience et l'identité au fond d'une station sous-marine en déliquescence."
     },
     {
       "nom": "Splatoon Raiders",
       "date_sortie": "2026-07-23",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Nintendo"
+      "editeur": "Nintendo",
+      "id": 421,
+      "metacritic": 81,
+      "pitch_fr": null
     },
     {
       "nom": "The Angel Next Door Spoils Me Rotten: Memorial Vacation",
       "date_sortie": "2026-07-23",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Mages"
+      "editeur": "Mages",
+      "id": 422,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Bokura",
       "date_sortie": "2026-07-29",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Kodansha"
+      "editeur": "Kodansha",
+      "id": 423,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Kinki Spiritual Affairs Bureau",
       "date_sortie": "2026-07-29",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Amata Games"
+      "editeur": "Amata Games",
+      "id": 424,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: TX-1",
       "date_sortie": "2026-07-30",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 425,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Blue Reflection Quartet",
       "date_sortie": "2026-07-30",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Koei Tecmo"
+      "editeur": "Koei Tecmo",
+      "id": 426,
+      "metacritic": 75,
+      "pitch_fr": null
     },
     {
       "nom": "Console Archives: Doraemon",
       "date_sortie": "2026-07-30",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 427,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Constance",
       "date_sortie": "2026-07-30",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "btf Games"
+      "editeur": "btf Games",
+      "id": 428,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Ira",
       "date_sortie": "2026-07-30",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Nicalis, Pikii"
+      "editeur": "Nicalis, Pikii",
+      "id": 429,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Jotunnslayer: Hordes of Hel",
       "date_sortie": "2026-07-30",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Grindstone"
+      "editeur": "Grindstone",
+      "id": 430,
+      "metacritic": 75,
+      "pitch_fr": null
     },
     {
       "nom": "Jurassic World Evolution 2: Complete Edition",
       "date_sortie": "2026-07-30",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Frontier Developments"
+      "editeur": "Frontier Developments",
+      "id": 431,
+      "metacritic": null,
+      "pitch_fr": "Édition complète de Jurassic World Evolution 2, jeu de gestion de parc à dinosaures mêlant génétique, attractions et gestion des risques d'évasion."
     },
     {
       "nom": "Lego Party – Nintendo Switch 2 Edition",
       "date_sortie": "2026-07-30",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Fictions"
+      "editeur": "Fictions",
+      "id": 432,
+      "metacritic": null,
+      "pitch_fr": "Party-game LEGO mêlant mini-jeux familiaux et univers de briques colorées, jouable à plusieurs. Édition Switch 2."
     },
     {
       "nom": "The Prince of Tennis: Doki Doki Survival eternal passion – Nintendo Switch 2 Edition",
       "date_sortie": "2026-07-30",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Konami"
+      "editeur": "Konami",
+      "id": 433,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "The Prince of Tennis: Sweet School Festival 0-40 and more – Nintendo Switch 2 Edition",
       "date_sortie": "2026-07-30",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Konami"
+      "editeur": "Konami",
+      "id": 434,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Truxton Extreme",
       "date_sortie": "2026-07-30",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Clear River Games"
+      "editeur": "Clear River Games",
+      "id": 435,
+      "metacritic": 79,
+      "pitch_fr": null
     },
     {
       "nom": "Valkyrie Saga",
       "date_sortie": "2026-07-30",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Rawrlab Games"
+      "editeur": "Rawrlab Games",
+      "id": 436,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Village in the Shade",
       "date_sortie": "2026-07-30",
       "edition_physique": "GKC",
       "code": "0810100867096",
-      "editeur": "NIS America"
+      "editeur": "NIS America",
+      "id": 437,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Xenoblade Chronicles 2 – Nintendo Switch 2 Edition",
       "date_sortie": "2026-07-30",
       "edition_physique": "NS2E",
       "code": "0045496314811",
-      "editeur": "Nintendo"
+      "editeur": "Nintendo",
+      "id": 438,
+      "metacritic": 84,
+      "pitch_fr": "Édition Switch 2 de Xenoblade Chronicles 2, RPG en monde ouvert mêlant exploration de Titans géants et système de combat basé sur les Lames (Blades), compagnons aux pouvoirs uniques."
     },
     {
       "nom": "Big Walk",
       "date_sortie": "2026-08-04",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Panic"
+      "editeur": "Panic",
+      "id": 439,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Final Fantasy XIV",
       "date_sortie": "2026-08-04",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Square Enix"
+      "editeur": "Square Enix",
+      "id": 440,
+      "metacritic": 88,
+      "pitch_fr": "Édition Switch 2 du célèbre MMORPG Final Fantasy XIV, univers persistant massivement multijoueur réputé pour ses raids et son scénario XXL salués par la critique."
     },
     {
       "nom": "Parkasaurus: Dinoluxe Edition",
       "date_sortie": "2026-08-05",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Infogrames"
+      "editeur": "Infogrames",
+      "id": 441,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Combat School",
       "date_sortie": "2026-08-06",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 442,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Console Archives: UFO: A Day in the Life",
       "date_sortie": "2026-08-06",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 443,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Cotton Rock with You: Oriental Night Dreams",
       "date_sortie": "2026-08-06",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Success"
+      "editeur": "Success",
+      "id": 444,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Gobliiins Collection",
       "date_sortie": "2026-08-06",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Red Art Games"
+      "editeur": "Red Art Games",
+      "id": 445,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Jumbo Airport Story – Nintendo Switch 2 Edition",
       "date_sortie": "2026-08-06",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Kairosoft"
+      "editeur": "Kairosoft",
+      "id": 446,
+      "metacritic": null,
+      "pitch_fr": "Jeu de gestion Kairosoft consacré à la construction et à l'exploitation d'un aéroport, dans le style pixel-art et l'humour propres au studio. Édition Switch 2."
     },
     {
       "nom": "Lies of P: Complete Edition",
       "date_sortie": "2026-08-06",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Neowiz"
+      "editeur": "Neowiz",
+      "id": 447,
+      "metacritic": 86,
+      "pitch_fr": "Édition complète de Lies of P, action-RPG exigeant façon Souls-like réinventant Pinocchio dans une cité belle-époque steampunk rongée par la folie mécanique."
     },
     {
       "nom": "Montabi",
       "date_sortie": "2026-08-06",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Akupara Games"
+      "editeur": "Akupara Games",
+      "id": 448,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Spooky Spirit Shooting Gallery for Nintendo Switch 2",
       "date_sortie": "2026-08-06",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Nippon Columbia, Aksys Games"
+      "editeur": "Nippon Columbia, Aksys Games",
+      "id": 449,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Tales from Toyotoki: Arrival of the Witch",
       "date_sortie": "2026-08-06",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Kemco"
+      "editeur": "Kemco",
+      "id": 450,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "The Elder Scrolls IV: Oblivion Remastered",
       "date_sortie": "2026-08-11",
       "edition_physique": "CIAB",
       "code": "0196388816897",
-      "editeur": "Bethesda Softworks"
+      "editeur": "Bethesda Softworks",
+      "id": 451,
+      "metacritic": 78,
+      "pitch_fr": "Remaster de The Elder Scrolls IV: Oblivion, RPG en monde ouvert culte de Bethesda revisité avec des graphismes modernisés tout en conservant le gameplay original."
     },
     {
       "nom": "The Lord of the Rings: War in the North – Legacy Edition",
       "date_sortie": "2026-08-11",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Aspyr"
+      "editeur": "Aspyr",
+      "id": 452,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Everspace 2 - Galactic Edition",
       "date_sortie": "2026-08-12",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Rockfish Games"
+      "editeur": "Rockfish Games",
+      "id": 453,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: Pinball Action",
       "date_sortie": "2026-08-13",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 454,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Arcade Archives 2: V'Ball",
       "date_sortie": "2026-08-13",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 455,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "BlazBlue: Entropy Effect X – Nintendo Switch 2 Edition",
       "date_sortie": "2026-08-13",
       "edition_physique": "NS2E",
       "code": null,
-      "editeur": "Astrolabe Games"
+      "editeur": "Astrolabe Games",
+      "id": 456,
+      "metacritic": null,
+      "pitch_fr": "Spin-off roguelite de la série de combat BlazBlue, mêlant génération procédurale de donjons et système de combat technique hérité des jeux de baston. Édition Switch 2."
     },
     {
       "nom": "CloverPit",
       "date_sortie": "2026-08-13",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Future Friends Games"
+      "editeur": "Future Friends Games",
+      "id": 457,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Console Archives: Touki Denshou Angel Eyes",
       "date_sortie": "2026-08-13",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Hamster Corporation"
+      "editeur": "Hamster Corporation",
+      "id": 458,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Duskfade",
       "date_sortie": "2026-08-13",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Fireshine Games"
+      "editeur": "Fireshine Games",
+      "id": 459,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Madden NFL 27",
       "date_sortie": "2026-08-13",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "EA Sports"
+      "editeur": "EA Sports",
+      "id": 460,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Old Coin Pusher Gaiden",
       "date_sortie": "2026-08-13",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "STP Works"
+      "editeur": "STP Works",
+      "id": 461,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Skatesterre",
       "date_sortie": "2026-08-13",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Headup Games"
+      "editeur": "Headup Games",
+      "id": 462,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Backyard Baseball",
       "date_sortie": "2026-08-18",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Mega Cat Studios"
+      "editeur": "Mega Cat Studios",
+      "id": 463,
+      "metacritic": null,
+      "pitch_fr": null
     },
     {
       "nom": "Starsand Island",
       "date_sortie": "2026-08-18",
       "edition_physique": "Numerique",
       "code": null,
-      "editeur": "Seed Sparkle Lab"
+      "editeur": "Seed Sparkle Lab",
+      "id": 464,
+      "metacritic": null,
+      "pitch_fr": null
     }
   ]
 }
