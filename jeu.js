@@ -49,17 +49,41 @@ function render() {
 
   const cls = "badge-" + game.edition_physique.toLowerCase();
 
+  const eshopLink = game.eshop_url
+    ? `<a class="eshop-link" href="${game.eshop_url}" target="_blank" rel="noopener noreferrer">Voir sur le Nintendo eShop &rarr;</a>`
+    : "";
+
+  const trailerSection = game.youtube_trailer_id
+    ? `
+    <section class="detail-block">
+      <h2>Bande-annonce</h2>
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/${game.youtube_trailer_id}"
+          title="Bande-annonce officielle — ${game.nom}"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>`
+    : "";
+
   container.innerHTML = `
     <h1>${game.nom}</h1>
     <div class="detail-meta">
       <span class="badge ${cls}">${EDITION_LABELS[game.edition_physique] || game.edition_physique}</span>
       ${metacriticBadge(game.metacritic)}
+      ${eshopLink}
     </div>
 
     <section class="detail-block">
       <h2>Pitch</h2>
       <p>${game.pitch_fr || "Synopsis non disponible pour ce jeu."}</p>
     </section>
+
+    ${trailerSection}
 
     <section class="detail-block">
       <h2>Informations</h2>
